@@ -414,6 +414,78 @@
         </div>
     </section>
 
+    <!-- Nyheter / Artiklar -->
+    <section class="bg-brand-black py-24 px-6 border-t border-white/5">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div>
+                    <p class="font-black text-xs tracking-[0.4em] text-brand-gold uppercase mb-3">Nyheter</p>
+                    <h2 class="text-5xl md:text-7xl font-display text-white leading-none">Senaste nytt</h2>
+                </div>
+                <a href="#" class="text-[11px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-brand-gold transition-colors flex items-center gap-2 self-start md:self-end">
+                    Alla nyheter
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Artikel 1 – Featured (Göteborg) -->
+                <a href="/location-goteborg.html" class="group md:col-span-2 bg-[#151515] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand-gold transition-all duration-300 hover:-translate-y-2 block">
+                    <div class="aspect-[16/8] overflow-hidden relative">
+                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695804a87483034ddaa904ab.jpg" class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700 group-hover:scale-105" alt="Göteborg öppnar" />
+                        <div class="absolute top-6 left-6">
+                            <span class="inline-flex items-center gap-2 bg-brand-gold text-white text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
+                                <span class="w-2 h-2 bg-white rounded-full" style="animation: pulse-dot 1.5s infinite;"></span>
+                                Nyhet
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-white/30 font-black text-[10px] uppercase tracking-[0.3em] mb-3">25 mars 2026 &nbsp;·&nbsp; Öppning</p>
+                        <h3 class="text-3xl md:text-4xl font-display text-white group-hover:text-brand-gold transition-colors leading-tight mb-4">BRAMS öppnar i Göteborg idag!</h3>
+                        <p class="text-white/50 font-medium text-sm leading-relaxed">Vi är stolta att välkomna Göteborg in i BRAMS-familjen. Hitta oss på Kungsportsavenyen 29 — dörren är öppen från idag.</p>
+                    </div>
+                </a>
+
+                <!-- Artikel 2 -->
+                <a href="https://brams.se/about" class="group bg-[#151515] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand-gold transition-all duration-300 hover:-translate-y-2 block">
+                    <div class="aspect-[16/9] overflow-hidden">
+                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/6959348c3ccdd6d1169636bf.png" class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700 group-hover:scale-105" alt="100% Halal" />
+                    </div>
+                    <div class="p-8">
+                        <p class="text-white/30 font-black text-[10px] uppercase tracking-[0.3em] mb-3">10 mars 2026 &nbsp;·&nbsp; Kvalitet</p>
+                        <h3 class="text-2xl font-display text-white group-hover:text-brand-gold transition-colors leading-tight mb-4">Vi är 100% Halal-certifierade</h3>
+                        <p class="text-white/50 font-medium text-sm leading-relaxed">Alla våra enheter serverar certifierat halal-kött. Alla ska kunna äta BRAMS.</p>
+                    </div>
+                </a>
+
+                <!-- Artikel 3 -->
+                <a href="https://brams.se/about" class="group bg-[#151515] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand-gold transition-all duration-300 hover:-translate-y-2 block">
+                    <div class="aspect-[16/9] overflow-hidden">
+                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7f0b9cf628f0b34dc.jpg" class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700 group-hover:scale-105" alt="Hållbarhet" />
+                    </div>
+                    <div class="p-8">
+                        <p class="text-white/30 font-black text-[10px] uppercase tracking-[0.3em] mb-3">1 feb 2026 &nbsp;·&nbsp; Hållbarhet</p>
+                        <h3 class="text-2xl font-display text-white group-hover:text-brand-gold transition-colors leading-tight mb-4">Vår plan för ett grönare BRAMS</h3>
+                        <p class="text-white/50 font-medium text-sm leading-relaxed">Läs om hur vi aktivt arbetar för att minska vårt klimatavtryck i varje restaurang.</p>
+                    </div>
+                </a>
+
+                <!-- Artikel 4 -->
+                <a href="https://brams.se/about" class="group md:col-span-2 bg-[#151515] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand-gold transition-all duration-300 hover:-translate-y-2 flex flex-col md:flex-row">
+                    <div class="md:w-2/5 aspect-[4/3] md:aspect-auto overflow-hidden flex-shrink-0">
+                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7d350af9febae437a.jpg" class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700 group-hover:scale-105" alt="Ny meny" />
+                    </div>
+                    <div class="p-8 flex flex-col justify-center">
+                        <p class="text-white/30 font-black text-[10px] uppercase tracking-[0.3em] mb-3">15 jan 2026 &nbsp;·&nbsp; Meny</p>
+                        <h3 class="text-2xl md:text-3xl font-display text-white group-hover:text-brand-gold transition-colors leading-tight mb-4">Ny säsongsmeny ute nu</h3>
+                        <p class="text-white/50 font-medium text-sm leading-relaxed">Friska smaker, nya kombinationer. Kolla in vad som är nytt i vår burgarmeny denna säsong.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Global Footer -->
     <footer class="bg-white py-16 border-t border-gray-100">
         <div class="container mx-auto px-6 max-w-7xl">
