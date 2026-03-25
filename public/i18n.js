@@ -1,0 +1,192 @@
+const BRAMS_TRANSLATIONS = {
+    sv: {
+        // Nav
+        'nav.home': 'Hem', 'nav.menu': 'Meny', 'nav.locations': 'Restauranger',
+        'nav.about': 'Om oss', 'nav.contact': 'Kontakt', 'nav.order': 'Beställ', 'nav.ask': 'Fråga oss',
+        'lang.label': 'SV',
+        // Drawer
+        'drawer.menu': 'Vår meny', 'drawer.sustainability': 'Hållbarhet',
+        'drawer.jobs': 'Jobba med oss', 'drawer.about': 'Om BRAMS',
+        'drawer.orderOnline': 'Beställ online', 'drawer.find': 'Hitta BRAMS',
+        // Footer
+        'footer.contact': 'Kontakta oss', 'footer.press': 'Pressrum',
+        'footer.jobs': 'Jobba med oss', 'footer.cookie': 'Cookiepolicy',
+        'footer.locations': 'Restauranger', 'footer.powered': 'Powered by Syns Nu',
+        'footer.copy': '© 2024 BRAMS BURGER — ALLA SKA ÄTA',
+        // locations.html
+        'locs.heading': 'Hitta oss', 'locs.sub': 'Hela familjen samlad under ett tak.',
+        'locs.new': 'Nyoppnad idag',
+        'locs.order.skarholmen': 'Beställ från Skärholmen', 'locs.order.kista': 'Beställ från Kista',
+        'locs.order.huddinge': 'Beställ från Huddinge', 'locs.order.uppsala': 'Beställ från Uppsala',
+        'locs.order.goteborg': 'Besök Göteborg',
+        // location pages (info cards)
+        'loc.hours': 'Öppettider', 'loc.dine': 'Äta på plats / Upphämtning',
+        'loc.dine.text': 'Slipp vänta – beställ din favoritburgare online och hämta upp den varm direkt i kassan.',
+        'loc.order.btn': 'Beställ online', 'loc.delivery': 'Leverans',
+        'loc.delivery.text': 'Få BRAMS direkt till dörren via:',
+        'loc.new.badge': 'Nyoppnad idag',
+        // index.html
+        'story.label': 'Vår Story', 'story.heading': 'Smak som<br/>skriver historia!',
+        'story.body': 'Upptäck resan från en food truck i Kista till hela Sveriges favorit. Vi kombinerar hantverk med äkta kärlek.',
+        'story.btn': 'Läs om Brams',
+        'menu.see': 'Se vår meny här', 'menu.info': 'Produktinformation',
+        'sust.label': 'Hållbarhet', 'sust.heading': 'Vårt hållbarhetsarbete',
+        'sust.body': 'Vi arbetar aktivt med att minska vårt klimatavtryck genom att välja rätt råvaror och optimera våra restauranger för en grönare framtid.',
+        'sust.link': 'Läs mer här',
+        'halal.label': 'Kvalitet & Inkludering',
+        'halal.body': 'För oss på BRAMS är det självklart att alla ska kunna njuta av en riktigt god burgare. Därför serverar vi 100% certifierat halal-kött i alla våra enheter, tillagat med samma hantverk och passion som alltid.',
+        'halal.link': 'Vår filosofi',
+        'find.btn': 'Hitta ditt närmaste BRAMS',
+        'news.label': 'Nyheter', 'news.heading': 'Senaste nytt', 'news.all': 'Alla nyheter', 'news.readmore': 'Läs mer',
+        'news.tag1': 'Nyhet', 'news.date1': '25 mars 2026',
+        'news.a1.heading': 'BRAMS öppnar i Göteborg idag!',
+        'news.a1.excerpt': 'Vi är stolta att välkomna Göteborg in i BRAMS-familjen. Hitta oss på Kungsportsavenyen 29 — dörren är öppen från idag. Välkommen!',
+        'news.tag2': 'Kvalitet', 'news.date2': '10 mars 2026',
+        'news.a2.heading': 'Vi är 100% Halal-certifierade',
+        'news.a2.excerpt': 'Alla våra enheter serverar certifierat halal-kött. Alla ska kunna äta BRAMS.',
+    },
+    en: {
+        'nav.home': 'Home', 'nav.menu': 'Menu', 'nav.locations': 'Restaurants',
+        'nav.about': 'About us', 'nav.contact': 'Contact', 'nav.order': 'Order', 'nav.ask': 'Ask us',
+        'lang.label': 'EN',
+        'drawer.menu': 'Our menu', 'drawer.sustainability': 'Sustainability',
+        'drawer.jobs': 'Work with us', 'drawer.about': 'About BRAMS',
+        'drawer.orderOnline': 'Order online', 'drawer.find': 'Find BRAMS',
+        'footer.contact': 'Contact us', 'footer.press': 'Press room',
+        'footer.jobs': 'Work with us', 'footer.cookie': 'Cookie policy',
+        'footer.locations': 'Restaurants', 'footer.powered': 'Powered by Syns Nu',
+        'footer.copy': '© 2024 BRAMS BURGER — EVERYONE SHOULD EAT',
+        'locs.heading': 'Find us', 'locs.sub': 'The whole family under one roof.',
+        'locs.new': 'Now open',
+        'locs.order.skarholmen': 'Order from Skärholmen', 'locs.order.kista': 'Order from Kista',
+        'locs.order.huddinge': 'Order from Huddinge', 'locs.order.uppsala': 'Order from Uppsala',
+        'locs.order.goteborg': 'Visit Göteborg',
+        'loc.hours': 'Opening hours', 'loc.dine': 'Dine in / Takeaway',
+        'loc.dine.text': 'Skip the wait – order your favourite burger online and pick it up warm at the counter.',
+        'loc.order.btn': 'Order online', 'loc.delivery': 'Delivery',
+        'loc.delivery.text': 'Get BRAMS delivered to your door via:',
+        'loc.new.badge': 'Now open',
+        'story.label': 'Our Story', 'story.heading': 'Taste that<br/>makes history!',
+        'story.body': 'Discover the journey from a food truck in Kista to all of Sweden\'s favourite. We combine craftsmanship with genuine love.',
+        'story.btn': 'Read about Brams',
+        'menu.see': 'See our menu', 'menu.info': 'Product information',
+        'sust.label': 'Sustainability', 'sust.heading': 'Our sustainability work',
+        'sust.body': 'We actively work to reduce our climate impact by choosing the right ingredients and optimising our restaurants for a greener future.',
+        'sust.link': 'Read more',
+        'halal.label': 'Quality & Inclusion',
+        'halal.body': 'At BRAMS it goes without saying that everyone should be able to enjoy a really great burger. That\'s why we serve 100% certified halal meat in all our locations.',
+        'halal.link': 'Our philosophy',
+        'find.btn': 'Find your nearest BRAMS',
+        'news.label': 'News', 'news.heading': 'Latest news', 'news.all': 'All news', 'news.readmore': 'Read more',
+        'news.tag1': 'News', 'news.date1': '25 March 2026',
+        'news.a1.heading': 'BRAMS opens in Gothenburg today!',
+        'news.a1.excerpt': 'We are proud to welcome Gothenburg into the BRAMS family. Find us at Kungsportsavenyen 29 — the doors are open from today. Welcome!',
+        'news.tag2': 'Quality', 'news.date2': '10 March 2026',
+        'news.a2.heading': 'We are 100% Halal certified',
+        'news.a2.excerpt': 'All our locations serve certified halal meat. Everyone should be able to eat BRAMS.',
+    },
+    ur: {
+        'nav.home': 'ہوم', 'nav.menu': 'مینو', 'nav.locations': 'ریستوران',
+        'nav.about': 'ہمارے بارے میں', 'nav.contact': 'رابطہ', 'nav.order': 'آرڈر', 'nav.ask': 'ہم سے پوچھیں',
+        'lang.label': 'UR',
+        'drawer.menu': 'ہماری مینو', 'drawer.sustainability': 'پائیداری',
+        'drawer.jobs': 'ہمارے ساتھ کام کریں', 'drawer.about': 'BRAMS کے بارے میں',
+        'drawer.orderOnline': 'آنلائن آرڈر کریں', 'drawer.find': 'BRAMS تلاش کریں',
+        'footer.contact': 'ہم سے رابطہ کریں', 'footer.press': 'پریس روم',
+        'footer.jobs': 'ہمارے ساتھ کام کریں', 'footer.cookie': 'کوکی پالیسی',
+        'footer.locations': 'ریستوران', 'footer.powered': 'Powered by Syns Nu',
+        'footer.copy': '© 2024 BRAMS BURGER — سب کو کھانا چاہیے',
+        'locs.heading': 'ہمیں تلاش کریں', 'locs.sub': 'پوری فیملی ایک چھت کے نیچے۔',
+        'locs.new': 'آج کھلا',
+        'locs.order.skarholmen': 'Skärholmen سے آرڈر کریں', 'locs.order.kista': 'Kista سے آرڈر کریں',
+        'locs.order.huddinge': 'Huddinge سے آرڈر کریں', 'locs.order.uppsala': 'Uppsala سے آرڈر کریں',
+        'locs.order.goteborg': 'Göteborg جائیں',
+        'loc.hours': 'اوقات کار', 'loc.dine': 'یہاں کھائیں / ٹیک اوے',
+        'loc.dine.text': 'انتظار سے بچیں – آنلائن آرڈر کریں اور گرم برگر براہ راست کاؤنٹر سے اٹھائیں۔',
+        'loc.order.btn': 'آنلائن آرڈر کریں', 'loc.delivery': 'ڈیلیوری',
+        'loc.delivery.text': ':BRAMS گھر تک پہنچائیں',
+        'loc.new.badge': 'آج کھلا',
+        'story.label': 'ہماری کہانی', 'story.heading': 'ذائقہ جو<br/>تاریخ بناتا ہے!',
+        'story.body': 'کسٹا میں ایک فوڈ ٹرک سے پورے سویڈن کے پسندیدہ برگر تک کا سفر دریافت کریں۔',
+        'story.btn': 'Brams کے بارے میں پڑھیں',
+        'menu.see': 'ہماری مینو دیکھیں', 'menu.info': 'مصنوعات کی معلومات',
+        'sust.label': 'پائیداری', 'sust.heading': 'ہمارا پائیداری کا کام',
+        'sust.body': 'ہم فعال طور پر اپنے ماحولیاتی اثر کو کم کرنے کے لیے کام کرتے ہیں۔',
+        'sust.link': 'مزید پڑھیں',
+        'halal.label': 'معیار اور شمولیت',
+        'halal.body': 'BRAMS میں ہمارے لیے یہ فطری بات ہے کہ ہر کوئی اچھا برگر کھا سکے۔ اس لیے ہم 100% حلال گوشت پیش کرتے ہیں۔',
+        'halal.link': 'ہمارا فلسفہ',
+        'find.btn': 'اپنا قریبی BRAMS تلاش کریں',
+        'news.label': 'خبریں', 'news.heading': 'تازہ ترین خبریں', 'news.all': 'تمام خبریں', 'news.readmore': 'مزید پڑھیں',
+        'news.tag1': 'خبر', 'news.date1': '25 مارچ 2026',
+        'news.a1.heading': '!BRAMS آج گوتھنبرگ میں کھل رہا ہے',
+        'news.a1.excerpt': 'ہمیں فخر ہے کہ Göteborg کو BRAMS خاندان میں خوش آمدید کہتے ہیں۔',
+        'news.tag2': 'معیار', 'news.date2': '10 مارچ 2026',
+        'news.a2.heading': 'ہم 100% حلال سرٹیفائیڈ ہیں',
+        'news.a2.excerpt': 'ہمارے تمام مقامات تصدیق شدہ حلال گوشت پیش کرتے ہیں۔',
+    },
+    ar: {
+        'nav.home': 'الرئيسية', 'nav.menu': 'القائمة', 'nav.locations': 'المطاعم',
+        'nav.about': 'معلومات عنا', 'nav.contact': 'اتصل بنا', 'nav.order': 'اطلب الآن', 'nav.ask': 'اسألنا',
+        'lang.label': 'AR',
+        'drawer.menu': 'قائمتنا', 'drawer.sustainability': 'الاستدامة',
+        'drawer.jobs': 'اعمل معنا', 'drawer.about': 'عن BRAMS',
+        'drawer.orderOnline': 'اطلب أونلاين', 'drawer.find': 'ابحث عن BRAMS',
+        'footer.contact': 'اتصل بنا', 'footer.press': 'غرفة الصحافة',
+        'footer.jobs': 'اعمل معنا', 'footer.cookie': 'سياسة ملفات الارتباط',
+        'footer.locations': 'المطاعم', 'footer.powered': 'Powered by Syns Nu',
+        'footer.copy': '© 2024 BRAMS BURGER — الجميع يجب أن يأكل',
+        'locs.heading': 'ابحث عنا', 'locs.sub': 'العائلة بأكملها تحت سقف واحد.',
+        'locs.new': 'افتتحنا اليوم',
+        'locs.order.skarholmen': 'اطلب من Skärholmen', 'locs.order.kista': 'اطلب من Kista',
+        'locs.order.huddinge': 'اطلب من Huddinge', 'locs.order.uppsala': 'اطلب من Uppsala',
+        'locs.order.goteborg': 'زيارة Göteborg',
+        'loc.hours': 'أوقات العمل', 'loc.dine': 'تناول الطعام / استلام الطلب',
+        'loc.dine.text': 'تجنّب الانتظار – اطلب برغرك المفضّل أونلاين واستلمه دافئاً من الكاونتر.',
+        'loc.order.btn': 'اطلب أونلاين', 'loc.delivery': 'التوصيل',
+        'loc.delivery.text': ':احصل على BRAMS على بابك عبر',
+        'loc.new.badge': 'افتتحنا اليوم',
+        'story.label': 'قصتنا', 'story.heading': 'طعم<br/>يصنع التاريخ!',
+        'story.body': 'اكتشف الرحلة من شاحنة طعام في كيستا إلى المفضّل في كل السويد.',
+        'story.btn': 'اقرأ عن Brams',
+        'menu.see': 'انظر قائمتنا', 'menu.info': 'معلومات المنتج',
+        'sust.label': 'الاستدامة', 'sust.heading': 'عملنا للاستدامة',
+        'sust.body': 'نعمل بنشاط على تقليل بصمتنا المناخية من خلال اختيار المكونات الصحيحة.',
+        'sust.link': 'اقرأ أكثر',
+        'halal.label': 'الجودة والشمول',
+        'halal.body': 'في BRAMS نؤمن بأن الجميع يستحق تناول برغر رائع. لذلك نقدم لحماً حلالاً معتمداً 100%.',
+        'halal.link': 'فلسفتنا',
+        'find.btn': 'ابحث عن أقرب BRAMS إليك',
+        'news.label': 'الأخبار', 'news.heading': 'آخر الأخبار', 'news.all': 'كل الأخبار', 'news.readmore': 'اقرأ أكثر',
+        'news.tag1': 'خبر', 'news.date1': '25 مارس 2026',
+        'news.a1.heading': '!BRAMS يفتح في غوتنبرغ اليوم',
+        'news.a1.excerpt': 'يسعدنا ترحيب غوتنبرغ في عائلة BRAMS. ستجدنا في Kungsportsavenyen 29.',
+        'news.tag2': 'الجودة', 'news.date2': '10 مارس 2026',
+        'news.a2.heading': 'نحن معتمدون 100% حلال',
+        'news.a2.excerpt': 'جميع مواقعنا تقدم لحماً حلالاً معتمداً. الجميع يجب أن يأكل BRAMS.',
+    }
+};
+
+function setLanguage(lang) {
+    const t = BRAMS_TRANSLATIONS[lang];
+    if (!t) return;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    // Update lang label in desktop switcher
+    document.querySelectorAll('.lang-current').forEach(el => {
+        el.textContent = t['lang.label'] || lang.toUpperCase();
+    });
+    // RTL for Arabic and Urdu
+    const isRTL = lang === 'ar' || lang === 'ur';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    localStorage.setItem('brams-lang', lang);
+}
+
+// Auto-apply saved language on every page
+(function () {
+    const saved = localStorage.getItem('brams-lang');
+    if (saved && BRAMS_TRANSLATIONS[saved]) setLanguage(saved);
+})();
