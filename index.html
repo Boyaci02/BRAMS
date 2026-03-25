@@ -246,6 +246,46 @@
         </div>
     </div>
 
+    <!-- Göteborg Opening Popup -->
+    <div id="gbg-popup" class="fixed inset-0 z-[200] flex items-center justify-center p-4" style="background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);">
+        <div class="relative bg-brand-black rounded-[40px] overflow-hidden max-w-lg w-full shadow-2xl border border-white/10" style="animation: popup-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both;">
+            <div class="h-2 w-full bg-brand-gold"></div>
+            <div class="p-10 text-center">
+                <div class="inline-flex items-center gap-2 bg-brand-gold/15 border border-brand-gold/30 text-brand-gold text-[11px] font-black uppercase tracking-[0.25em] px-4 py-2 rounded-full mb-8">
+                    <span class="w-2 h-2 bg-brand-gold rounded-full" style="animation: pulse-dot 1.5s infinite;"></span>
+                    Nyoppnad idag — 25 mars 2026
+                </div>
+                <h2 class="font-display text-6xl md:text-8xl text-white leading-none mb-2">BRAMS</h2>
+                <h3 class="font-display text-4xl md:text-6xl text-brand-gold leading-none mb-8">Göteborg</h3>
+                <p class="text-white/60 font-bold uppercase text-sm tracking-widest mb-2">Kungsportsavenyen 29</p>
+                <p class="text-white/40 font-bold uppercase text-xs tracking-widest mb-10">411 36 Göteborg</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/location-goteborg.html" class="pill-button bg-brand-gold text-white hover:bg-white hover:text-black shadow-lg text-center">Se restaurangen</a>
+                    <button onclick="closePopup()" class="pill-button bg-white/10 text-white hover:bg-white/20 text-center">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        @keyframes popup-in {
+            from { opacity: 0; transform: scale(0.85) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
+    </style>
+    <script>
+        function closePopup() {
+            const popup = document.getElementById('gbg-popup');
+            popup.style.transition = 'opacity 0.3s ease';
+            popup.style.opacity = '0';
+            setTimeout(() => popup.remove(), 300);
+        }
+        setTimeout(closePopup, 10000);
+    </script>
+
     <!-- Floating Help Button -->
     <a href="https://brams.se/contact" class="ask-us-btn hidden md:flex">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
