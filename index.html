@@ -415,71 +415,102 @@
     </section>
 
     <!-- Nyheter / Artiklar -->
-    <section class="bg-brand-black py-24 px-6 border-t border-white/5">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+    <style>
+        .news-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e5e7eb; overflow: hidden; transition: box-shadow 0.25s, transform 0.25s; }
+        .news-card:hover { box-shadow: 0 12px 40px rgba(198,140,23,0.13); transform: translateY(-4px); }
+        .news-card__img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; transition: transform 0.6s ease; }
+        .news-card--featured .news-card__img { aspect-ratio: 21/9; }
+        .news-card:hover .news-card__img { transform: scale(1.04); }
+        .news-card__img-wrap { overflow: hidden; }
+        .news-card__body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+        .news-card__meta { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .news-card__tag { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; background: #c68c17; padding: 4px 10px; }
+        .news-card__date { font-size: 12px; font-weight: 500; color: #9ca3af; }
+        .news-card__heading { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 20px; color: #0c0c0c; line-height: 1.2; margin-bottom: 10px; }
+        .news-card--featured .news-card__heading { font-size: 26px; }
+        .news-card__excerpt { font-size: 14px; line-height: 1.7; color: #6b7280; margin-bottom: 24px; flex: 1; }
+        .news-card__link { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #0c0c0c; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s, gap 0.2s; border-bottom: 2px solid #c68c17; padding-bottom: 2px; width: fit-content; }
+        .news-card__link:hover { color: #c68c17; gap: 12px; }
+        .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .news-card--featured { grid-column: span 2; }
+        @media (max-width: 768px) {
+            .news-grid { grid-template-columns: 1fr; }
+            .news-card--featured { grid-column: span 1; }
+            .news-card--featured .news-card__img { aspect-ratio: 16/9; }
+        }
+    </style>
+    <section style="padding: 100px 0; background: #f9f6f1;">
+        <div class="container mx-auto px-6">
+            <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:24px; flex-wrap:wrap;">
                 <div>
-                    <p class="font-black text-xs tracking-[0.4em] text-brand-gold uppercase mb-3">Nyheter</p>
-                    <h2 class="text-5xl md:text-7xl font-display text-white leading-none">Senaste nytt</h2>
+                    <p style="font-size:11px; font-weight:800; letter-spacing:0.3em; text-transform:uppercase; color:#c68c17; margin-bottom:10px;">Nyheter</p>
+                    <h2 style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:clamp(32px,4vw,52px); color:#0c0c0c; line-height:1.05;">Senaste nytt</h2>
                 </div>
-                <a href="#" class="text-[11px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-brand-gold transition-colors flex items-center gap-2 self-start md:self-end">
-                    Alla nyheter
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
+                <a href="#" style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#0c0c0c; border-bottom:2px solid #c68c17; padding-bottom:2px; white-space:nowrap; transition:color 0.2s;" onmouseover="this.style.color='#c68c17'" onmouseout="this.style.color='#0c0c0c'">Alla nyheter</a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="news-grid">
                 <!-- Artikel 1 – Featured (Göteborg) -->
-                <a href="/location-goteborg.html" class="group md:col-span-2 bg-[#151515] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand-gold transition-all duration-300 hover:-translate-y-2 block">
-                    <div class="aspect-[16/8] overflow-hidden relative">
-                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695804a87483034ddaa904ab.jpg" class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700 group-hover:scale-105" alt="Göteborg öppnar" />
-                        <div class="absolute top-6 left-6">
-                            <span class="inline-flex items-center gap-2 bg-brand-gold text-white text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
-                                <span class="w-2 h-2 bg-white rounded-full" style="animation: pulse-dot 1.5s infinite;"></span>
-                                Nyhet
-                            </span>
-                        </div>
+                <a href="/location-goteborg.html" class="news-card news-card--featured">
+                    <div class="news-card__img-wrap">
+                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695804a87483034ddaa904ab.jpg" class="news-card__img" alt="Göteborg öppnar" />
                     </div>
-                    <div class="p-8">
-                        <p class="text-white/30 font-black text-[10px] uppercase tracking-[0.3em] mb-3">25 mars 2026 &nbsp;·&nbsp; Öppning</p>
-                        <h3 class="text-3xl md:text-4xl font-display text-white group-hover:text-brand-gold transition-colors leading-tight mb-4">BRAMS öppnar i Göteborg idag!</h3>
-                        <p class="text-white/50 font-medium text-sm leading-relaxed">Vi är stolta att välkomna Göteborg in i BRAMS-familjen. Hitta oss på Kungsportsavenyen 29 — dörren är öppen från idag.</p>
+                    <div class="news-card__body">
+                        <div class="news-card__meta">
+                            <span class="news-card__tag">Nyhet</span>
+                            <span class="news-card__date">25 mars 2026</span>
+                        </div>
+                        <h3 class="news-card__heading">BRAMS öppnar i Göteborg idag!</h3>
+                        <p class="news-card__excerpt">Vi är stolta att välkomna Göteborg in i BRAMS-familjen. Hitta oss på Kungsportsavenyen 29 — dörren är öppen från idag. Välkommen!</p>
+                        <span class="news-card__link">Läs mer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
                     </div>
                 </a>
 
                 <!-- Artikel 2 -->
-                <a href="https://brams.se/about" class="group bg-[#151515] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand-gold transition-all duration-300 hover:-translate-y-2 block">
-                    <div class="aspect-[16/9] overflow-hidden">
-                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/6959348c3ccdd6d1169636bf.png" class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700 group-hover:scale-105" alt="100% Halal" />
+                <a href="https://brams.se/about" class="news-card">
+                    <div class="news-card__img-wrap">
+                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/6959348c3ccdd6d1169636bf.png" class="news-card__img" alt="100% Halal" />
                     </div>
-                    <div class="p-8">
-                        <p class="text-white/30 font-black text-[10px] uppercase tracking-[0.3em] mb-3">10 mars 2026 &nbsp;·&nbsp; Kvalitet</p>
-                        <h3 class="text-2xl font-display text-white group-hover:text-brand-gold transition-colors leading-tight mb-4">Vi är 100% Halal-certifierade</h3>
-                        <p class="text-white/50 font-medium text-sm leading-relaxed">Alla våra enheter serverar certifierat halal-kött. Alla ska kunna äta BRAMS.</p>
+                    <div class="news-card__body">
+                        <div class="news-card__meta">
+                            <span class="news-card__tag">Kvalitet</span>
+                            <span class="news-card__date">10 mars 2026</span>
+                        </div>
+                        <h3 class="news-card__heading">Vi är 100% Halal-certifierade</h3>
+                        <p class="news-card__excerpt">Alla våra enheter serverar certifierat halal-kött. Alla ska kunna äta BRAMS.</p>
+                        <span class="news-card__link">Läs mer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
                     </div>
                 </a>
 
                 <!-- Artikel 3 -->
-                <a href="https://brams.se/about" class="group bg-[#151515] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand-gold transition-all duration-300 hover:-translate-y-2 block">
-                    <div class="aspect-[16/9] overflow-hidden">
-                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7f0b9cf628f0b34dc.jpg" class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700 group-hover:scale-105" alt="Hållbarhet" />
+                <a href="https://brams.se/about" class="news-card">
+                    <div class="news-card__img-wrap">
+                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7f0b9cf628f0b34dc.jpg" class="news-card__img" alt="Hållbarhet" />
                     </div>
-                    <div class="p-8">
-                        <p class="text-white/30 font-black text-[10px] uppercase tracking-[0.3em] mb-3">1 feb 2026 &nbsp;·&nbsp; Hållbarhet</p>
-                        <h3 class="text-2xl font-display text-white group-hover:text-brand-gold transition-colors leading-tight mb-4">Vår plan för ett grönare BRAMS</h3>
-                        <p class="text-white/50 font-medium text-sm leading-relaxed">Läs om hur vi aktivt arbetar för att minska vårt klimatavtryck i varje restaurang.</p>
+                    <div class="news-card__body">
+                        <div class="news-card__meta">
+                            <span class="news-card__tag">Hållbarhet</span>
+                            <span class="news-card__date">1 feb 2026</span>
+                        </div>
+                        <h3 class="news-card__heading">Vår plan för ett grönare BRAMS</h3>
+                        <p class="news-card__excerpt">Läs om hur vi aktivt arbetar för att minska vårt klimatavtryck i varje restaurang.</p>
+                        <span class="news-card__link">Läs mer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
                     </div>
                 </a>
 
                 <!-- Artikel 4 -->
-                <a href="https://brams.se/about" class="group md:col-span-2 bg-[#151515] rounded-[32px] overflow-hidden border border-white/5 hover:border-brand-gold transition-all duration-300 hover:-translate-y-2 flex flex-col md:flex-row">
-                    <div class="md:w-2/5 aspect-[4/3] md:aspect-auto overflow-hidden flex-shrink-0">
-                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7d350af9febae437a.jpg" class="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700 group-hover:scale-105" alt="Ny meny" />
+                <a href="https://brams.se/menu" class="news-card news-card--featured">
+                    <div class="news-card__img-wrap">
+                        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7d350af9febae437a.jpg" class="news-card__img" alt="Ny meny" />
                     </div>
-                    <div class="p-8 flex flex-col justify-center">
-                        <p class="text-white/30 font-black text-[10px] uppercase tracking-[0.3em] mb-3">15 jan 2026 &nbsp;·&nbsp; Meny</p>
-                        <h3 class="text-2xl md:text-3xl font-display text-white group-hover:text-brand-gold transition-colors leading-tight mb-4">Ny säsongsmeny ute nu</h3>
-                        <p class="text-white/50 font-medium text-sm leading-relaxed">Friska smaker, nya kombinationer. Kolla in vad som är nytt i vår burgarmeny denna säsong.</p>
+                    <div class="news-card__body">
+                        <div class="news-card__meta">
+                            <span class="news-card__tag">Meny</span>
+                            <span class="news-card__date">15 jan 2026</span>
+                        </div>
+                        <h3 class="news-card__heading">Ny säsongsmeny ute nu</h3>
+                        <p class="news-card__excerpt">Friska smaker, nya kombinationer. Kolla in vad som är nytt i vår burgarmeny denna säsong.</p>
+                        <span class="news-card__link">Läs mer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
                     </div>
                 </a>
             </div>
