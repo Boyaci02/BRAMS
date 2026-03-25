@@ -175,11 +175,11 @@
         </a>
         
         <div class="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-black">
-            <a href="https://brams.se/" class="nav-link hover:text-brand-green transition-colors">Hem</a>
-            <a href="https://brams.se/menu" class="nav-link hover:text-brand-green transition-colors">Meny</a>
-            <a href="https://brams.se/locations" class="nav-link hover:text-brand-green transition-colors">Restauranger</a>
-            <a href="https://brams.se/about" class="nav-link hover:text-brand-green transition-colors">Om oss</a>
-            <a href="https://brams.se/contact" class="nav-link hover:text-brand-green transition-colors">Kontakt</a>
+            <a href="https://brams.se/" class="nav-link hover:text-brand-green transition-colors" data-i18n="nav.home">Hem</a>
+            <a href="https://brams.se/menu" class="nav-link hover:text-brand-green transition-colors" data-i18n="nav.menu">Meny</a>
+            <a href="https://brams.se/locations" class="nav-link hover:text-brand-green transition-colors" data-i18n="nav.locations">Restauranger</a>
+            <a href="https://brams.se/about" class="nav-link hover:text-brand-green transition-colors" data-i18n="nav.about">Om oss</a>
+            <a href="https://brams.se/contact" class="nav-link hover:text-brand-green transition-colors" data-i18n="nav.contact">Kontakt</a>
         </div>
 
         <div class="flex items-center gap-2 md:gap-4">
@@ -190,14 +190,14 @@
                     <span>SV</span>
                 </button>
                 <div class="lang-dropdown absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-[60]">
-                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">SVENSKA <span class="opacity-30">SE</span></a>
-                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">ENGLISH <span class="opacity-30">EN</span></a>
-                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">اردو <span class="opacity-30">UR</span></a>
-                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">العربية <span class="opacity-30">AR</span></a>
+                    <a href="#" onclick="setLanguage('sv');return false;" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">SVENSKA <span class="opacity-30">SE</span></a>
+                    <a href="#" onclick="setLanguage('en');return false;" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">ENGLISH <span class="opacity-30">EN</span></a>
+                    <a href="#" onclick="setLanguage('ur');return false;" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">اردو <span class="opacity-30">UR</span></a>
+                    <a href="#" onclick="setLanguage('ar');return false;" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">العربية <span class="opacity-30">AR</span></a>
                 </div>
             </div>
 
-            <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white hover:bg-brand-green shadow-lg flex items-center justify-center">Beställ</a>
+            <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white hover:bg-brand-green shadow-lg flex items-center justify-center" data-i18n="nav.order">Beställ</a>
             <button onclick="toggleMenu(true)" class="lg:hidden nav-link text-black p-2 hover:bg-black/5 rounded-full transition-colors">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
@@ -216,31 +216,31 @@
 
         <div class="flex-1 px-8 py-6">
             <div class="flex flex-col mb-10 text-black">
-                <a href="https://brams.se/menu" class="drawer-item">Vår meny <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                <a href="https://brams.se/about" class="drawer-item">Hållbarhet <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item">Jobba med oss <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                <a href="https://brams.se/about" class="drawer-item">Om BRAMS <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/menu" class="drawer-item"><span data-i18n="drawer.menu">Vår meny</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/about" class="drawer-item"><span data-i18n="drawer.sustainability">Hållbarhet</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item"><span data-i18n="drawer.jobs">Jobba med oss</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/about" class="drawer-item"><span data-i18n="drawer.about">Om BRAMS</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
             </div>
 
             <!-- Language Selection Mobile -->
             <div class="mb-10 text-black">
                 <h4 class="font-black text-[10px] tracking-[0.3em] uppercase opacity-30 mb-6">VÄLJ SPRÅK / SELECT LANGUAGE</h4>
                 <div class="grid grid-cols-2 gap-3">
-                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">Svenska</button>
-                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">English</button>
-                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">اردو</button>
-                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">العربية</button>
+                    <button onclick="setLanguage('sv')" class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">Svenska</button>
+                    <button onclick="setLanguage('en')" class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">English</button>
+                    <button onclick="setLanguage('ur')" class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">اردو</button>
+                    <button onclick="setLanguage('ar')" class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">العربية</button>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 gap-4 mb-10">
                 <a href="https://bramsburgers.qopla.com/" target="_blank" class="bg-brand-gold text-white py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 10.58 0A4 4 0 0 1 18 13.87"></path><path d="M6 13.87V19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-5.13"></path><line x1="6" y1="13.87" x2="18" y2="13.87"></line></svg>
-                    Beställ online
+                    <span data-i18n="drawer.orderOnline">Beställ online</span>
                 </a>
                 <a href="https://brams.se/locations" class="bg-white border-2 border-brand-gold text-brand-gold py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    Hitta BRAMS
+                    <span data-i18n="drawer.find">Hitta BRAMS</span>
                 </a>
             </div>
         </div>
@@ -289,7 +289,7 @@
     <!-- Floating Help Button -->
     <a href="https://brams.se/contact" class="ask-us-btn hidden md:flex">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        Fråga oss
+        <span data-i18n="nav.ask">Fråga oss</span>
     </a>
 
     <!-- Hero Section -->
@@ -309,16 +309,16 @@
                 <!-- Column 1: Text & Button -->
                 <div class="text-white space-y-8 z-10 text-left">
                     <div class="space-y-4">
-                        <p class="font-black text-xs md:text-sm tracking-[0.4em] opacity-80 uppercase">Vår Story</p>
-                        <h2 class="text-5xl md:text-[7rem] font-display leading-[0.9] uppercase tracking-tight">
+                        <p class="font-black text-xs md:text-sm tracking-[0.4em] opacity-80 uppercase" data-i18n="story.label">Vår Story</p>
+                        <h2 class="text-5xl md:text-[7rem] font-display leading-[0.9] uppercase tracking-tight" data-i18n="story.heading">
                             Smak som<br/>skriver historia!
                         </h2>
                     </div>
-                    <p class="font-bold text-lg md:text-2xl opacity-90 uppercase tracking-tight leading-relaxed max-w-xl">
+                    <p class="font-bold text-lg md:text-2xl opacity-90 uppercase tracking-tight leading-relaxed max-w-xl" data-i18n="story.body">
                         Upptäck resan från en food truck i Kista till hela Sveriges favorit. Vi kombinerar hantverk med äkta kärlek.
                     </p>
                     <div class="pt-4">
-                        <button onclick="window.location.href='https://brams.se/about'" class="pill-button bg-brand-green text-white hover:bg-brand-black shadow-2xl transition-all transform hover:-translate-y-1">
+                        <button onclick="window.location.href='https://brams.se/about'" class="pill-button bg-brand-green text-white hover:bg-brand-black shadow-2xl transition-all transform hover:-translate-y-1" data-i18n="story.btn">
                             Läs om Brams
                         </button>
                     </div>
@@ -345,7 +345,7 @@
                 <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7d350af9febae437a.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Burgare Meny" />
                 <div class="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex justify-end">
                     <div class="flex items-center gap-3 bg-brand-gold text-white px-6 py-3 md:px-10 md:py-5 text-sm md:text-xl font-bold rounded-full hover:bg-white hover:text-black transition-all shadow-2xl active:scale-95">
-                        <span class="uppercase tracking-tight">Se vår meny här</span>
+                        <span class="uppercase tracking-tight" data-i18n="menu.see">Se vår meny här</span>
                     </div>
                 </div>
             </div>
@@ -353,7 +353,7 @@
                 <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7397a314773a7e65d.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Produktinformation" />
                 <div class="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex justify-end">
                     <div class="flex items-center gap-3 bg-brand-gold text-white px-6 py-3 md:px-10 md:py-5 text-sm md:text-xl font-bold rounded-full hover:bg-white hover:text-black transition-all shadow-2xl active:scale-95">
-                        <span class="uppercase tracking-tight">Produktinformation</span>
+                        <span class="uppercase tracking-tight" data-i18n="menu.info">Produktinformation</span>
                     </div>
                 </div>
             </div>
@@ -366,13 +366,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 md:h-[760px] border-b border-black/5 overflow-hidden">
             <div class="p-10 md:p-24 flex flex-col justify-center order-1 h-full text-left">
                 <div class="max-w-xl mx-auto md:mx-0">
-                    <span class="text-max-red font-black uppercase text-xs md:text-sm tracking-[0.3em] mb-6 block">Hållbarhet</span>
-                    <h2 class="text-4xl md:text-6xl font-display text-brand-black mb-8 leading-none">Vårt hållbarhetsarbete</h2>
-                    <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black">
+                    <span class="text-max-red font-black uppercase text-xs md:text-sm tracking-[0.3em] mb-6 block" data-i18n="sust.label">Hållbarhet</span>
+                    <h2 class="text-4xl md:text-6xl font-display text-brand-black mb-8 leading-none" data-i18n="sust.heading">Vårt hållbarhetsarbete</h2>
+                    <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black" data-i18n="sust.body">
                         Vi arbetar aktivt med att minska vårt klimatavtryck genom att välja rätt råvaror och optimera våra restauranger för en grönare framtid.
                     </p>
                     <a href="https://brams.se/about" class="flex items-center gap-2 text-max-green font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity">
-                        Läs mer här 
+                        <span data-i18n="sust.link">Läs mer här</span> 
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                 </div>
@@ -389,13 +389,13 @@
             </div>
             <div class="p-10 md:p-24 flex flex-col justify-center order-2 md:order-2 h-full text-left">
                 <div class="max-w-xl mx-auto md:mx-0">
-                    <span class="text-brand-gold font-black uppercase text-xs md:text-sm tracking-[0.3em] mb-6 block">Kvalitet & Inkludering</span>
+                    <span class="text-brand-gold font-black uppercase text-xs md:text-sm tracking-[0.3em] mb-6 block" data-i18n="halal.label">Kvalitet & Inkludering</span>
                     <h2 class="text-4xl md:text-6xl font-display text-brand-black mb-8 leading-none">100% Halal</h2>
-                    <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black">
+                    <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black" data-i18n="halal.body">
                         För oss på BRAMS är det självklart att alla ska kunna njuta av en riktigt god burgare. Därför serverar vi 100% certifierat halal-kött i alla våra enheter, tillagat med samma hantverk och passion som alltid.
                     </p>
                     <a href="https://brams.se/about" class="flex items-center gap-2 text-brand-gold font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity">
-                        Vår filosofi 
+                        <span data-i18n="halal.link">Vår filosofi</span> 
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                 </div>
@@ -409,7 +409,7 @@
         <div class="relative z-10">
             <button onclick="window.location.href='https://brams.se/locations'" class="flex items-center gap-3 bg-brand-gold text-white px-8 md:px-12 py-4 md:py-6 text-lg md:text-2xl font-bold rounded-full hover:bg-white hover:text-black transition-all shadow-2xl active:scale-95">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Hitta ditt närmaste BRAMS
+                <span data-i18n="find.btn">Hitta ditt närmaste BRAMS</span>
             </button>
         </div>
     </section>
@@ -443,10 +443,10 @@
         <div class="container mx-auto px-6">
             <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:24px; flex-wrap:wrap;">
                 <div>
-                    <p style="font-size:11px; font-weight:800; letter-spacing:0.3em; text-transform:uppercase; color:#c68c17; margin-bottom:10px;">Nyheter</p>
-                    <h2 style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:clamp(32px,4vw,52px); color:#0c0c0c; line-height:1.05;">Senaste nytt</h2>
+                    <p style="font-size:11px; font-weight:800; letter-spacing:0.3em; text-transform:uppercase; color:#c68c17; margin-bottom:10px;" data-i18n="news.label">Nyheter</p>
+                    <h2 style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:clamp(32px,4vw,52px); color:#0c0c0c; line-height:1.05;" data-i18n="news.heading">Senaste nytt</h2>
                 </div>
-                <a href="#" style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#0c0c0c; border-bottom:2px solid #c68c17; padding-bottom:2px; white-space:nowrap; transition:color 0.2s;" onmouseover="this.style.color='#c68c17'" onmouseout="this.style.color='#0c0c0c'">Alla nyheter</a>
+                <a href="#" style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#0c0c0c; border-bottom:2px solid #c68c17; padding-bottom:2px; white-space:nowrap; transition:color 0.2s;" onmouseover="this.style.color='#c68c17'" onmouseout="this.style.color='#0c0c0c'" data-i18n="news.all">Alla nyheter</a>
             </div>
 
             <div class="news-grid">
@@ -457,12 +457,12 @@
                     </div>
                     <div class="news-card__body">
                         <div class="news-card__meta">
-                            <span class="news-card__tag">Nyhet</span>
-                            <span class="news-card__date">25 mars 2026</span>
+                            <span class="news-card__tag" data-i18n="news.tag1">Nyhet</span>
+                            <span class="news-card__date" data-i18n="news.date1">25 mars 2026</span>
                         </div>
-                        <h3 class="news-card__heading">BRAMS öppnar i Göteborg idag!</h3>
-                        <p class="news-card__excerpt">Vi är stolta att välkomna Göteborg in i BRAMS-familjen. Hitta oss på Kungsportsavenyen 29 — dörren är öppen från idag. Välkommen!</p>
-                        <span class="news-card__link">Läs mer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                        <h3 class="news-card__heading" data-i18n="news.a1.heading">BRAMS öppnar i Göteborg idag!</h3>
+                        <p class="news-card__excerpt" data-i18n="news.a1.excerpt">Vi är stolta att välkomna Göteborg in i BRAMS-familjen. Hitta oss på Kungsportsavenyen 29 — dörren är öppen från idag. Välkommen!</p>
+                        <span class="news-card__link"><span data-i18n="news.readmore">Läs mer</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
                     </div>
                 </a>
 
@@ -473,12 +473,12 @@
                     </div>
                     <div class="news-card__body">
                         <div class="news-card__meta">
-                            <span class="news-card__tag">Kvalitet</span>
-                            <span class="news-card__date">10 mars 2026</span>
+                            <span class="news-card__tag" data-i18n="news.tag2">Kvalitet</span>
+                            <span class="news-card__date" data-i18n="news.date2">10 mars 2026</span>
                         </div>
-                        <h3 class="news-card__heading">Vi är 100% Halal-certifierade</h3>
-                        <p class="news-card__excerpt">Alla våra enheter serverar certifierat halal-kött. Alla ska kunna äta BRAMS.</p>
-                        <span class="news-card__link">Läs mer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+                        <h3 class="news-card__heading" data-i18n="news.a2.heading">Vi är 100% Halal-certifierade</h3>
+                        <p class="news-card__excerpt" data-i18n="news.a2.excerpt">Alla våra enheter serverar certifierat halal-kött. Alla ska kunna äta BRAMS.</p>
+                        <span class="news-card__link"><span data-i18n="news.readmore">Läs mer</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
                     </div>
                 </a>
 
@@ -493,11 +493,11 @@
                 <div class="lg:col-span-3 flex flex-col items-start gap-8">
                     <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" class="h-12 w-auto brightness-0" alt="Brams Logo" />
                     <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-4">
-                        <a href="https://brams.se/contact" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Kontakta oss</a>
-                        <a href="https://brams.se/about" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Pressrum</a>
-                        <a href="https://brams-demo.teamtailor.com/" target="_blank" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Jobba med oss</a>
-                        <a href="#" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Cookiepolicy</a>
-                        <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Restauranger</a>
+                        <a href="https://brams.se/contact" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.contact">Kontakta oss</a>
+                        <a href="https://brams.se/about" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.press">Pressrum</a>
+                        <a href="https://brams-demo.teamtailor.com/" target="_blank" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.jobs">Jobba med oss</a>
+                        <a href="#" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.cookie">Cookiepolicy</a>
+                        <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.locations">Restauranger</a>
                     </nav>
                 </div>
 
@@ -559,5 +559,155 @@
         }
     </script>
 <script type="module" src="/index.tsx"></script>
+
+<script>
+const translations = {
+    sv: {
+        'nav.home': 'Hem', 'nav.menu': 'Meny', 'nav.locations': 'Restauranger',
+        'nav.about': 'Om oss', 'nav.contact': 'Kontakt', 'nav.order': 'Beställ', 'nav.ask': 'Fråga oss',
+        'drawer.menu': 'Vår meny', 'drawer.sustainability': 'Hållbarhet',
+        'drawer.jobs': 'Jobba med oss', 'drawer.about': 'Om BRAMS',
+        'drawer.orderOnline': 'Beställ online', 'drawer.find': 'Hitta BRAMS',
+        'story.label': 'Vår Story',
+        'story.heading': 'Smak som<br/>skriver historia!',
+        'story.body': 'Upptäck resan från en food truck i Kista till hela Sveriges favorit. Vi kombinerar hantverk med äkta kärlek.',
+        'story.btn': 'Läs om Brams',
+        'menu.see': 'Se vår meny här', 'menu.info': 'Produktinformation',
+        'sust.label': 'Hållbarhet', 'sust.heading': 'Vårt hållbarhetsarbete',
+        'sust.body': 'Vi arbetar aktivt med att minska vårt klimatavtryck genom att välja rätt råvaror och optimera våra restauranger för en grönare framtid.',
+        'sust.link': 'Läs mer här',
+        'halal.label': 'Kvalitet & Inkludering',
+        'halal.body': 'För oss på BRAMS är det självklart att alla ska kunna njuta av en riktigt god burgare. Därför serverar vi 100% certifierat halal-kött i alla våra enheter, tillagat med samma hantverk och passion som alltid.',
+        'halal.link': 'Vår filosofi',
+        'find.btn': 'Hitta ditt närmaste BRAMS',
+        'news.label': 'Nyheter', 'news.heading': 'Senaste nytt', 'news.all': 'Alla nyheter', 'news.readmore': 'Läs mer',
+        'news.tag1': 'Nyhet', 'news.date1': '25 mars 2026',
+        'news.a1.heading': 'BRAMS öppnar i Göteborg idag!',
+        'news.a1.excerpt': 'Vi är stolta att välkomna Göteborg in i BRAMS-familjen. Hitta oss på Kungsportsavenyen 29 — dörren är öppen från idag. Välkommen!',
+        'news.tag2': 'Kvalitet', 'news.date2': '10 mars 2026',
+        'news.a2.heading': 'Vi är 100% Halal-certifierade',
+        'news.a2.excerpt': 'Alla våra enheter serverar certifierat halal-kött. Alla ska kunna äta BRAMS.',
+        'footer.contact': 'Kontakta oss', 'footer.press': 'Pressrum',
+        'footer.jobs': 'Jobba med oss', 'footer.cookie': 'Cookiepolicy', 'footer.locations': 'Restauranger',
+        'lang.label': 'SV',
+    },
+    en: {
+        'nav.home': 'Home', 'nav.menu': 'Menu', 'nav.locations': 'Restaurants',
+        'nav.about': 'About us', 'nav.contact': 'Contact', 'nav.order': 'Order', 'nav.ask': 'Ask us',
+        'drawer.menu': 'Our menu', 'drawer.sustainability': 'Sustainability',
+        'drawer.jobs': 'Work with us', 'drawer.about': 'About BRAMS',
+        'drawer.orderOnline': 'Order online', 'drawer.find': 'Find BRAMS',
+        'story.label': 'Our Story',
+        'story.heading': 'Taste that<br/>makes history!',
+        'story.body': 'Discover the journey from a food truck in Kista to all of Sweden\'s favourite. We combine craftsmanship with genuine love.',
+        'story.btn': 'Read about Brams',
+        'menu.see': 'See our menu', 'menu.info': 'Product information',
+        'sust.label': 'Sustainability', 'sust.heading': 'Our sustainability work',
+        'sust.body': 'We actively work to reduce our climate impact by choosing the right ingredients and optimising our restaurants for a greener future.',
+        'sust.link': 'Read more',
+        'halal.label': 'Quality & Inclusion',
+        'halal.body': 'At BRAMS it goes without saying that everyone should be able to enjoy a really great burger. That\'s why we serve 100% certified halal meat in all our locations, prepared with the same craftsmanship and passion as always.',
+        'halal.link': 'Our philosophy',
+        'find.btn': 'Find your nearest BRAMS',
+        'news.label': 'News', 'news.heading': 'Latest news', 'news.all': 'All news', 'news.readmore': 'Read more',
+        'news.tag1': 'News', 'news.date1': '25 March 2026',
+        'news.a1.heading': 'BRAMS opens in Gothenburg today!',
+        'news.a1.excerpt': 'We are proud to welcome Gothenburg into the BRAMS family. Find us at Kungsportsavenyen 29 — the doors are open from today. Welcome!',
+        'news.tag2': 'Quality', 'news.date2': '10 March 2026',
+        'news.a2.heading': 'We are 100% Halal certified',
+        'news.a2.excerpt': 'All our locations serve certified halal meat. Everyone should be able to eat BRAMS.',
+        'footer.contact': 'Contact us', 'footer.press': 'Press room',
+        'footer.jobs': 'Work with us', 'footer.cookie': 'Cookie policy', 'footer.locations': 'Restaurants',
+        'lang.label': 'EN',
+    },
+    ur: {
+        'nav.home': 'ہوم', 'nav.menu': 'مینو', 'nav.locations': 'ریستوران',
+        'nav.about': 'ہمارے بارے میں', 'nav.contact': 'رابطہ', 'nav.order': 'آرڈر', 'nav.ask': 'ہم سے پوچھیں',
+        'drawer.menu': 'ہماری مینو', 'drawer.sustainability': 'پائیداری',
+        'drawer.jobs': 'ہمارے ساتھ کام کریں', 'drawer.about': 'BRAMS کے بارے میں',
+        'drawer.orderOnline': 'آنلائن آرڈر کریں', 'drawer.find': 'BRAMS تلاش کریں',
+        'story.label': 'ہماری کہانی',
+        'story.heading': 'ذائقہ جو<br/>تاریخ بناتا ہے!',
+        'story.body': 'کسٹا میں ایک فوڈ ٹرک سے پورے سویڈن کے پسندیدہ برگر تک کا سفر دریافت کریں۔ ہم دستکاری اور سچی محبت کو یکجا کرتے ہیں۔',
+        'story.btn': 'Brams کے بارے میں پڑھیں',
+        'menu.see': 'ہماری مینو دیکھیں', 'menu.info': 'مصنوعات کی معلومات',
+        'sust.label': 'پائیداری', 'sust.heading': 'ہمارا پائیداری کا کام',
+        'sust.body': 'ہم درست اجزاء کا انتخاب کرکے اور اپنے ریستورانوں کو ہرے مستقبل کے لیے بہتر بنا کر اپنے ماحولیاتی اثر کو کم کرنے کے لیے سرگرمی سے کام کرتے ہیں۔',
+        'sust.link': 'مزید پڑھیں',
+        'halal.label': 'معیار اور شمولیت',
+        'halal.body': 'BRAMS میں ہمارے لیے یہ فطری بات ہے کہ ہر کوئی واقعی اچھا برگر کھا سکے۔ اس لیے ہم اپنے تمام مقامات پر 100% تصدیق شدہ حلال گوشت پیش کرتے ہیں۔',
+        'halal.link': 'ہمارا فلسفہ',
+        'find.btn': 'اپنا قریبی BRAMS تلاش کریں',
+        'news.label': 'خبریں', 'news.heading': 'تازہ ترین خبریں', 'news.all': 'تمام خبریں', 'news.readmore': 'مزید پڑھیں',
+        'news.tag1': 'خبر', 'news.date1': '25 مارچ 2026',
+        'news.a1.heading': '!BRAMS آج گوتھنبرگ میں کھل رہا ہے',
+        'news.a1.excerpt': 'ہمیں فخر ہے کہ ہم گوتھنبرگ کو BRAMS خاندان میں خوش آمدید کہتے ہیں۔ ہمیں Kungsportsavenyen 29 پر تلاش کریں — آج سے دروازے کھلے ہیں۔',
+        'news.tag2': 'معیار', 'news.date2': '10 مارچ 2026',
+        'news.a2.heading': 'ہم 100% حلال سرٹیفائیڈ ہیں',
+        'news.a2.excerpt': 'ہمارے تمام مقامات تصدیق شدہ حلال گوشت پیش کرتے ہیں۔ سب کو BRAMS کھانا چاہیے۔',
+        'footer.contact': 'ہم سے رابطہ کریں', 'footer.press': 'پریس روم',
+        'footer.jobs': 'ہمارے ساتھ کام کریں', 'footer.cookie': 'کوکی پالیسی', 'footer.locations': 'ریستوران',
+        'lang.label': 'UR',
+    },
+    ar: {
+        'nav.home': 'الرئيسية', 'nav.menu': 'القائمة', 'nav.locations': 'المطاعم',
+        'nav.about': 'معلومات عنا', 'nav.contact': 'اتصل بنا', 'nav.order': 'اطلب الآن', 'nav.ask': 'اسألنا',
+        'drawer.menu': 'قائمتنا', 'drawer.sustainability': 'الاستدامة',
+        'drawer.jobs': 'اعمل معنا', 'drawer.about': 'عن BRAMS',
+        'drawer.orderOnline': 'اطلب أونلاين', 'drawer.find': 'ابحث عن BRAMS',
+        'story.label': 'قصتنا',
+        'story.heading': 'طعم<br/>يصنع التاريخ!',
+        'story.body': 'اكتشف الرحلة من شاحنة طعام في كيستا إلى المفضّل في كل السويد. نجمع بين الحرفية والشغف الحقيقي.',
+        'story.btn': 'اقرأ عن Brams',
+        'menu.see': 'انظر قائمتنا', 'menu.info': 'معلومات المنتج',
+        'sust.label': 'الاستدامة', 'sust.heading': 'عملنا للاستدامة',
+        'sust.body': 'نعمل بنشاط على تقليل بصمتنا المناخية من خلال اختيار المكونات الصحيحة وتحسين مطاعمنا لمستقبل أخضر.',
+        'sust.link': 'اقرأ أكثر',
+        'halal.label': 'الجودة والشمول',
+        'halal.body': 'في BRAMS نؤمن بأن الجميع يستحق تناول برغر رائع. لذلك نقدم لحماً حلالاً معتمداً 100% في جميع مواقعنا بنفس الحرفية والشغف دائماً.',
+        'halal.link': 'فلسفتنا',
+        'find.btn': 'ابحث عن أقرب BRAMS إليك',
+        'news.label': 'الأخبار', 'news.heading': 'آخر الأخبار', 'news.all': 'كل الأخبار', 'news.readmore': 'اقرأ أكثر',
+        'news.tag1': 'خبر', 'news.date1': '25 مارس 2026',
+        'news.a1.heading': '!BRAMS يفتح في غوتنبرغ اليوم',
+        'news.a1.excerpt': 'يسعدنا ترحيب غوتنبرغ في عائلة BRAMS. ستجدنا في Kungsportsavenyen 29 — الأبواب مفتوحة من اليوم. أهلاً وسهلاً!',
+        'news.tag2': 'الجودة', 'news.date2': '10 مارس 2026',
+        'news.a2.heading': 'نحن معتمدون 100% حلال',
+        'news.a2.excerpt': 'جميع مواقعنا تقدم لحماً حلالاً معتمداً. الجميع يجب أن يأكل BRAMS.',
+        'footer.contact': 'اتصل بنا', 'footer.press': 'غرفة الصحافة',
+        'footer.jobs': 'اعمل معنا', 'footer.cookie': 'سياسة ملفات الارتباط', 'footer.locations': 'المطاعم',
+        'lang.label': 'AR',
+    }
+};
+
+function setLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+
+    // Update all data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+
+    // Update lang label in desktop switcher
+    const langLabel = document.querySelector('#navbar .group span:last-child');
+    if (langLabel) langLabel.textContent = t['lang.label'] || lang.toUpperCase();
+
+    // RTL support for Arabic and Urdu
+    const isRTL = lang === 'ar' || lang === 'ur';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+
+    // Persist choice
+    localStorage.setItem('brams-lang', lang);
+}
+
+// Restore on load
+(function() {
+    const saved = localStorage.getItem('brams-lang');
+    if (saved && translations[saved]) setLanguage(saved);
+})();
+</script>
 </body>
 </html>
