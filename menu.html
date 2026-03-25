@@ -145,11 +145,11 @@
         </a>
         
         <div class="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-black">
-            <a href="https://brams.se/" class="nav-link hover:text-brand-green transition-colors">Hem</a>
-            <a href="https://brams.se/menu" class="nav-link text-brand-gold">Meny</a>
-            <a href="https://brams.se/locations" class="nav-link hover:text-brand-green transition-colors">Restauranger</a>
-            <a href="https://brams.se/about" class="nav-link hover:text-brand-green transition-colors">Om oss</a>
-            <a href="https://brams.se/contact" class="nav-link hover:text-brand-green transition-colors">Kontakt</a>
+            <a href="https://brams.se/" class="nav-link hover:text-brand-green transition-colors" data-i18n="nav.home">Hem</a>
+            <a href="https://brams.se/menu" class="nav-link text-brand-gold" data-i18n="nav.menu">Meny</a>
+            <a href="https://brams.se/locations" class="nav-link hover:text-brand-green transition-colors" data-i18n="nav.locations">Restauranger</a>
+            <a href="https://brams.se/about" class="nav-link hover:text-brand-green transition-colors" data-i18n="nav.about">Om oss</a>
+            <a href="https://brams.se/contact" class="nav-link hover:text-brand-green transition-colors" data-i18n="nav.contact">Kontakt</a>
         </div>
 
         <div class="flex items-center gap-2 md:gap-4">
@@ -157,7 +157,7 @@
             <div class="hidden md:block relative group">
                 <button class="flex items-center gap-2 text-black font-black text-[11px] uppercase tracking-widest px-3 py-2 hover:text-brand-gold transition-colors">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    <span>SV</span>
+                    <span class="lang-current">SV</span>
                 </button>
                 <div class="lang-dropdown absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-[60]">
                     <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors" onclick="setLanguage('sv');return false;">SVENSKA <span class="opacity-30">SE</span></a>
@@ -167,7 +167,7 @@
                 </div>
             </div>
 
-            <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white hover:bg-brand-green shadow-lg flex items-center justify-center">Beställ</a>
+            <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white hover:bg-brand-green shadow-lg flex items-center justify-center" data-i18n="nav.order">Beställ</a>
             <button onclick="toggleMenu(true)" class="lg:hidden nav-link text-black p-2 hover:bg-black/5 rounded-full transition-colors">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
@@ -302,7 +302,7 @@
                         <!-- Barn Burgare -->
                         <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold bg-black/5 p-4 rounded-2xl">
                             <div class="flex justify-between items-baseline mb-2">
-                                <h3 class="text-xl font-black uppercase text-brand-black">Bram’s Barn Burgare</h3>
+                                <h3 class="text-xl font-black uppercase text-brand-black" data-i18n="menu.n.barnburgare">Bram’s Barn Burgare</h3>
                                 <span class="font-display text-2xl text-brand-gold">Från 90:-</span>
                             </div>
                             <p class="text-gray-600 font-bold uppercase text-[10px] leading-relaxed" data-i18n="menu.d.barn">Briochebröd, kött, cheddar, dressing, sallad, ketchup.</p>
@@ -310,7 +310,7 @@
                         <!-- Barn Nuggets -->
                         <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold bg-black/5 p-4 rounded-2xl">
                             <div class="flex justify-between items-baseline mb-2">
-                                <h3 class="text-xl font-black uppercase text-brand-black">Bram’s Barn Nuggets (8 st)</h3>
+                                <h3 class="text-xl font-black uppercase text-brand-black" data-i18n="menu.n.barnnuggets">Bram’s Barn Nuggets (8 st)</h3>
                                 <span class="font-display text-2xl text-brand-gold">Från 90:-</span>
                             </div>
                             <p class="text-gray-600 font-bold uppercase text-[10px] leading-relaxed" data-i18n="menu.d.nuggets">8 st nuggets serveras med pommes och läsk.</p>
@@ -325,7 +325,7 @@
                     <div class="space-y-10">
                         <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
                             <div class="flex justify-between items-baseline mb-2">
-                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s K-Town <span class="text-xs bg-brand-gold text-white px-2 py-0.5 rounded ml-2">NYHET</span></h3>
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s K-Town <span class="text-xs bg-brand-gold text-white px-2 py-0.5 rounded ml-2" data-i18n="menu.badge.new">NYHET</span></h3>
                                 <span class="font-display text-2xl text-brand-gold">Från 150:-</span>
                             </div>
                             <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed" data-i18n="menu.d.ktown">Briochebröd, chilimajo, friterad kyckling, smält ostsås, sallad, rödlök, K‑Town‑sås och sesamströssel.</p>
@@ -374,7 +374,7 @@
                         </div>
                         <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
                             <div class="flex justify-between items-baseline mb-2">
-                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Vegan Falafel (Glutenfri)</h3>
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors" data-i18n="menu.n.veganfalafel">Bram’s Vegan Falafel (Glutenfri)</h3>
                                 <span class="font-display text-2xl text-brand-gold">Från 110:-</span>
                             </div>
                             <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed" data-i18n="menu.d.veganfalafel">Veganskt bröd, falafel, vegansk chilimajo, sallad, rödlök, tomat, jalapeños.</p>
@@ -420,7 +420,7 @@
                             <span class="font-display text-brand-gold">35:-</span>
                         </div>
                         <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
-                            <span class="font-bold uppercase text-xs">Lökringar (8 st)</span>
+                            <span class="font-bold uppercase text-xs" data-i18n="menu.n.lokringar">Lökringar (8 st)</span>
                             <span class="font-display text-brand-gold">35:-</span>
                         </div>
                         <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
@@ -474,7 +474,7 @@
                             <span class="font-display text-brand-gold">45:-</span>
                         </div>
                         <div class="flex justify-between items-center bg-brand-gold/10 p-4 rounded-xl italic">
-                            <span class="font-bold uppercase text-xs text-brand-black">Churros (4 st - Blandade Toppings)</span>
+                            <span class="font-bold uppercase text-xs text-brand-black" data-i18n="menu.n.churrosmix">Churros (4 st - Blandade Toppings)</span>
                             <span class="font-display text-brand-gold">40:-</span>
                         </div>
                     </div>

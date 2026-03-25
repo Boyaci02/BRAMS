@@ -77,6 +77,12 @@ const BRAMS_TRANSLATIONS = {
         'menu.cta.btn': 'Beställ Online Nu',
         'menu.drawer.order': 'Beställ online',
         'menu.drawer.find': 'Hitta BRAMS',
+        'menu.n.barnburgare': 'Bram’s Barn Burgare',
+        'menu.n.barnnuggets': 'Bram’s Barn Nuggets (8 st)',
+        'menu.n.veganfalafel': 'Bram’s Vegan Falafel (Glutenfri)',
+        'menu.n.lokringar': 'Lökringar (8 st)',
+        'menu.n.churrosmix': 'Churros (4 st - Blandade Toppings)',
+        'menu.badge.new': 'NYHET',
     },
     en: {
         'nav.home': 'Home', 'nav.menu': 'Menu', 'nav.locations': 'Restaurants',
@@ -150,6 +156,12 @@ const BRAMS_TRANSLATIONS = {
         'menu.cta.btn': 'Order Online Now',
         'menu.drawer.order': 'Order online',
         'menu.drawer.find': 'Find BRAMS',
+        'menu.n.barnburgare': 'Bram’s Kids Burger',
+        'menu.n.barnnuggets': 'Bram’s Kids Nuggets (8 pcs)',
+        'menu.n.veganfalafel': 'Bram’s Vegan Falafel (Gluten Free)',
+        'menu.n.lokringar': 'Onion Rings (8 pcs)',
+        'menu.n.churrosmix': 'Churros (4 pcs - Mixed Toppings)',
+        'menu.badge.new': 'NEW',
     },
     ur: {
         'nav.home': 'ہوم', 'nav.menu': 'مینو', 'nav.locations': 'ریستوران',
@@ -223,6 +235,12 @@ const BRAMS_TRANSLATIONS = {
         'menu.cta.btn': 'ابھی آنلائن آرڈر کریں',
         'menu.drawer.order': 'آنلائن آرڈر کریں',
         'menu.drawer.find': 'BRAMS تلاش کریں',
+        'menu.n.barnburgare': 'Bram’s بچوں کا برگر',
+        'menu.n.barnnuggets': 'Bram’s بچوں کے نگٹس (8 عدد)',
+        'menu.n.veganfalafel': 'Bram’s ویگن فلافل (گلوٹن فری)',
+        'menu.n.lokringar': 'پیاز کے رنگز (8 عدد)',
+        'menu.n.churrosmix': 'چروز (4 عدد - مکس ٹاپنگز)',
+        'menu.badge.new': 'نیا',
     },
     ar: {
         'nav.home': 'الرئيسية', 'nav.menu': 'القائمة', 'nav.locations': 'المطاعم',
@@ -296,6 +314,12 @@ const BRAMS_TRANSLATIONS = {
         'menu.cta.btn': 'اطلب أونلاين الآن',
         'menu.drawer.order': 'اطلب أونلاين',
         'menu.drawer.find': 'ابحث عن BRAMS',
+        'menu.n.barnburgare': 'Bram’s برغر الأطفال',
+        'menu.n.barnnuggets': 'Bram’s نغتس الأطفال (8 قطع)',
+        'menu.n.veganfalafel': 'Bram’s فلافل نباتي (خالٍ من الغلوتين)',
+        'menu.n.lokringar': 'حلقات البصل (8 قطع)',
+        'menu.n.churrosmix': 'تشوروس (4 قطع - إضافات مشكّلة)',
+        'menu.badge.new': 'جديد',
     }
 };
 
