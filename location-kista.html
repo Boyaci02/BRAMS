@@ -54,14 +54,14 @@
             <span class="nav-logo text-white font-display text-3xl transition-colors">BRAMS</span>
         </a>
         <div class="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
-            <a href="https://brams.se/" class="nav-link hover:text-brand-gold transition-colors">Hem</a>
-            <a href="https://brams.se/menu" class="nav-link hover:text-brand-gold transition-colors">Meny</a>
-            <a href="https://brams.se/locations" class="nav-link hover:text-brand-gold transition-colors">Restauranger</a>
-            <a href="https://brams.se/about" class="nav-link hover:text-brand-gold transition-colors">Om oss</a>
-            <a href="https://brams.se/contact" class="nav-link hover:text-brand-gold transition-colors">Kontakt</a>
+            <a href="https://brams.se/" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.home">Hem</a>
+            <a href="https://brams.se/menu" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.menu">Meny</a>
+            <a href="https://brams.se/locations" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.locations">Restauranger</a>
+            <a href="https://brams.se/about" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.about">Om oss</a>
+            <a href="https://brams.se/contact" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.contact">Kontakt</a>
         </div>
         <div class="flex items-center gap-2">
-            <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white shadow-lg">Beställ</a>
+            <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white shadow-lg" data-i18n="nav.order">Beställ</a>
             <button onclick="toggleMenu(true)" class="lg:hidden nav-link text-white p-2 hover:bg-white/10 rounded-full transition-colors">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
@@ -78,9 +78,9 @@
             </button>
         </div>
         <div class="px-8 py-6 text-black">
-            <a href="https://brams.se/menu" class="drawer-item">Vår meny <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-            <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item">Jobba med oss <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-            <a href="https://brams.se/about" class="drawer-item">Om BRAMS <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <a href="https://brams.se/menu" class="drawer-item"><span data-i18n="drawer.menu">Vår meny</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item"><span data-i18n="drawer.jobs">Jobba med oss</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <a href="https://brams.se/about" class="drawer-item"><span data-i18n="drawer.about">Om BRAMS</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
         </div>
     </div>
 
@@ -174,11 +174,11 @@
                 <div class="lg:col-span-3 flex flex-col items-start gap-8">
                     <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" class="h-12 w-auto brightness-0" alt="Brams Logo" />
                     <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-4">
-                        <a href="https://brams.se/contact" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Kontakta oss</a>
-                        <a href="https://brams.se/about" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Pressrum</a>
-                        <a href="https://brams-demo.teamtailor.com/" target="_blank" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Jobba med oss</a>
-                        <a href="#" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Cookiepolicy</a>
-                        <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Restauranger</a>
+                        <a href="https://brams.se/contact" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.contact">Kontakta oss</a>
+                        <a href="https://brams.se/about" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.press">Pressrum</a>
+                        <a href="https://brams-demo.teamtailor.com/" target="_blank" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.jobs">Jobba med oss</a>
+                        <a href="#" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.cookie">Cookiepolicy</a>
+                        <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.locations">Restauranger</a>
                     </nav>
                 </div>
                 <div class="flex items-start lg:justify-end gap-5 text-black">
@@ -217,5 +217,6 @@
             else { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = 'auto'; }
         }
     </script>
+<script src="/i18n.js"></script>
 </body>
 </html>

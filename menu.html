@@ -160,8 +160,8 @@
                     <span>SV</span>
                 </button>
                 <div class="lang-dropdown absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-[60]">
-                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">SVENSKA <span class="opacity-30">SE</span></a>
-                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">ENGLISH <span class="opacity-30">EN</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors"onclick="setLanguage('sv');return false;">SVENSKA <span class="opacity-30">SE</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors"onclick="setLanguage('en');return false;">ENGLISH <span class="opacity-30">EN</span></a>
                     <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">اردو <span class="opacity-30">UR</span></a>
                     <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">العربية <span class="opacity-30">AR</span></a>
                 </div>
@@ -186,20 +186,20 @@
 
         <div class="flex-1 px-8 py-6">
             <div class="flex flex-col mb-10 text-black">
-                <a href="https://brams.se/menu" class="drawer-item">Vår meny <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                <a href="https://brams.se/about" class="drawer-item">Hållbarhet <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item">Jobba med oss <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                <a href="https://brams.se/about" class="drawer-item">Om BRAMS <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/menu" class="drawer-item"><span data-i18n="drawer.menu">Vår meny</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/about" class="drawer-item"><span data-i18n="drawer.sustainability">Hållbarhet</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item"><span data-i18n="drawer.jobs">Jobba med oss</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/about" class="drawer-item"><span data-i18n="drawer.about">Om BRAMS</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
             </div>
 
             <!-- Language Selection Mobile -->
             <div class="mb-10 text-black">
                 <h4 class="font-black text-[10px] tracking-[0.3em] uppercase opacity-30 mb-6">VÄLJ SPRÅK / SELECT LANGUAGE</h4>
                 <div class="grid grid-cols-2 gap-3">
-                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">Svenska</button>
-                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">English</button>
-                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">اردو</button>
-                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">العربية</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center" onclick="setLanguage('sv')">Svenska</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center" onclick="setLanguage('en')">English</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center" onclick="setLanguage('ur')">اردو</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center" onclick="setLanguage('ar')">العربية</button>
                 </div>
             </div>
 
@@ -551,11 +551,11 @@
                 <div class="lg:col-span-3 flex flex-col items-start gap-8">
                     <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" class="h-12 w-auto brightness-0" alt="Brams Logo" />
                     <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-4">
-                        <a href="https://brams.se/contact" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Kontakta oss</a>
-                        <a href="https://brams.se/about" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Pressrum</a>
-                        <a href="https://brams-demo.teamtailor.com/" target="_blank" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Jobba med oss</a>
-                        <a href="#" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Cookiepolicy</a>
-                        <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Restauranger</a>
+                        <a href="https://brams.se/contact" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.contact">Kontakta oss</a>
+                        <a href="https://brams.se/about" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.press">Pressrum</a>
+                        <a href="https://brams-demo.teamtailor.com/" target="_blank" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.jobs">Jobba med oss</a>
+                        <a href="#" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.cookie">Cookiepolicy</a>
+                        <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="footer.locations">Restauranger</a>
                     </nav>
                 </div>
 
@@ -613,5 +613,6 @@
             }
         }
     </script>
+<script src="/i18n.js"></script>
 </body>
 </html>
