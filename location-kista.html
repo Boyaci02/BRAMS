@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BRAMS | Kista</title>
+    <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-black': '#0c0c0c',
+              'brand-green': '#2d4a3e',
+              'brand-gold': '#c68c17',
+              'brand-cream': '#f9f6f1',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        html, body { background-color: #0c0c0c; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth; }
+        h1, h2, h3, .font-display { font-family: 'Anton', sans-serif !important; text-transform: uppercase; line-height: 1.1 !important; letter-spacing: 0.02em; }
+        
+        .pill-button { border-radius: 9999px; padding: 12px 32px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        #navbar { background-color: transparent; transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease; backdrop-filter: blur(0px); }
+        #navbar.nav-active { background-color: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.08); backdrop-filter: blur(10px); }
+        #navbar.nav-active .nav-logo, #navbar.nav-active .nav-link { color: #000; }
+        #navbar.nav-hidden { transform: translateY(-100%); }
+        
+        #menu-drawer { transition: transform 0.5s cubic-bezier(0.32, 0, 0.07, 1); transform: translateX(100%); }
+        #menu-drawer.open { transform: translateX(0); }
+        #menu-overlay { transition: opacity 0.4s ease; opacity: 0; pointer-events: none; }
+        #menu-overlay.open { opacity: 1; pointer-events: auto; }
+        
+        .drawer-item { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; border-bottom: 1px solid #f3f4f6; font-weight: 800; font-size: 1.25rem; color: #000; }
+        .info-card { background: #151515; border-radius: 40px; padding: 40px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .info-card:hover { border-color: #c68c17; transform: translateY(-5px); }
+        
+        .footer-max-link { font-size: 14px; font-weight: 600; color: #000; transition: opacity 0.2s; }
+        .footer-max-link:hover { opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 md:p-6 flex justify-between items-center">
+        <a href="https://brams.se/" class="flex items-center gap-3">
+            <span class="nav-logo text-white font-display text-3xl transition-colors">BRAMS</span>
+        </a>
+        <div class="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white">
+            <a href="https://brams.se/" class="nav-link hover:text-brand-gold transition-colors">Hem</a>
+            <a href="https://brams.se/menu" class="nav-link hover:text-brand-gold transition-colors">Meny</a>
+            <a href="https://brams.se/locations" class="nav-link hover:text-brand-gold transition-colors">Restauranger</a>
+            <a href="https://brams.se/about" class="nav-link hover:text-brand-gold transition-colors">Om oss</a>
+            <a href="https://brams.se/contact" class="nav-link hover:text-brand-gold transition-colors">Kontakt</a>
+        </div>
+        <div class="flex items-center gap-2">
+            <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white shadow-lg">Beställ</a>
+            <button onclick="toggleMenu(true)" class="lg:hidden nav-link text-white p-2 hover:bg-white/10 rounded-full transition-colors">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Drawer -->
+    <div id="menu-overlay" class="fixed inset-0 z-[90] bg-black/40 backdrop-blur-sm" onclick="toggleMenu(false)"></div>
+    <div id="menu-drawer" class="fixed inset-y-0 right-0 z-[100] bg-white w-full md:w-[450px] flex flex-col shadow-2xl overflow-y-auto">
+        <div class="p-8 flex justify-between items-center sticky top-0 bg-white z-20 border-b">
+            <span class="font-display text-4xl text-black">BRAMS</span>
+            <button onclick="toggleMenu(false)" class="text-black p-2 hover:bg-gray-100 rounded-full transition-all">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <div class="px-8 py-6 text-black">
+            <a href="https://brams.se/menu" class="drawer-item">Vår meny <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item">Jobba med oss <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <a href="https://brams.se/about" class="drawer-item">Om BRAMS <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695804a87483034ddaa904ab.jpg" class="absolute inset-0 w-full h-full object-cover brightness-[0.4] scale-105" alt="Brams Kista" />
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <p class="font-black text-xs md:text-sm tracking-[0.5em] text-brand-gold uppercase mb-6">Restaurang</p>
+            <h1 class="text-7xl md:text-[12rem] font-display uppercase tracking-tighter drop-shadow-2xl">Kista</h1>
+            <p class="text-xl md:text-2xl font-bold uppercase tracking-widest opacity-80 mt-4">Kistagången 20, 164 40 Kista</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <main class="py-24 container mx-auto px-6">
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- Öppettider -->
+            <div class="info-card">
+                <div class="w-12 h-12 bg-brand-gold/10 rounded-2xl flex items-center justify-center text-brand-gold mb-8">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <h3 class="text-3xl font-display mb-6">Öppettider</h3>
+                <div class="space-y-4 font-bold text-sm tracking-widest uppercase">
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="opacity-50">Mån - Tors</span>
+                        <span>10:00 - 23:00</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="opacity-50">Fredag</span>
+                        <div class="text-right">
+                            <span>10:00 - 23:00</span>
+                            <span class="block text-[10px] text-brand-gold opacity-100 mt-1 italic">(Paus 12:45-13:45)</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="opacity-50">Lördag</span>
+                        <span>11:00 - 23:00</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="opacity-50">Söndag</span>
+                        <span>11:00 - 22:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Äta på plats / Upphämtning -->
+            <div class="info-card">
+                <div class="w-12 h-12 bg-brand-green/10 rounded-2xl flex items-center justify-center text-brand-green mb-8">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </div>
+                <h3 class="text-3xl font-display mb-6">Äta på plats / Upphämtning</h3>
+                <p class="text-sm font-bold uppercase tracking-widest opacity-60 mb-10 leading-relaxed">
+                    Slipp vänta – beställ din favoritburgare online och hämta upp den varm direkt i kassan.
+                </p>
+                <a href="https://bramsburgers.qopla.com/" target="_blank" class="block bg-brand-gold text-white text-center py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-brand-green transition-all shadow-xl">
+                    Beställ online
+                </a>
+            </div>
+
+            <!-- Leverans -->
+            <div class="info-card">
+                <div class="w-12 h-12 bg-brand-cream/10 rounded-2xl flex items-center justify-center text-white mb-8">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </div>
+                <h3 class="text-3xl font-display mb-6">Leverans</h3>
+                <p class="text-sm font-bold uppercase tracking-widest opacity-60 mb-8">Få BRAMS direkt till dörren via:</p>
+                <div class="space-y-4">
+                    <a href="https://www.ubereats.com/" target="_blank" class="flex items-center justify-between bg-white/5 p-4 rounded-xl hover:bg-white/10 transition-all group">
+                        <span class="font-black uppercase tracking-widest text-sm">Uber Eats</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-brand-gold group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                    <a href="https://www.foodora.se/" target="_blank" class="flex items-center justify-between bg-white/5 p-4 rounded-xl hover:bg-white/10 transition-all group">
+                        <span class="font-black uppercase tracking-widest text-sm">Foodora</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-brand-gold group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                    <a href="https://wolt.com/" target="_blank" class="flex items-center justify-between bg-white/5 p-4 rounded-xl hover:bg-white/10 transition-all group">
+                        <span class="font-black uppercase tracking-widest text-sm">Wolt</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-brand-gold group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-white py-16 border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-3 flex flex-col items-start gap-8">
+                    <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" class="h-12 w-auto brightness-0" alt="Brams Logo" />
+                    <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-4">
+                        <a href="https://brams.se/contact" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Kontakta oss</a>
+                        <a href="https://brams.se/about" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Pressrum</a>
+                        <a href="https://brams-demo.teamtailor.com/" target="_blank" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Jobba med oss</a>
+                        <a href="#" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Cookiepolicy</a>
+                        <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Restauranger</a>
+                    </nav>
+                </div>
+                <div class="flex items-start lg:justify-end gap-5 text-black">
+                    <a href="https://instagram.com/bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://tiktok.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase">© 2024 BRAMS BURGER — ALLA SKA ÄTA</p>
+                <div class="flex gap-6">
+                    <a href="https://synsnu.se" target="_blank" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors">Powered by Syns Nu</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 50) navbar.classList.add('nav-active');
+            else navbar.classList.remove('nav-active');
+            if (scrollTop > lastScrollTop && scrollTop > 100) navbar.classList.add('nav-hidden');
+            else navbar.classList.remove('nav-hidden');
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+        });
+        function toggleMenu(open) {
+            const drawer = document.getElementById('menu-drawer');
+            const overlay = document.getElementById('menu-overlay');
+            if (open) { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+            else { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = 'auto'; }
+        }
+    </script>
+</body>
+</html>

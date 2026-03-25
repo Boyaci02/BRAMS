@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brams Burger | Menyn</title>
+    <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-black': '#0c0c0c',
+              'brand-green': '#2d4a3e',
+              'brand-gold': '#c68c17',
+              'brand-cream': '#fef3e9',
+              'max-green': '#008435',
+              'max-red': '#e31b23',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        html, body { 
+            background-color: #fef3e9; 
+            color: #0c0c0c; 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, .font-display { 
+            font-family: 'Anton', sans-serif !important; 
+            text-transform: uppercase; 
+            line-height: 1.1 !important;
+            letter-spacing: 0.02em;
+        }
+
+        .pill-button {
+            border-radius: 9999px;
+            padding: 10px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @media (min-width: 768px) {
+            .pill-button {
+                padding: 12px 32px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Global Navbar logic */
+        #navbar {
+            background-color: transparent;
+            transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+            backdrop-filter: blur(0px);
+        }
+        #navbar.nav-active {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+        }
+        #navbar.nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        /* Drawer Styling */
+        #menu-drawer { 
+            transition: transform 0.5s cubic-bezier(0.32, 0, 0.07, 1); 
+            transform: translateX(100%); 
+        }
+        #menu-drawer.open { transform: translateX(0); }
+        
+        #menu-overlay { 
+            transition: opacity 0.4s ease; 
+            opacity: 0; 
+            pointer-events: none; 
+        }
+        #menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+        .drawer-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #000;
+        }
+
+        .lang-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        .group:hover .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .footer-max-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+            transition: opacity 0.2s;
+        }
+        .footer-max-link:hover {
+            opacity: 0.7;
+        }
+
+        .menu-category-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .menu-category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #c68c17;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 md:p-6 flex justify-between items-center">
+        <a href="https://brams.se/" class="flex items-center gap-3">
+            <span class="nav-logo text-black font-display text-3xl transition-colors">BRAMS</span>
+        </a>
+        
+        <div class="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-black">
+            <a href="https://brams.se/" class="nav-link hover:text-brand-green transition-colors">Hem</a>
+            <a href="https://brams.se/menu" class="nav-link text-brand-gold">Meny</a>
+            <a href="https://brams.se/locations" class="nav-link hover:text-brand-green transition-colors">Restauranger</a>
+            <a href="https://brams.se/about" class="nav-link hover:text-brand-green transition-colors">Om oss</a>
+            <a href="https://brams.se/contact" class="nav-link hover:text-brand-green transition-colors">Kontakt</a>
+        </div>
+
+        <div class="flex items-center gap-2 md:gap-4">
+            <!-- Language Switcher Desktop -->
+            <div class="hidden md:block relative group">
+                <button class="flex items-center gap-2 text-black font-black text-[11px] uppercase tracking-widest px-3 py-2 hover:text-brand-gold transition-colors">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span>SV</span>
+                </button>
+                <div class="lang-dropdown absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-[60]">
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">SVENSKA <span class="opacity-30">SE</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">ENGLISH <span class="opacity-30">EN</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">اردو <span class="opacity-30">UR</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">العربية <span class="opacity-30">AR</span></a>
+                </div>
+            </div>
+
+            <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white hover:bg-brand-green shadow-lg flex items-center justify-center">Beställ</a>
+            <button onclick="toggleMenu(true)" class="lg:hidden nav-link text-black p-2 hover:bg-black/5 rounded-full transition-colors">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu Overlay & Drawer -->
+    <div id="menu-overlay" class="fixed inset-0 z-[90] bg-black/40 backdrop-blur-sm" onclick="toggleMenu(false)"></div>
+    <div id="menu-drawer" class="fixed inset-y-0 right-0 z-[100] bg-white w-full md:w-[450px] flex flex-col shadow-2xl overflow-y-auto rounded-none">
+        <div class="p-8 pb-4 flex justify-between items-center bg-white sticky top-0 z-20">
+            <span class="font-display text-4xl text-black tracking-tight">BRAMS</span>
+            <button onclick="toggleMenu(false)" class="text-black p-2 hover:bg-gray-100 rounded-full transition-all">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+
+        <div class="flex-1 px-8 py-6">
+            <div class="flex flex-col mb-10 text-black">
+                <a href="https://brams.se/menu" class="drawer-item">Vår meny <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/about" class="drawer-item">Hållbarhet <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item">Jobba med oss <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/about" class="drawer-item">Om BRAMS <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            </div>
+
+            <!-- Language Selection Mobile -->
+            <div class="mb-10 text-black">
+                <h4 class="font-black text-[10px] tracking-[0.3em] uppercase opacity-30 mb-6">VÄLJ SPRÅK / SELECT LANGUAGE</h4>
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">Svenska</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">English</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">اردو</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">العربية</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-10">
+                <a href="https://bramsburgers.qopla.com/" target="_blank" class="bg-brand-gold text-white py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
+                    Beställ online
+                </a>
+                <a href="https://brams.se/locations" class="bg-white border-2 border-brand-gold text-brand-gold py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
+                    Hitta BRAMS
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menyinnehåll -->
+    <main class="pt-40 pb-20 bg-[#fef3e9] min-h-screen">
+        <div class="container mx-auto px-6">
+            <header class="mb-12 text-center md:text-left">
+                <p class="text-brand-gold font-black uppercase tracking-[0.3em] text-sm mb-4">Menyn / Alla ska äta</p>
+                <h1 class="text-6xl md:text-[10rem] font-display uppercase tracking-widest leading-none text-brand-black">Smaka<br/>Hypen</h1>
+            </header>
+
+            <!-- Digitalt Presentkort Banner -->
+            <section class="mb-24">
+                <div class="bg-gradient-to-r from-brand-gold to-[#a67513] rounded-[40px] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 border border-black/5 shadow-2xl">
+                    <div class="text-white">
+                        <h2 class="text-3xl md:text-5xl font-display mb-2">Digitalt Presentkort</h2>
+                        <p class="font-bold uppercase tracking-widest text-sm md:text-base opacity-90">Ge bort en smakupplevelse till någon speciell.</p>
+                    </div>
+                    <div class="flex flex-col items-center md:items-end">
+                        <span class="text-3xl font-display text-white mb-4">Från 100:-</span>
+                        <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-black text-white hover:bg-white hover:text-black transition-all">Köp Nu</a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-24">
+                
+                <!-- BURGERS (INKL. LÄSK & POMMES) -->
+                <section>
+                    <h2 class="menu-category-title text-3xl md:text-4xl font-display text-brand-black uppercase">Burgers</h2>
+                    <p class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-10 italic">Alla menyer inkluderar Regular Fries och 33cl Dryck.</p>
+                    <div class="space-y-10">
+                        <!-- Bram's Fish -->
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Fish</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 140:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">En galen fiskburgare med olika smakkombinationer.</p>
+                        </div>
+                        <!-- Bram's Sweet Fire -->
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Sweet Fire</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 130:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, chilimajo, kött, cheddar, karamelliserad lök, kanderade jalapeños, chili cheese.</p>
+                        </div>
+                        <!-- Bram's Delusion -->
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Delusion</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 130:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, kött, cheddar, chipotlemajo, karamelliserad lök, nöt-bacon (halal), picklade jalapeños, barbequesås.</p>
+                        </div>
+                        <!-- Bram's Fire -->
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Fire</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 130:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, kött, cheddar, chilimajo, sallad, rödlök, jalapeños, chili cheese.</p>
+                        </div>
+                        <!-- Bram's Oklahoma -->
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Oklahoma</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 130:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, kött, karamelliserad lök, cheddar, dressing, inlagd gurka, barbequesås.</p>
+                        </div>
+                        <!-- Bram's DSVDV -->
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s DSVDV</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 130:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, kött, cheddar, dressing, sallad, rödlök, tomat, ketchup, senap.</p>
+                        </div>
+                        <!-- Bram's Truff -->
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Truff</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 130:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, kött, cheddar, tryffelmajo, sallad, karamelliserad lök, picklad rödlök.</p>
+                        </div>
+                        <!-- Barn Burgare -->
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold bg-black/5 p-4 rounded-2xl">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl font-black uppercase text-brand-black">Bram’s Barn Burgare</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 90:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] leading-relaxed">Briochebröd, kött, cheddar, dressing, sallad, ketchup.</p>
+                        </div>
+                        <!-- Barn Nuggets -->
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold bg-black/5 p-4 rounded-2xl">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl font-black uppercase text-brand-black">Bram’s Barn Nuggets (8 st)</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 90:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] leading-relaxed">8 st nuggets serveras med pommes och läsk.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FRIED CHICKEN -->
+                <section>
+                    <h2 class="menu-category-title text-3xl md:text-4xl font-display text-brand-black uppercase">Fried Chicken</h2>
+                    <p class="text-brand-gold font-bold text-[10px] uppercase tracking-widest mb-10 italic">Krispig kyckling som du aldrig smakat den förut.</p>
+                    <div class="space-y-10">
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s K-Town <span class="text-xs bg-brand-gold text-white px-2 py-0.5 rounded ml-2">NYHET</span></h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 150:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, chilimajo, friterad kyckling, smält ostsås, sallad, rödlök, K‑Town‑sås och sesamströssel.</p>
+                        </div>
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Destruction</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 150:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, friterad kyckling, smält ostsås, chipotlemajo, inlagd rödlök, karamelliserad lök, inlagda jalapeños.</p>
+                        </div>
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Yo Mama</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 150:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, friterad kyckling, chilimajo, smält ostsås, wingsås, chili cheese.</p>
+                        </div>
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Fried Chicken Wings (4 st)</h3>
+                                <span class="font-display text-2xl text-brand-gold">59:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Friterade hot wings inkl. wingsås.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VEGETARIAN -->
+                <section>
+                    <h2 class="menu-category-title text-3xl md:text-4xl font-display text-brand-black uppercase">Vegetarian</h2>
+                    <div class="space-y-10">
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Halloumi</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 110:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, halloumi, cheddar, chilimajo, sallad, rödlök, tomat, jalapeños.</p>
+                        </div>
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Falafel</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 110:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Briochebröd, falafel, chilimajo, sallad, rödlök, tomat, jalapeños.</p>
+                        </div>
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Vegan Falafel (Glutenfri)</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 110:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Veganskt bröd, falafel, vegansk chilimajo, sallad, rödlök, tomat, jalapeños.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PIZZA -->
+                <section>
+                    <h2 class="menu-category-title text-3xl md:text-4xl font-display text-brand-black uppercase">Pizza</h2>
+                    <div class="space-y-8">
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Chicken Legend</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 130:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Tomatsås, två sorters ost, kyckling legend, rödlök, champinjoner och oregano.</p>
+                        </div>
+                        <div class="group border-b border-black/10 pb-6 transition-all hover:border-brand-gold">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="text-xl md:text-2xl font-black uppercase text-brand-black group-hover:text-brand-gold transition-colors">Bram’s Pizza Special</h3>
+                                <span class="font-display text-2xl text-brand-gold">Från 180:-</span>
+                            </div>
+                            <p class="text-gray-600 font-bold uppercase text-[10px] md:text-xs leading-relaxed">Vårt mest exklusiva pizza-alternativ med noga utvalda toppings.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SIDES -->
+                <section>
+                    <h2 class="menu-category-title text-3xl md:text-4xl font-display text-brand-black uppercase">Sides</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Regular Fries</span>
+                            <span class="font-display text-brand-gold">30:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Sweet Fries</span>
+                            <span class="font-display text-brand-gold">35:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Chili Cheese (6 st)</span>
+                            <span class="font-display text-brand-gold">35:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Lökringar (8 st)</span>
+                            <span class="font-display text-brand-gold">35:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Hot Wings (4 st)</span>
+                            <span class="font-display text-brand-gold">49:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-brand-gold/10 border border-brand-gold/20 p-4 rounded-xl md:col-span-2">
+                            <div class="flex flex-col">
+                                <span class="font-bold uppercase text-xs text-brand-black">Korean Fries</span>
+                                <span class="text-[9px] uppercase opacity-60 text-brand-black">Ostsås, chilimajo, K-Town, sesam, lök, jalapeños</span>
+                            </div>
+                            <span class="font-display text-brand-gold">Från 49:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Cheese Fries</span>
+                            <span class="font-display text-brand-gold">Från 49:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Onion Fries</span>
+                            <span class="font-display text-brand-gold">Från 49:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl md:col-span-2">
+                            <span class="font-bold uppercase text-xs">Truffle Parmesan Fries</span>
+                            <span class="font-display text-brand-gold">Från 49:-</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DESSERT -->
+                <section>
+                    <h2 class="menu-category-title text-3xl md:text-4xl font-display text-brand-black uppercase">Dessert</h2>
+                    <div class="space-y-4 mt-4">
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl border-l-4 border-brand-gold">
+                            <span class="font-bold uppercase text-xs">Nutella Oreo Churros (4 st)</span>
+                            <span class="font-display text-brand-gold">45:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Caramel Lotus Churros (4 st)</span>
+                            <span class="font-display text-brand-gold">45:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Nutella Churros (4 st)</span>
+                            <span class="font-display text-brand-gold">45:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Cinnamon Sugar Churros (4 st)</span>
+                            <span class="font-display text-brand-gold">40:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-black/5 p-4 rounded-xl">
+                            <span class="font-bold uppercase text-xs">Nutella & Cinnamon Sugar (4 st)</span>
+                            <span class="font-display text-brand-gold">45:-</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-brand-gold/10 p-4 rounded-xl italic">
+                            <span class="font-bold uppercase text-xs text-brand-black">Churros (4 st - Blandade Toppings)</span>
+                            <span class="font-display text-brand-gold">40:-</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MILKSHAKE & COOLERS -->
+                <section>
+                    <h2 class="menu-category-title text-3xl md:text-4xl font-display text-brand-black uppercase">Milkshake</h2>
+                    <div class="grid grid-cols-2 gap-4 mt-4">
+                        <div class="bg-black/5 p-6 rounded-3xl text-center hover:bg-brand-gold/20 transition-all cursor-default">
+                            <p class="font-display text-xl mb-1 text-brand-black">Banana</p>
+                            <p class="text-brand-gold font-bold">59:-</p>
+                        </div>
+                        <div class="bg-black/5 p-6 rounded-3xl text-center hover:bg-brand-gold/20 transition-all cursor-default">
+                            <p class="font-display text-xl mb-1 text-brand-black">Lotus</p>
+                            <p class="text-brand-gold font-bold">59:-</p>
+                        </div>
+                        <div class="bg-black/5 p-6 rounded-3xl text-center hover:bg-brand-gold/20 transition-all cursor-default">
+                            <p class="font-display text-xl mb-1 text-brand-black">Strawberry</p>
+                            <p class="text-brand-gold font-bold">59:-</p>
+                        </div>
+                        <div class="bg-black/5 p-6 rounded-3xl text-center hover:bg-brand-gold/20 transition-all cursor-default">
+                            <p class="font-display text-xl mb-1 text-brand-black">Oreo</p>
+                            <p class="text-brand-gold font-bold">59:-</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DIPS (HEMMAGJORDA) -->
+                <section>
+                    <h2 class="menu-category-title text-3xl md:text-4xl font-display text-brand-black uppercase">Dips</h2>
+                    <div class="grid grid-cols-2 gap-2 mt-4 text-[10px] font-black uppercase tracking-tighter">
+                        <div class="flex justify-between items-center p-2 border-b border-black/5 text-brand-black"><span>Dressing</span> <span class="text-brand-gold">10:-</span></div>
+                        <div class="flex justify-between items-center p-2 border-b border-black/5 text-brand-black"><span>Bearnaise</span> <span class="text-brand-gold">15:-</span></div>
+                        <div class="flex justify-between items-center p-2 border-b border-black/5 text-brand-black"><span>Chilimayo</span> <span class="text-brand-gold">10:-</span></div>
+                        <div class="flex justify-between items-center p-2 border-b border-black/5 text-brand-black"><span>Melted Cheese</span> <span class="text-brand-gold">15:-</span></div>
+                        <div class="flex justify-between items-center p-2 border-b border-black/5 text-brand-black"><span>Barbequemayo</span> <span class="text-brand-gold">10:-</span></div>
+                        <div class="flex justify-between items-center p-2 border-b border-black/5 text-brand-black"><span>Trufflemayo</span> <span class="text-brand-gold">15:-</span></div>
+                        <div class="flex justify-between items-center p-2 border-b border-black/5 text-brand-black"><span>Garlicmayo</span> <span class="text-brand-gold">10:-</span></div>
+                        <div class="flex justify-between items-center p-2 border-b border-black/5 text-brand-black"><span>Chipotlemayo</span> <span class="text-brand-gold">10:-</span></div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- DRYCK -->
+            <section class="mt-24 pt-16 border-t border-black/10">
+                <h2 class="text-4xl font-display text-brand-black uppercase text-center mb-12">Dryck (33 cl) — 15:-</h2>
+                <div class="flex flex-wrap justify-center gap-6 text-xs font-bold uppercase tracking-widest text-gray-500">
+                    <span class="hover:text-brand-gold">Cuba Cola</span>
+                    <span class="hover:text-brand-gold">Cuba Cola Zero</span>
+                    <span class="hover:text-brand-gold">Zingo</span>
+                    <span class="hover:text-brand-gold">Zingo Citron Zero</span>
+                    <span class="hover:text-brand-gold">Pommac</span>
+                    <span class="hover:text-brand-gold">Smakis Apelsin</span>
+                    <span class="hover:text-brand-gold">Ramlösa Citron</span>
+                    <span class="hover:text-brand-gold">Ramlösa Päron</span>
+                    <span class="hover:text-brand-gold">Granatäpple</span>
+                </div>
+            </section>
+
+            <div class="mt-32 p-12 bg-black/5 rounded-[50px] border border-black/10 text-center">
+                <h3 class="text-3xl md:text-5xl font-display text-brand-black mb-6">Hungrig än?</h3>
+                <p class="text-gray-500 font-bold uppercase tracking-widest mb-10">Beställ direkt för upphämtning eller leverans.</p>
+                <a href="https://bramsburgers.qopla.com/" target="_blank" class="inline-block pill-button bg-brand-gold text-white text-xl px-16 py-6 shadow-2xl active:scale-95 transition-all">Beställ Online Nu</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-white py-16 border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-3 flex flex-col items-start gap-8">
+                    <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" class="h-12 w-auto brightness-0" alt="Brams Logo" />
+                    <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-4">
+                        <a href="https://brams.se/contact" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Kontakta oss</a>
+                        <a href="https://brams.se/about" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Pressrum</a>
+                        <a href="https://brams-demo.teamtailor.com/" target="_blank" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Jobba med oss</a>
+                        <a href="#" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Cookiepolicy</a>
+                        <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Restauranger</a>
+                    </nav>
+                </div>
+
+                <div class="flex items-start lg:justify-end gap-5 text-black">
+                    <a href="https://instagram.com/bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://tiktok.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase">© 2024 BRAMS BURGER — ALLA SKA ÄTA</p>
+                <div class="flex gap-6">
+                    <a href="https://synsnu.se" target="_blank" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors">Powered by Syns Nu</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 50) {
+                navbar.classList.add('nav-active');
+            } else {
+                navbar.classList.remove('nav-active');
+            }
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+        });
+
+        function toggleMenu(open) {
+            const drawer = document.getElementById('menu-drawer');
+            const overlay = document.getElementById('menu-overlay');
+            if (open) {
+                drawer.classList.add('open');
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            } else {
+                drawer.classList.remove('open');
+                overlay.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>

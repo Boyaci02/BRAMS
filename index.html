@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brams Burger | Hem</title>
+    <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-black': '#0c0c0c',
+              'brand-green': '#2d4a3e',
+              'brand-gold': '#c68c17',
+              'brand-cream': '#f9f6f1',
+              'max-green': '#008435',
+              'max-red': '#e31b23',
+            },
+            animation: {
+              'marquee': 'marquee 30s linear infinite',
+              'bounce-slow': 'bounce 3s infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-50%)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        html, body { 
+            background-color: #0c0c0c; 
+            color: #ffffff; 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, .font-display { 
+            font-family: 'Anton', sans-serif !important; 
+            text-transform: uppercase; 
+            line-height: 1.1 !important;
+            letter-spacing: 0.02em;
+        }
+
+        .pill-button {
+            border-radius: 9999px;
+            padding: 10px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @media (min-width: 768px) {
+            .pill-button {
+                padding: 12px 32px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Dynamic Navbar logic */
+        #navbar {
+            background-color: transparent;
+            transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+            backdrop-filter: blur(0px);
+        }
+        #navbar.nav-active {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+        }
+        #navbar.nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        /* Drawer Styling */
+        #menu-drawer { 
+            transition: transform 0.5s cubic-bezier(0.32, 0, 0.07, 1); 
+            transform: translateX(100%); 
+        }
+        #menu-drawer.open { transform: translateX(0); }
+        
+        #menu-overlay { 
+            transition: opacity 0.4s ease; 
+            opacity: 0; 
+            pointer-events: none; 
+        }
+        #menu-overlay.open { opacity: 1; pointer-events: auto; }
+
+        .drawer-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #000;
+        }
+
+        .lang-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        .group:hover .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .footer-max-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+            transition: opacity 0.2s;
+        }
+        .footer-max-link:hover {
+            opacity: 0.7;
+        }
+
+        .ask-us-btn {
+            background-color: #c68c17;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(198, 140, 23, 0.3);
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 110;
+            transition: all 0.3s ease;
+        }
+        .ask-us-btn:hover {
+            transform: scale(1.05);
+            background-color: #d4a017;
+        }
+        .ask-us-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 md:p-6 flex justify-between items-center">
+        <a href="https://brams.se/" class="flex items-center gap-3">
+            <span class="nav-logo text-black font-display text-3xl transition-colors">BRAMS</span>
+        </a>
+        
+        <div class="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-black">
+            <a href="https://brams.se/" class="nav-link hover:text-brand-green transition-colors">Hem</a>
+            <a href="https://brams.se/menu" class="nav-link hover:text-brand-green transition-colors">Meny</a>
+            <a href="https://brams.se/locations" class="nav-link hover:text-brand-green transition-colors">Restauranger</a>
+            <a href="https://brams.se/about" class="nav-link hover:text-brand-green transition-colors">Om oss</a>
+            <a href="https://brams.se/contact" class="nav-link hover:text-brand-green transition-colors">Kontakt</a>
+        </div>
+
+        <div class="flex items-center gap-2 md:gap-4">
+            <!-- Language Switcher Desktop -->
+            <div class="hidden md:block relative group">
+                <button class="flex items-center gap-2 text-black font-black text-[11px] uppercase tracking-widest px-3 py-2 hover:text-brand-gold transition-colors">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span>SV</span>
+                </button>
+                <div class="lang-dropdown absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-[60]">
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">SVENSKA <span class="opacity-30">SE</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">ENGLISH <span class="opacity-30">EN</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">اردو <span class="opacity-30">UR</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">العربية <span class="opacity-30">AR</span></a>
+                </div>
+            </div>
+
+            <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white hover:bg-brand-green shadow-lg flex items-center justify-center">Beställ</a>
+            <button onclick="toggleMenu(true)" class="lg:hidden nav-link text-black p-2 hover:bg-black/5 rounded-full transition-colors">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menu Overlay & Drawer -->
+    <div id="menu-overlay" class="fixed inset-0 z-[90] bg-black/40 backdrop-blur-sm" onclick="toggleMenu(false)"></div>
+    <div id="menu-drawer" class="fixed inset-y-0 right-0 z-[100] bg-white w-full md:w-[450px] flex flex-col shadow-2xl overflow-y-auto rounded-none">
+        <div class="p-8 pb-4 flex justify-between items-center bg-white sticky top-0 z-20">
+            <span class="font-display text-4xl text-black tracking-tight">BRAMS</span>
+            <button onclick="toggleMenu(false)" class="text-black p-2 hover:bg-gray-100 rounded-full transition-all">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+
+        <div class="flex-1 px-8 py-6">
+            <div class="flex flex-col mb-10 text-black">
+                <a href="https://brams.se/menu" class="drawer-item">Vår meny <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/about" class="drawer-item">Hållbarhet <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item">Jobba med oss <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <a href="https://brams.se/about" class="drawer-item">Om BRAMS <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            </div>
+
+            <!-- Language Selection Mobile -->
+            <div class="mb-10 text-black">
+                <h4 class="font-black text-[10px] tracking-[0.3em] uppercase opacity-30 mb-6">VÄLJ SPRÅK / SELECT LANGUAGE</h4>
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">Svenska</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">English</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">اردو</button>
+                    <button class="bg-gray-100 p-4 rounded-xl font-black text-xs uppercase hover:bg-brand-gold hover:text-white transition-all text-center">العربية</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-10">
+                <a href="https://bramsburgers.qopla.com/" target="_blank" class="bg-brand-gold text-white py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 10.58 0A4 4 0 0 1 18 13.87"></path><path d="M6 13.87V19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-5.13"></path><line x1="6" y1="13.87" x2="18" y2="13.87"></line></svg>
+                    Beställ online
+                </a>
+                <a href="https://brams.se/locations" class="bg-white border-2 border-brand-gold text-brand-gold py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Hitta BRAMS
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Help Button -->
+    <a href="https://brams.se/contact" class="ask-us-btn hidden md:flex">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Fråga oss
+    </a>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background image for mobile and tablet -->
+        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/697632b4eb392b4e564dc057.png" class="absolute inset-0 w-full h-full object-cover lg:hidden" alt="Brams Hero Mobile">
+        <!-- Background image for desktop (datavy) -->
+        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/697bac0c04b05bff825a9f70.png" class="absolute inset-0 w-full h-full object-cover hidden lg:block" alt="Brams Hero Desktop">
+        <h1 class="sr-only">Brams Burger - Om en ska äta, alla ska äta</h1>
+    </section>
+
+    <!-- Vår Story Section - Full Gold Background, 2 Columns, No Shadow on Image -->
+    <section class="bg-brand-gold py-24 px-6 relative overflow-hidden">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12 md:gap-24">
+                
+                <!-- Column 1: Text & Button -->
+                <div class="text-white space-y-8 z-10 text-left">
+                    <div class="space-y-4">
+                        <p class="font-black text-xs md:text-sm tracking-[0.4em] opacity-80 uppercase">Vår Story</p>
+                        <h2 class="text-5xl md:text-[7rem] font-display leading-[0.9] uppercase tracking-tight">
+                            Smak som<br/>skriver historia!
+                        </h2>
+                    </div>
+                    <p class="font-bold text-lg md:text-2xl opacity-90 uppercase tracking-tight leading-relaxed max-w-xl">
+                        Upptäck resan från en food truck i Kista till hela Sveriges favorit. Vi kombinerar hantverk med äkta kärlek.
+                    </p>
+                    <div class="pt-4">
+                        <button onclick="window.location.href='https://brams.se/about'" class="pill-button bg-brand-green text-white hover:bg-brand-black shadow-2xl transition-all transform hover:-translate-y-1">
+                            Läs om Brams
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Column 2: Image (No shadow as requested) -->
+                <div class="relative flex justify-center items-center z-10">
+                    <img 
+                        src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695931eb3ccdd610ef9536f7.png" 
+                        alt="Brams Story Burger"
+                        class="w-full h-auto max-w-2xl transform transition-transform duration-700 hover:scale-105"
+                    />
+                </div>
+            </div>
+        </div>
+        <!-- Decorative subtle element -->
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-brand-black/5 rounded-full blur-3xl pointer-events-none"></div>
+    </section>
+
+    <!-- Info & Meny Section -->
+    <section class="bg-white">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+            <div onclick="window.location.href='https://brams.se/menu'" class="relative h-[320px] md:h-[480px] overflow-hidden group cursor-pointer">
+                <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7d350af9febae437a.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Burgare Meny" />
+                <div class="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex justify-end">
+                    <div class="flex items-center gap-3 bg-brand-gold text-white px-6 py-3 md:px-10 md:py-5 text-sm md:text-xl font-bold rounded-full hover:bg-white hover:text-black transition-all shadow-2xl active:scale-95">
+                        <span class="uppercase tracking-tight">Se vår meny här</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative h-[320px] md:h-[480px] overflow-hidden group cursor-pointer border-t md:border-t-0 md:border-l border-white/10">
+                <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7397a314773a7e65d.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Produktinformation" />
+                <div class="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex justify-end">
+                    <div class="flex items-center gap-3 bg-brand-gold text-white px-6 py-3 md:px-10 md:py-5 text-sm md:text-xl font-bold rounded-full hover:bg-white hover:text-black transition-all shadow-2xl active:scale-95">
+                        <span class="uppercase tracking-tight">Produktinformation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial Sections -->
+    <section class="bg-brand-cream">
+        <!-- Sustainability Section (Image Right) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 md:h-[760px] border-b border-black/5 overflow-hidden">
+            <div class="p-10 md:p-24 flex flex-col justify-center order-1 h-full text-left">
+                <div class="max-w-xl mx-auto md:mx-0">
+                    <span class="text-max-red font-black uppercase text-xs md:text-sm tracking-[0.3em] mb-6 block">Hållbarhet</span>
+                    <h2 class="text-4xl md:text-6xl font-display text-brand-black mb-8 leading-none">Vårt hållbarhetsarbete</h2>
+                    <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black">
+                        Vi arbetar aktivt med att minska vårt klimatavtryck genom att välja rätt råvaror och optimera våra restauranger för en grönare framtid.
+                    </p>
+                    <a href="https://brams.se/about" class="flex items-center gap-2 text-max-green font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity">
+                        Läs mer här 
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="h-[350px] md:h-full overflow-hidden order-2">
+                <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695803a7f0b9cf628f0b34dc.jpg" class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" alt="Hållbarhet" />
+            </div>
+        </div>
+
+        <!-- Halal Section (Image Left) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 md:h-[760px] border-b border-black/5 overflow-hidden">
+            <div class="h-[350px] md:h-full overflow-hidden order-1 md:order-1">
+                <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/6959348c3ccdd6d1169636bf.png" class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" alt="Halal Certifierat" />
+            </div>
+            <div class="p-10 md:p-24 flex flex-col justify-center order-2 md:order-2 h-full text-left">
+                <div class="max-w-xl mx-auto md:mx-0">
+                    <span class="text-brand-gold font-black uppercase text-xs md:text-sm tracking-[0.3em] mb-6 block">Kvalitet & Inkludering</span>
+                    <h2 class="text-4xl md:text-6xl font-display text-brand-black mb-8 leading-none">100% Halal</h2>
+                    <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black">
+                        För oss på BRAMS är det självklart att alla ska kunna njuta av en riktigt god burgare. Därför serverar vi 100% certifierat halal-kött i alla våra enheter, tillagat med samma hantverk och passion som alltid.
+                    </p>
+                    <a href="https://brams.se/about" class="flex items-center gap-2 text-brand-gold font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity">
+                        Vår filosofi 
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hitta närmaste BRAMS -->
+    <section class="relative h-[60vh] md:h-[80vh] w-full flex items-end justify-center pb-20 overflow-hidden">
+        <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/69760fdf29dcf5340f483282.jpg" class="absolute inset-0 w-full h-full object-cover brightness-90" />
+        <div class="relative z-10">
+            <button onclick="window.location.href='https://brams.se/locations'" class="flex items-center gap-3 bg-brand-gold text-white px-8 md:px-12 py-4 md:py-6 text-lg md:text-2xl font-bold rounded-full hover:bg-white hover:text-black transition-all shadow-2xl active:scale-95">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Hitta ditt närmaste BRAMS
+            </button>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="bg-white py-16 border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-3 flex flex-col items-start gap-8">
+                    <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" class="h-12 w-auto brightness-0" alt="Brams Logo" />
+                    <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-4">
+                        <a href="https://brams.se/contact" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Kontakta oss</a>
+                        <a href="https://brams.se/about" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Pressrum</a>
+                        <a href="https://brams-demo.teamtailor.com/" target="_blank" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Jobba med oss</a>
+                        <a href="#" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Cookiepolicy</a>
+                        <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap">Restauranger</a>
+                    </nav>
+                </div>
+
+                <div class="flex items-start lg:justify-end gap-5 text-black">
+                    <a href="https://instagram.com/bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://tiktok.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                    </a>
+                    <a href="https://youtube.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase">© 2024 BRAMS BURGER — ALLA SKA ÄTA</p>
+                <div class="flex gap-6">
+                    <a href="https://synsnu.se" target="_blank" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors">Powered by Syns Nu</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 50) {
+                navbar.classList.add('nav-active');
+            } else {
+                navbar.classList.remove('nav-active');
+            }
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+        }, false);
+
+        function toggleMenu(open) {
+            const drawer = document.getElementById('menu-drawer');
+            const overlay = document.getElementById('menu-overlay');
+            if (open) {
+                drawer.classList.add('open');
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            } else {
+                drawer.classList.remove('open');
+                overlay.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
