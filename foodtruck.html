@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brams Burger | Kontakt</title>
+    <title>Brams Burger | Food Truck</title>
     <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -24,50 +24,45 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        html, body { 
-            background-color: #fef3e9; 
-            color: #0c0c0c; 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            overflow-x: hidden; 
-            scroll-behavior: smooth; 
+        html, body {
+            background-color: #fef3e9;
+            color: #0c0c0c;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
-        h1, h2, h3, .font-display { 
-            font-family: 'Anton', sans-serif !important; 
-            text-transform: uppercase; 
-            line-height: 1.1 !important; 
-            letter-spacing: 0.02em; 
+        h1, h2, h3, .font-display {
+            font-family: 'Anton', sans-serif !important;
+            text-transform: uppercase;
+            line-height: 1.1 !important;
+            letter-spacing: 0.02em;
         }
-        
         .body-text {
             font-family: 'Poppins', sans-serif;
             text-transform: none;
             letter-spacing: normal;
         }
-
-        .pill-button { 
-            border-radius: 9999px; 
-            padding: 10px 24px; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 0.75rem; 
-            letter-spacing: 0.1em; 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        .pill-button {
+            border-radius: 9999px;
+            padding: 10px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        #navbar { 
-            background-color: transparent; 
-            transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease; 
-            backdrop-filter: blur(0px); 
+        #navbar {
+            background-color: transparent;
+            transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
         }
-        #navbar.nav-active { 
-            background-color: #ffffff; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
-            backdrop-filter: blur(10px); 
+        #navbar.nav-active {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
         }
         #navbar.nav-hidden { transform: translateY(-100%); }
-        
         .lang-dropdown {
             opacity: 0;
             visibility: hidden;
@@ -79,28 +74,37 @@
             visibility: visible;
             transform: translateY(0);
         }
-
         #menu-drawer { transition: transform 0.5s cubic-bezier(0.32, 0, 0.07, 1); transform: translateX(100%); }
         #menu-drawer.open { transform: translateX(0); }
         #menu-overlay { transition: opacity 0.4s ease; opacity: 0; pointer-events: none; }
         #menu-overlay.open { opacity: 1; pointer-events: auto; }
-        
-        .drawer-item { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 1.25rem 0; 
-            border-bottom: 1px solid #f3f4f6; 
-            font-weight: 800; 
-            font-size: 1.25rem; 
-            color: #000; 
+        .drawer-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: #000;
         }
         .footer-max-link { font-size: 14px; font-weight: 600; color: #000; transition: opacity 0.2s; }
         .footer-max-link:hover { opacity: 0.7; }
-
-        input, select, textarea { 
-            border: none !important; 
+        input, select, textarea {
+            border: none !important;
             font-family: 'Poppins', sans-serif;
+        }
+        .feature-card {
+            background: #0c0c0c;
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.3s ease;
+            color: white;
+        }
+        .feature-card:hover {
+            border-color: #c68c17;
+            transform: translateY(-4px);
         }
     </style>
 </head>
@@ -114,9 +118,9 @@
             <a href="https://brams.se/" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.home">Hem</a>
             <a href="https://brams.se/menu" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.menu">Meny</a>
             <a href="https://brams.se/locations" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.locations">Restauranger</a>
-            <a href="/foodtruck.html" class="nav-link hover:text-brand-gold transition-colors">Food Truck</a>
+            <a href="/foodtruck.html" class="nav-link text-brand-gold">Food Truck</a>
             <a href="https://brams.se/about" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.about">Om oss</a>
-            <a href="https://brams.se/contact" class="nav-link text-brand-gold" data-i18n="nav.contact">Kontakt</a>
+            <a href="https://brams.se/contact" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.contact">Kontakt</a>
         </div>
         <div class="flex items-center gap-2">
             <!-- Language Switcher Desktop -->
@@ -132,9 +136,10 @@
                     <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors" onclick="setLanguage('ar');return false;">العربية <span class="opacity-30">AR</span></a>
                 </div>
             </div>
-
             <a href="https://bramsburgers.qopla.com/" target="_blank" class="pill-button bg-brand-gold text-white shadow-lg" data-i18n="nav.order">Beställ</a>
-            <button onclick="toggleMenu(true)" class="lg:hidden nav-link text-black p-2"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+            <button onclick="toggleMenu(true)" class="lg:hidden nav-link text-black p-2">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
         </div>
     </nav>
 
@@ -150,8 +155,6 @@
             <a href="/foodtruck.html" class="drawer-item">Food Truck <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
             <a href="https://brams-demo.teamtailor.com/" target="_blank" class="drawer-item"><span data-i18n="drawer.jobs">Jobba med oss</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
             <a href="https://brams.se/about" class="drawer-item"><span data-i18n="drawer.about">Om BRAMS</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-
-            <!-- Language Selection Mobile -->
             <div class="mt-10">
                 <h4 class="font-black text-[10px] tracking-[0.3em] uppercase opacity-30 mb-6">VÄLJ SPRÅK / SELECT LANGUAGE</h4>
                 <div class="grid grid-cols-2 gap-3">
@@ -164,76 +167,118 @@
         </div>
     </div>
 
-    <!-- Main Content -->
-    <main class="pt-40 pb-32 container mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-20 items-start">
-            <div>
-                <h1 class="text-7xl md:text-9xl font-display uppercase leading-none mb-12 text-brand-black">Säg hej!</h1>
-                <p class="body-text text-xl md:text-2xl font-medium mb-12 text-brand-black leading-tight">
-                    Vi vill höra från dig. Har du frågor, feedback eller vill du bara prata burgare? Hör av dig till oss så svarar vi så snart vi kan.
-                </p>
-                
-                <div class="space-y-12">
-                    <div>
-                        <h4 class="font-black text-xs tracking-[0.3em] uppercase opacity-40 mb-3 text-brand-black">E-POST</h4>
-                        <p class="text-3xl font-display uppercase text-brand-gold">INFO@BRAMSBURGER.SE</p>
-                    </div>
-                    <div>
-                        <h4 class="font-black text-xs tracking-[0.3em] uppercase opacity-40 mb-3 text-brand-black">HUVUDKONTOR</h4>
-                        <p class="text-3xl font-display uppercase text-brand-black">SKÄRHOLMEN CENTRUM, STOCKHOLM</p>
-                    </div>
+    <!-- Hero -->
+    <section class="bg-brand-black text-white pt-40 pb-24 px-6 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 30% 50%, #c68c17 0%, transparent 60%), radial-gradient(circle at 70% 50%, #c68c17 0%, transparent 60%);"></div>
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"></path><path d="M16 8h4l3 3v5h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                Boka food truck
+            </div>
+            <h1 class="font-display text-7xl md:text-[10rem] text-white leading-none mb-4">FOOD<br>TRUCK</h1>
+            <p class="font-display text-3xl md:text-5xl text-brand-gold mb-8">Ta med BRAMS till dig</p>
+            <p class="body-text text-white/60 text-lg max-w-xl mx-auto leading-relaxed">
+                Vi kör ut med vår food truck till ditt evenemang, din företagslunch eller din fest. Fyll i formuläret nedan så återkommer vi med mer info.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="bg-brand-black py-16 px-6">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="feature-card">
+                <div class="w-10 h-10 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-5">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c68c17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                 </div>
+                <h3 class="font-display text-xl text-white mb-2">Evenemang & Fester</h3>
+                <p class="body-text text-white/50 text-sm leading-relaxed">Perfekt för privatfester, bröllop, födelsedagar och studentfiranden.</p>
+            </div>
+            <div class="feature-card">
+                <div class="w-10 h-10 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-5">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c68c17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
+                <h3 class="font-display text-xl text-white mb-2">Företagsevent</h3>
+                <p class="body-text text-white/50 text-sm leading-relaxed">Luncher, konferenser, after works – vi serverar hela kontoret.</p>
+            </div>
+            <div class="feature-card">
+                <div class="w-10 h-10 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-5">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c68c17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <h3 class="font-display text-xl text-white mb-2">Festivaler & Marknader</h3>
+                <p class="body-text text-white/50 text-sm leading-relaxed">Vi dyker upp där folk samlas – med BBQ och burgare i världsklass.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <main class="py-24 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-14 text-center">
+                <h2 class="font-display text-5xl md:text-7xl text-brand-black mb-4">Skicka bokningsförfrågan</h2>
+                <p class="body-text text-black/50 text-base">Vi återkommer inom 1–2 arbetsdagar med pris och tillgänglighet.</p>
             </div>
 
-            <!-- Form Container -->
-            <div class="bg-white p-8 md:p-12 rounded-[50px] shadow-[0_30px_100px_rgba(0,0,0,0.05)] border border-gray-100">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DITT NAMN</label>
-                            <input type="text" name="name" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="NAMN" />
-                        </div>
-                        <div>
-                            <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DIN E-POST</label>
-                            <input type="email" name="email" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="EMAIL" />
-                        </div>
-                    </div>
-
+            <form id="booking-form" class="space-y-6">
+                <!-- Name & Email -->
+                <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">TYP AV ÄRENDE</label>
-                        <select id="case-type" name="case-type" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black appearance-none cursor-pointer focus:ring-2 focus:ring-brand-gold outline-none transition-all">
-                            <option value="">VÄLJ ÄRENDE</option>
-                            <option value="jobb">JOBBANSÖKAN</option>
-                            <option value="reklamation">REKLAMATION / KLAGOMÅL</option>
-                            <option value="bestallning">FRÅGA OM BESTÄLLNING</option>
-                            <option value="samarbete">SAMARBETE</option>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DITT NAMN</label>
+                        <input type="text" name="name" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="NAMN" />
+                    </div>
+                    <div>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DIN E-POST</label>
+                        <input type="email" name="email" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="EMAIL" />
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">TELEFONNUMMER</label>
+                    <input type="tel" name="phone" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="+46 70 000 00 00" />
+                </div>
+
+                <!-- Event Type & Date -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">TYP AV EVENEMANG</label>
+                        <select name="event-type" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black appearance-none cursor-pointer focus:ring-2 focus:ring-brand-gold outline-none transition-all">
+                            <option value="">VÄLJ TYP</option>
+                            <option value="foretagsevent">FÖRETAGSEVENT</option>
+                            <option value="fest">FEST / PRIVAT TILLSTÄLLNING</option>
+                            <option value="festival">FESTIVAL / MARKNAD</option>
+                            <option value="brollop">BRÖLLOP</option>
                             <option value="ovrigt">ÖVRIGT</option>
                         </select>
                     </div>
-
-                    <!-- Conditional Uploads Section -->
-                    <div id="upload-section" class="hidden animate-in fade-in slide-in-from-top-2 duration-300">
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">BIFOGA FIL (CV / KVITTO / BILD)</label>
-                        <div class="relative">
-                            <input type="file" name="attachment" id="file-input" class="hidden" />
-                            <label for="file-input" class="w-full bg-brand-gold/5 border-2 border-dashed border-brand-gold/20 rounded-2xl p-8 flex flex-col items-center justify-center cursor-pointer hover:bg-brand-gold/10 transition-colors">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-gold mb-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                                <span class="font-bold text-sm text-brand-gold">KLICKA FÖR ATT LADDA UPP</span>
-                                <span id="file-name" class="text-[10px] text-gray-400 mt-1 uppercase tracking-widest">INGEN FIL VALD</span>
-                            </label>
-                        </div>
-                    </div>
-
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">MEDDELANDE</label>
-                        <textarea name="message" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold h-40 text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="VAD HAR DU PÅ HJÄRTAT?"></textarea>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DATUM</label>
+                        <input type="date" name="date" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" />
                     </div>
+                </div>
 
-                    <button type="submit" class="bg-brand-black text-white w-full py-6 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-brand-gold transition-all shadow-xl active:scale-[0.98]">
-                        SKICKA MEDDELANDE
-                    </button>
-                </form>
-            </div>
+                <!-- Location & Guests -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">ADRESS / PLATS</label>
+                        <input type="text" name="location" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="GATUADRESS ELLER PLATS" />
+                    </div>
+                    <div>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">ANTAL GÄSTER (CA)</label>
+                        <input type="number" name="guests" min="1" class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="50" />
+                    </div>
+                </div>
+
+                <!-- Message -->
+                <div>
+                    <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">MEDDELANDE / ÖVRIG INFO</label>
+                    <textarea name="message" class="w-full bg-gray-50 rounded-2xl p-4 font-bold h-40 text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="BERÄTTA MER OM DITT EVENEMANG..."></textarea>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="bg-brand-black text-white w-full py-6 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-brand-gold transition-all shadow-xl active:scale-[0.98]">
+                    SKICKA BOKNINGSFÖRFRÅGAN
+                </button>
+            </form>
         </div>
     </main>
 
@@ -270,7 +315,6 @@
     </footer>
 
     <script>
-        // Navbar scroll logic
         let lastScrollTop = 0;
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', function() {
@@ -279,10 +323,9 @@
             else navbar.classList.remove('nav-active');
             if (scrollTop > lastScrollTop && scrollTop > 100) navbar.classList.add('nav-hidden');
             else navbar.classList.remove('nav-hidden');
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
 
-        // Drawer logic
         function toggleMenu(open) {
             const drawer = document.getElementById('menu-drawer');
             const overlay = document.getElementById('menu-overlay');
@@ -297,42 +340,14 @@
             }
         }
 
-        // Form logic
-        const caseSelect = document.getElementById('case-type');
-        const uploadSection = document.getElementById('upload-section');
-        const fileInput = document.getElementById('file-input');
-        const fileNameSpan = document.getElementById('file-name');
-        const contactForm = document.getElementById('contact-form');
-
-        caseSelect.addEventListener('change', (e) => {
-            const val = e.target.value;
-            if (val === 'jobb' || val === 'reklamation') {
-                uploadSection.classList.remove('hidden');
-            } else {
-                uploadSection.classList.add('hidden');
-            }
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                fileNameSpan.textContent = e.target.files[0].name;
-                fileNameSpan.classList.remove('text-gray-400');
-                fileNameSpan.classList.add('text-brand-gold');
-            }
-        });
-
-        contactForm.addEventListener('submit', (e) => {
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const formData = new FormData(contactForm);
-            console.log('Sending message to info@brams.se:', Object.fromEntries(formData));
-            
-            // Simulation of submission
-            alert('Tack för ditt meddelande! Vi har mottagit ditt ärende och återkommer till dig på info@brams.se så snart vi kan.');
-            contactForm.reset();
-            uploadSection.classList.add('hidden');
-            fileNameSpan.textContent = "INGEN FIL VALD";
+            const formData = new FormData(this);
+            console.log('Food truck booking request:', Object.fromEntries(formData));
+            alert('Tack för din förfrågan! Vi återkommer inom 1–2 arbetsdagar med mer information.');
+            this.reset();
         });
     </script>
-<script src="/i18n.js"></script>
+    <script src="/i18n.js"></script>
 </body>
 </html>
