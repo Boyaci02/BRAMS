@@ -188,6 +188,8 @@
             <!-- Form Container -->
             <div class="bg-white p-8 md:p-12 rounded-[50px] shadow-[0_30px_100px_rgba(0,0,0,0.05)] border border-gray-100">
                 <form id="contact-form" class="space-y-6">
+                    <input type="hidden" name="access_key" value="c3f9c41f-3ada-488e-92f3-e22b2549421a" />
+                    <input type="hidden" name="subject" value="Nytt meddelande via brams.se" />
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DITT NAMN</label>
@@ -323,16 +325,34 @@
             }
         });
 
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'SKICKAR...';
+            submitBtn.disabled = true;
+
             const formData = new FormData(contactForm);
-            console.log('Sending message to info@brams.se:', Object.fromEntries(formData));
-            
-            // Simulation of submission
-            alert('Tack för ditt meddelande! Vi har mottagit ditt ärende och återkommer till dig på info@brams.se så snart vi kan.');
-            contactForm.reset();
-            uploadSection.classList.add('hidden');
-            fileNameSpan.textContent = "INGEN FIL VALD";
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                submitBtn.textContent = 'SKICKAT!';
+                submitBtn.classList.add('bg-brand-gold');
+                contactForm.reset();
+                uploadSection.classList.add('hidden');
+                fileNameSpan.textContent = "INGEN FIL VALD";
+                setTimeout(() => {
+                    submitBtn.textContent = 'SKICKA MEDDELANDE';
+                    submitBtn.classList.remove('bg-brand-gold');
+                    submitBtn.disabled = false;
+                }, 3000);
+            } else {
+                submitBtn.textContent = 'FEL – FÖRSÖK IGEN';
+                submitBtn.disabled = false;
+            }
         });
     </script>
 <script src="/i18n.js"></script>
