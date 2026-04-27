@@ -36,7 +36,7 @@ const BRAMS_TRANSLATIONS = {
         'halal.label': 'Kvalitet & Inkludering',
         'halal.body': 'För oss på BRAMS är det självklart att alla ska kunna njuta av en riktigt god burgare. Därför serverar vi 100% certifierat halal-kött i alla våra enheter, tillagat med samma hantverk och passion som alltid.',
         'halal.link': 'Läs om oss',
-        'find.btn': 'Hitta ditt närmaste BRAMS',
+        'find.btn': 'Hitta din närmaste BRAMS',
         'news.label': 'Nyheter', 'news.heading': 'Senaste nytt', 'news.all': 'Alla nyheter', 'news.readmore': 'Läs mer',
         'news.tag1': 'Nyhet', 'news.date1': '25 mars 2026',
         'news.a1.heading': 'BRAMS öppnar i Göteborg idag!',
