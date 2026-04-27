@@ -91,6 +91,12 @@ const BRAMS_TRANSLATIONS = {
         'menu.badge.new': 'NYHET',
         'menu.badge.popular': 'POPULÄR',
         'menu.section.vegfish': 'Vegetariskt & Fisk',
+        'menu.section.specialfries': 'Special Fries',
+        'menu.specialfries.note': 'Våra signaturpommes — toppade, fyllda, friterade till perfektion.',
+        'menu.d.koreanfries': 'Pommes, smält ostsås, chilimajo, K-Townsås, sesamströssel, silverlök, picklade jalapeños, rostad lök.',
+        'menu.d.trufflefries': 'Pommes, tryffelmajonnäs, parmesanost, rostad lök.',
+        'menu.d.cheesefries': 'Pommes, smält ostsås, chilimajonnäs, silverlök, inlagd jalapeños.',
+        'menu.d.onionfries': 'Pommes, smält ostsås, silverlök, rödlök, karamelliserad lök, chilimajonnäs.',
     },
     en: {
         'nav.home': 'Home', 'nav.menu': 'Menu', 'nav.locations': 'Restaurants',
@@ -178,6 +184,12 @@ const BRAMS_TRANSLATIONS = {
         'menu.badge.new': 'NEW',
         'menu.badge.popular': 'POPULAR',
         'menu.section.vegfish': 'Vegetarian & Fish',
+        'menu.section.specialfries': 'Special Fries',
+        'menu.specialfries.note': 'Our signature fries — loaded, topped and fried to perfection.',
+        'menu.d.koreanfries': 'Fries, melted cheese sauce, chili mayo, K-Town sauce, sesame, silver onion, pickled jalapeños, roasted onion.',
+        'menu.d.trufflefries': 'Fries, truffle mayo, parmesan, roasted onion.',
+        'menu.d.cheesefries': 'Fries, melted cheese sauce, chili mayo, silver onion, pickled jalapeños.',
+        'menu.d.onionfries': 'Fries, melted cheese sauce, silver onion, red onion, caramelized onion, chili mayo.',
     },
     ur: {
         'nav.home': 'ہوم', 'nav.menu': 'مینو', 'nav.locations': 'ریستوران',
@@ -265,6 +277,12 @@ const BRAMS_TRANSLATIONS = {
         'menu.badge.new': 'نیا',
         'menu.badge.popular': 'مقبول',
         'menu.section.vegfish': 'ویجیٹیرین اور مچھلی',
+        'menu.section.specialfries': 'اسپیشل فرائز',
+        'menu.specialfries.note': 'ہمارے سگنیچر فرائز — لوڈڈ، ٹاپڈ اور بہترین تلے ہوئے۔',
+        'menu.d.koreanfries': 'فرائز، پگھلا ہوا چیز سوس، چلی مایو، K-Town سوس، تل، چاندی پیاز، اچار جلاپینو، بھنا ہوا پیاز۔',
+        'menu.d.trufflefries': 'فرائز، ٹرفل مایو، پارمیسان، بھنا ہوا پیاز۔',
+        'menu.d.cheesefries': 'فرائز، پگھلا ہوا چیز سوس، چلی مایو، چاندی پیاز، اچار جلاپینو۔',
+        'menu.d.onionfries': 'فرائز، پگھلا ہوا چیز سوس، چاندی پیاز، لال پیاز، کیرامل پیاز، چلی مایو۔',
     },
     ar: {
         'nav.home': 'الرئيسية', 'nav.menu': 'القائمة', 'nav.locations': 'المطاعم',
@@ -352,6 +370,12 @@ const BRAMS_TRANSLATIONS = {
         'menu.badge.new': 'جديد',
         'menu.badge.popular': 'الأكثر طلباً',
         'menu.section.vegfish': 'نباتي وأسماك',
+        'menu.section.specialfries': 'بطاطا مميزة',
+        'menu.specialfries.note': 'بطاطانا المميزة — محمّلة ومقلية إلى حد الكمال.',
+        'menu.d.koreanfries': 'بطاطا، صوص جبن ذائب، مايونيز حار، صوص K-Town، سمسم، بصل فضي، هالابينيو مخلل، بصل محمّص.',
+        'menu.d.trufflefries': 'بطاطا، مايونيز الكمأة، بارميزان، بصل محمّص.',
+        'menu.d.cheesefries': 'بطاطا، صوص جبن ذائب، مايونيز حار، بصل فضي، هالابينيو مخلل.',
+        'menu.d.onionfries': 'بطاطا، صوص جبن ذائب، بصل فضي، بصل أحمر، بصل مكرمل، مايونيز حار.',
     },
     so: {
         // Nav
@@ -445,6 +469,12 @@ const BRAMS_TRANSLATIONS = {
         'menu.badge.new': 'CUSUB',
         'menu.badge.popular': 'CAANBAX',
         'menu.section.vegfish': 'Vegetarian & Kalluun',
+        'menu.section.specialfries': 'Fries Gaar ah',
+        'menu.specialfries.note': 'Fries-keenna sigantur — buuxsan, sare-saaran, oo si fiican loo shiilay.',
+        'menu.d.koreanfries': 'Fries, xaawaash cheese dhalaalaysa, mayo xaar ah, xaawaash K-Town, simsim, basal qalin, jalapeño xidhxidhan, basasha la dubay.',
+        'menu.d.trufflefries': 'Fries, mayo truffle, parmesan, basasha la dubay.',
+        'menu.d.cheesefries': 'Fries, xaawaash cheese dhalaalaysa, mayo xaar ah, basal qalin, jalapeño xidhxidhan.',
+        'menu.d.onionfries': 'Fries, xaawaash cheese dhalaalaysa, basal qalin, basasha cas, basasha caramel-ka, mayo xaar ah.',
     }
 };
 
