@@ -74,6 +74,14 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
         }
+        .lang-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            height: 12px;
+        }
         .group:hover .lang-dropdown {
             opacity: 1;
             visibility: visible;
@@ -187,14 +195,14 @@
     <main class="pt-40 pb-32 container mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-20 items-start">
             <div>
-                <h1 class="text-7xl md:text-9xl font-display uppercase leading-none mb-12 text-brand-black">Säg hej!</h1>
-                <p class="body-text text-xl md:text-2xl font-medium mb-12 text-brand-black leading-tight">
+                <h1 class="text-7xl md:text-9xl font-display uppercase leading-none mb-12 text-brand-black" data-i18n="contact.h1">Säg hej!</h1>
+                <p class="body-text text-xl md:text-2xl font-medium mb-12 text-brand-black leading-tight" data-i18n="contact.lead">
                     Vi vill höra från dig. Har du frågor, feedback eller vill du bara prata burgare? Hör av dig till oss så svarar vi så snart vi kan.
                 </p>
-                
+
                 <div class="space-y-12">
                     <div>
-                        <h4 class="font-black text-xs tracking-[0.3em] uppercase opacity-40 mb-3 text-brand-black">E-POST</h4>
+                        <h4 class="font-black text-xs tracking-[0.3em] uppercase opacity-40 mb-3 text-brand-black" data-i18n="contact.email.label">E-POST</h4>
                         <p class="text-3xl font-display uppercase text-brand-gold"><a href="mailto:info@brams.se" class="hover:underline">INFO@BRAMS.SE</a></p>
                     </div>
                 </div>
@@ -207,46 +215,46 @@
                     <input type="hidden" name="subject" value="Nytt meddelande via brams.se" />
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DITT NAMN</label>
+                            <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="contact.form.name">DITT NAMN</label>
                             <input type="text" name="name" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="NAMN" />
                         </div>
                         <div>
-                            <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DIN E-POST</label>
+                            <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="contact.form.email">DIN E-POST</label>
                             <input type="email" name="email" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="EMAIL" />
                         </div>
                     </div>
 
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">TYP AV ÄRENDE</label>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="contact.form.case">TYP AV ÄRENDE</label>
                         <select id="case-type" name="case-type" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black appearance-none cursor-pointer focus:ring-2 focus:ring-brand-gold outline-none transition-all">
-                            <option value="">VÄLJ ÄRENDE</option>
-                            <option value="jobb">JOBBANSÖKAN</option>
-                            <option value="reklamation">REKLAMATION / KLAGOMÅL</option>
-                            <option value="bestallning">FRÅGA OM BESTÄLLNING</option>
-                            <option value="samarbete">SAMARBETE</option>
-                            <option value="ovrigt">ÖVRIGT</option>
+                            <option value="" data-i18n="contact.form.caseChoose">VÄLJ ÄRENDE</option>
+                            <option value="jobb" data-i18n="contact.form.case.jobb">JOBBANSÖKAN</option>
+                            <option value="reklamation" data-i18n="contact.form.case.reklamation">REKLAMATION / KLAGOMÅL</option>
+                            <option value="bestallning" data-i18n="contact.form.case.bestallning">FRÅGA OM BESTÄLLNING</option>
+                            <option value="samarbete" data-i18n="contact.form.case.samarbete">SAMARBETE</option>
+                            <option value="ovrigt" data-i18n="contact.form.case.ovrigt">ÖVRIGT</option>
                         </select>
                     </div>
 
                     <!-- Conditional Uploads Section -->
                     <div id="upload-section" class="hidden animate-in fade-in slide-in-from-top-2 duration-300">
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">BIFOGA FIL (CV / KVITTO / BILD)</label>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="contact.form.attach">BIFOGA FIL (CV / KVITTO / BILD)</label>
                         <div class="relative">
                             <input type="file" name="attachment" id="file-input" class="hidden" />
                             <label for="file-input" class="w-full bg-brand-gold/5 border-2 border-dashed border-brand-gold/20 rounded-2xl p-8 flex flex-col items-center justify-center cursor-pointer hover:bg-brand-gold/10 transition-colors">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-gold mb-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                                <span class="font-bold text-sm text-brand-gold">KLICKA FÖR ATT LADDA UPP</span>
-                                <span id="file-name" class="text-[10px] text-gray-400 mt-1 uppercase tracking-widest">INGEN FIL VALD</span>
+                                <span class="font-bold text-sm text-brand-gold" data-i18n="contact.form.upload">KLICKA FÖR ATT LADDA UPP</span>
+                                <span id="file-name" class="text-[10px] text-gray-400 mt-1 uppercase tracking-widest" data-i18n="contact.form.noFile">INGEN FIL VALD</span>
                             </label>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">MEDDELANDE</label>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="contact.form.message">MEDDELANDE</label>
                         <textarea name="message" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold h-40 text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="VAD HAR DU PÅ HJÄRTAT?"></textarea>
                     </div>
 
-                    <button type="submit" class="bg-brand-black text-white w-full py-6 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-brand-gold transition-all shadow-xl active:scale-[0.98]">
+                    <button type="submit" class="bg-brand-black text-white w-full py-6 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-brand-gold transition-all shadow-xl active:scale-[0.98]" data-i18n="contact.form.submit">
                         SKICKA MEDDELANDE
                     </button>
                 </form>

@@ -46,6 +46,14 @@
         .footer-max-link { font-size: 14px; font-weight: 600; color: #000; transition: opacity 0.2s; }
         .footer-max-link:hover { opacity: 0.7; }
         .lang-dropdown { display: none; }
+        .lang-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            height: 12px;
+        }
         .group:hover .lang-dropdown { display: block; }
             </style>
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"a36f2b612ae98b7d7fcca110a12a1abe"})});</script>

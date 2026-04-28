@@ -110,6 +110,14 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
         }
+        .lang-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            height: 12px;
+        }
         .group:hover .lang-dropdown {
             opacity: 1;
             visibility: visible;
@@ -236,11 +244,11 @@
         <div class="relative max-w-4xl mx-auto text-center w-full">
             <div class="inline-flex items-center gap-2 bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"></path><path d="M16 8h4l3 3v5h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                Boka food truck
+                <span data-i18n="ft.hero.badge">Boka food truck</span>
             </div>
-            <h1 class="font-display text-7xl md:text-[10rem] text-white leading-none mb-4 drop-shadow-2xl">FOOD<br>TRUCK</h1>
-            <p class="font-display text-3xl md:text-5xl text-brand-gold mb-8 drop-shadow-lg">Ta med BRAMS till dig</p>
-            <p class="body-text text-white/75 text-lg max-w-xl mx-auto leading-relaxed">
+            <h1 class="font-display text-7xl md:text-[10rem] text-white leading-none mb-4 drop-shadow-2xl" data-i18n="ft.hero.h1">FOOD<br>TRUCK</h1>
+            <p class="font-display text-3xl md:text-5xl text-brand-gold mb-8 drop-shadow-lg" data-i18n="ft.hero.sub">Ta med BRAMS till dig</p>
+            <p class="body-text text-white/75 text-lg max-w-xl mx-auto leading-relaxed" data-i18n="ft.hero.body">
                 Vi kör ut med vår food truck till ditt evenemang, din företagslunch eller din fest. Fyll i formuläret nedan så återkommer vi med mer info.
             </p>
         </div>
@@ -253,22 +261,22 @@
                 <div class="w-10 h-10 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-5">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c68c17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                 </div>
-                <h3 class="font-display text-xl text-white mb-2">Evenemang & Fester</h3>
-                <p class="body-text text-white/50 text-sm leading-relaxed">Perfekt för privatfester, bröllop, födelsedagar och studentfiranden.</p>
+                <h3 class="font-display text-xl text-white mb-2" data-i18n="ft.feat.1.title">Evenemang & Fester</h3>
+                <p class="body-text text-white/50 text-sm leading-relaxed" data-i18n="ft.feat.1.text">Perfekt för privatfester, bröllop, födelsedagar och studentfiranden.</p>
             </div>
             <div class="feature-card">
                 <div class="w-10 h-10 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-5">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c68c17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
                 </div>
-                <h3 class="font-display text-xl text-white mb-2">Företagsevent</h3>
-                <p class="body-text text-white/50 text-sm leading-relaxed">Luncher, konferenser, after works – vi serverar hela kontoret.</p>
+                <h3 class="font-display text-xl text-white mb-2" data-i18n="ft.feat.2.title">Företagsevent</h3>
+                <p class="body-text text-white/50 text-sm leading-relaxed" data-i18n="ft.feat.2.text">Luncher, konferenser, after works – vi serverar hela kontoret.</p>
             </div>
             <div class="feature-card">
                 <div class="w-10 h-10 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-5">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c68c17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                 </div>
-                <h3 class="font-display text-xl text-white mb-2">Festivaler & Marknader</h3>
-                <p class="body-text text-white/50 text-sm leading-relaxed">Vi dyker upp där folk samlas – med BBQ och burgare i världsklass.</p>
+                <h3 class="font-display text-xl text-white mb-2" data-i18n="ft.feat.3.title">Festivaler & Marknader</h3>
+                <p class="body-text text-white/50 text-sm leading-relaxed" data-i18n="ft.feat.3.text">Vi dyker upp där folk samlas – med BBQ och burgare i världsklass.</p>
             </div>
         </div>
     </section>
@@ -277,8 +285,8 @@
     <main class="py-24 px-6">
         <div class="max-w-3xl mx-auto">
             <div class="mb-14 text-center">
-                <h2 class="font-display text-5xl md:text-7xl text-brand-black mb-4">Skicka bokningsförfrågan</h2>
-                <p class="body-text text-black/50 text-base">Vi återkommer inom 1–2 arbetsdagar med pris och tillgänglighet.</p>
+                <h2 class="font-display text-5xl md:text-7xl text-brand-black mb-4" data-i18n="ft.form.heading">Skicka bokningsförfrågan</h2>
+                <p class="body-text text-black/50 text-base" data-i18n="ft.form.sub">Vi återkommer inom 1–2 arbetsdagar med pris och tillgänglighet.</p>
             </div>
 
             <form id="booking-form" class="space-y-6">
@@ -287,36 +295,36 @@
                 <!-- Name & Email -->
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DITT NAMN</label>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.name">DITT NAMN</label>
                         <input type="text" name="name" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="NAMN" />
                     </div>
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DIN E-POST</label>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.email">DIN E-POST</label>
                         <input type="email" name="email" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="EMAIL" />
                     </div>
                 </div>
 
                 <!-- Phone -->
                 <div>
-                    <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">TELEFONNUMMER</label>
+                    <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.phone">TELEFONNUMMER</label>
                     <input type="tel" name="phone" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="+46 70 000 00 00" />
                 </div>
 
                 <!-- Event Type & Date -->
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">TYP AV EVENEMANG</label>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.event">TYP AV EVENEMANG</label>
                         <select name="event-type" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black appearance-none cursor-pointer focus:ring-2 focus:ring-brand-gold outline-none transition-all">
-                            <option value="">VÄLJ TYP</option>
-                            <option value="foretagsevent">FÖRETAGSEVENT</option>
-                            <option value="fest">FEST / PRIVAT TILLSTÄLLNING</option>
-                            <option value="festival">FESTIVAL / MARKNAD</option>
-                            <option value="brollop">BRÖLLOP</option>
-                            <option value="ovrigt">ÖVRIGT</option>
+                            <option value="" data-i18n="ft.form.eventChoose">VÄLJ TYP</option>
+                            <option value="foretagsevent" data-i18n="ft.form.event.foretagsevent">FÖRETAGSEVENT</option>
+                            <option value="fest" data-i18n="ft.form.event.fest">FEST / PRIVAT TILLSTÄLLNING</option>
+                            <option value="festival" data-i18n="ft.form.event.festival">FESTIVAL / MARKNAD</option>
+                            <option value="brollop" data-i18n="ft.form.event.brollop">BRÖLLOP</option>
+                            <option value="ovrigt" data-i18n="ft.form.event.ovrigt">ÖVRIGT</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">DATUM</label>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.date">DATUM</label>
                         <input type="date" name="date" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" />
                     </div>
                 </div>
@@ -324,23 +332,23 @@
                 <!-- Location & Guests -->
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">ADRESS / PLATS</label>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.location">ADRESS / PLATS</label>
                         <input type="text" name="location" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="GATUADRESS ELLER PLATS" />
                     </div>
                     <div>
-                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">ANTAL GÄSTER (CA)</label>
+                        <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.guests">ANTAL GÄSTER (CA)</label>
                         <input type="number" name="guests" min="1" class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="50" />
                     </div>
                 </div>
 
                 <!-- Message -->
                 <div>
-                    <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black">MEDDELANDE / ÖVRIG INFO</label>
+                    <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.message">MEDDELANDE / ÖVRIG INFO</label>
                     <textarea name="message" class="w-full bg-gray-50 rounded-2xl p-4 font-bold h-40 text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="BERÄTTA MER OM DITT EVENEMANG..."></textarea>
                 </div>
 
                 <!-- Submit -->
-                <button type="submit" class="bg-brand-black text-white w-full py-6 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-brand-gold transition-all shadow-xl active:scale-[0.98]">
+                <button type="submit" class="bg-brand-black text-white w-full py-6 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-brand-gold transition-all shadow-xl active:scale-[0.98]" data-i18n="ft.form.submit">
                     SKICKA BOKNINGSFÖRFRÅGAN
                 </button>
             </form>
