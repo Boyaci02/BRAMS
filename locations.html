@@ -96,24 +96,287 @@
             color: #000;
         }
 
-        .location-card {
-            background: #151515;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            color: #ffffff; /* Lock text color inside cards */
+        /* Horizontal scroll rail */
+        .loc-rail-wrap { position: relative; }
+        .loc-rail {
+            list-style: none;
+            margin: 0;
+            padding: 0 clamp(24px, 6vw, 96px) 28px;
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-padding-inline: clamp(24px, 6vw, 96px);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
-        .location-card:hover {
-            transform: translateY(-10px);
-            border-color: #c68c17;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        .loc-rail::-webkit-scrollbar { display: none; }
+
+        .loc-card {
+            flex: 0 0 min(85vw, 400px);
+            scroll-snap-align: start;
+            background: #141414;
+            color: #fff;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.06);
+            overflow: hidden;
+            transition: transform .55s cubic-bezier(.22,1,.36,1), border-color .3s ease, box-shadow .55s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .loc-card { flex-basis: 420px; }
+        }
+        .loc-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(198,140,23,0.6);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.55);
+        }
+        .loc-card-link {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
-        .location-image {
-            transition: transform 0.7s ease;
+        .loc-card-media {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: #0a0a0a;
         }
-        .location-card:hover .location-image {
-            transform: scale(1.05);
+        .loc-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(.22,1,.36,1);
+        }
+        .loc-card:hover .loc-card-img { transform: scale(1.06); }
+
+        .loc-card-grad {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.45) 65%, rgba(0,0,0,0.92) 100%);
+            pointer-events: none;
+        }
+
+        .loc-card-num {
+            position: absolute;
+            top: 1.1rem;
+            right: 1.1rem;
+            font-family: 'Anton', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.32em;
+            color: rgba(255,255,255,0.85);
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.45rem 0.7rem 0.4rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            line-height: 1;
+        }
+
+        .loc-card-name {
+            position: absolute;
+            left: 1.5rem;
+            right: 1.5rem;
+            bottom: 1.4rem;
+            margin: 0;
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(2.6rem, 5.5vw, 3.4rem);
+            line-height: 0.92;
+            text-transform: uppercase;
+            letter-spacing: 0.015em;
+            color: #fff;
+            transition: color .35s ease, transform .35s cubic-bezier(.22,1,.36,1);
+        }
+        .loc-card:hover .loc-card-name {
+            color: #c68c17;
+            transform: translateY(-2px);
+        }
+        .loc-card-name::after {
+            content: '';
+            display: block;
+            width: 36px;
+            height: 2px;
+            background: #c68c17;
+            margin-top: 0.85rem;
+            transform-origin: left;
+            transform: scaleX(1);
+            transition: transform .45s cubic-bezier(.22,1,.36,1);
+        }
+        .loc-card:hover .loc-card-name::after { transform: scaleX(2.2); }
+
+        .loc-card-badge {
+            position: absolute;
+            top: 1.1rem;
+            left: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #c68c17;
+            color: #fff;
+            font-size: 0.6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.28em;
+            padding: 0.45rem 0.75rem;
+            line-height: 1;
+            box-shadow: 0 8px 20px rgba(198,140,23,0.35);
+        }
+        .loc-card-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            animation: loc-pulse 1.6s ease-in-out infinite;
+        }
+        @keyframes loc-pulse {
+            0%, 100% { opacity: 0.55; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.25); }
+        }
+
+        .loc-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+            padding: 1.6rem 1.6rem 1.8rem;
+            flex: 1;
+        }
+        .loc-card-row { display: flex; flex-direction: column; gap: 0.45rem; }
+        .loc-card-label {
+            font-size: 0.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.32em;
+            color: #c68c17;
+        }
+        .loc-card-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: rgba(255,255,255,0.78);
+            line-height: 1.5;
+        }
+        .loc-card-note {
+            text-transform: none;
+            font-style: italic;
+            font-weight: 500;
+            color: rgba(198,140,23,0.85);
+            letter-spacing: normal;
+        }
+
+        .loc-card-cta {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            background: #fff;
+            color: #000;
+            font-weight: 900;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            transition: background .3s ease, color .3s ease;
+        }
+        .loc-card-cta::after {
+            content: '→';
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1;
+            transition: transform .35s cubic-bezier(.22,1,.36,1);
+        }
+        .loc-card:hover .loc-card-cta {
+            background: #c68c17;
+            color: #fff;
+        }
+        .loc-card:hover .loc-card-cta::after { transform: translateX(6px); }
+
+        /* Coming soon variant */
+        .loc-card.is-locked { cursor: default; }
+        .loc-card.is-locked:hover {
+            transform: none;
+            border-color: rgba(255,255,255,0.06);
+            box-shadow: none;
+        }
+        .loc-card.is-locked .loc-card-img {
+            filter: blur(8px) brightness(0.35);
+            transform: scale(1.1);
+        }
+        .loc-card.is-locked .loc-card-name { display: none; }
+        .loc-card-locked-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            text-align: center;
+            padding: 0 2rem;
+        }
+        .loc-card-locked-overlay p {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            color: #c68c17;
+            line-height: 1.1;
+            margin: 0;
+        }
+        .loc-card-locked-overlay span {
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: rgba(198,140,23,0.5);
+        }
+
+        /* Desktop arrows */
+        .loc-nav { gap: 0.6rem; align-items: center; }
+        .loc-nav-btn {
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1.5px solid rgba(0,0,0,0.18);
+            color: #000;
+            cursor: pointer;
+            transition: all .25s ease;
+        }
+        .loc-nav-btn:hover {
+            border-color: #c68c17;
+            background: #c68c17;
+            color: #fff;
+        }
+        .loc-nav-btn:disabled {
+            opacity: 0.25;
+            cursor: not-allowed;
+            border-color: rgba(0,0,0,0.1);
+            background: transparent;
+            color: #000;
+        }
+
+        /* Mobile swipe hint */
+        .loc-hint {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding-left: clamp(24px, 6vw, 96px);
+            color: rgba(0,0,0,0.4);
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+        .loc-hint .arrow { animation: loc-swipe 1.6s ease-in-out infinite; }
+        @keyframes loc-swipe {
+            0%, 100% { transform: translateX(0); opacity: 0.4; }
+            50% { transform: translateX(8px); opacity: 1; }
         }
 
         .footer-max-link { font-size: 14px; font-weight: 600; color: #000; transition: opacity 0.2s; }
@@ -200,164 +463,166 @@
 
     <!-- Main Content -->
     <main class="pt-40 pb-32">
-        <div class="container mx-auto px-6">
-            <header class="mb-24 text-center md:text-left">
-                <h1 class="text-7xl md:text-[12rem] font-display uppercase tracking-tighter mb-4 opacity-90 text-brand-black">Hitta oss</h1>
-                <p class="text-xl md:text-3xl font-bold uppercase tracking-widest text-brand-gold">Hela familjen samlad under ett tak.</p>
-            </header>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- SKÄRHOLMEN -->
-                <div class="location-card group">
-                    <div class="aspect-[16/9] overflow-hidden">
-                        <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69f0c769dfacb1bd312a7117.jpg" class="location-image w-full h-full object-cover" alt="Skärholmen" />
-                    </div>
-                    <div class="p-10 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-4xl md:text-6xl font-display uppercase mb-4 group-hover:text-brand-gold transition-colors text-white">Skärholmen</h3>
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Lillholmsgången 2, 127 48 Skärholmen</span>
-                                </div>
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Mån–Tors: 10:00–22:00 <br/> Fre: 10:00–22:00 <span class="normal-case italic opacity-70">(paus 12:45–14:00)</span> <br/> Lör–Sön: 10:00–22:00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="/location-skarholmen.html" class="bg-white text-black py-4 px-8 rounded-2xl font-black uppercase text-center hover:bg-brand-gold hover:text-white transition-all">Beställ från Skärholmen</a>
-                    </div>
+        <div class="container mx-auto px-6 mb-12 md:mb-16">
+            <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 text-center md:text-left">
+                <div>
+                    <h1 class="text-7xl md:text-[12rem] font-display uppercase tracking-tighter mb-4 opacity-90 text-brand-black">Hitta oss</h1>
+                    <p class="text-xl md:text-3xl font-bold uppercase tracking-widest text-brand-gold">Hela familjen samlad under ett tak.</p>
                 </div>
+                <div class="loc-nav hidden md:flex" aria-label="Navigera mellan restauranger">
+                    <button type="button" class="loc-nav-btn loc-prev" aria-label="Föregående restaurang">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button type="button" class="loc-nav-btn loc-next" aria-label="Nästa restaurang">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+            </header>
+        </div>
+
+        <div class="loc-rail-wrap">
+            <ol class="loc-rail" id="loc-rail">
+                <!-- SKÄRHOLMEN -->
+                <li class="loc-card group">
+                    <a href="/location-skarholmen.html" class="loc-card-link">
+                        <div class="loc-card-media">
+                            <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69f0c769dfacb1bd312a7117.jpg" class="loc-card-img" alt="Skärholmen" />
+                            <div class="loc-card-grad"></div>
+                            <span class="loc-card-num">01 / 06</span>
+                            <h3 class="loc-card-name">Skärholmen</h3>
+                        </div>
+                        <div class="loc-card-body">
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Adress</span>
+                                <span class="loc-card-value">Lillholmsgången 2<br/>127 48 Skärholmen</span>
+                            </div>
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Öppettider</span>
+                                <span class="loc-card-value">Mån–Tors: 10:00–22:00<br/>Fre: 10:00–22:00 <em class="loc-card-note">(paus 12:45–14:00)</em><br/>Lör–Sön: 10:00–22:00</span>
+                            </div>
+                            <span class="loc-card-cta">Besök Skärholmen</span>
+                        </div>
+                    </a>
+                </li>
 
                 <!-- KISTA -->
-                <div class="location-card group">
-                    <div class="aspect-[16/9] overflow-hidden">
-                        <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69f0c793c5c98840c8438b40.webp" class="location-image w-full h-full object-cover" alt="Kista" />
-                    </div>
-                    <div class="p-10 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-4xl md:text-6xl font-display uppercase mb-4 group-hover:text-brand-gold transition-colors text-white">Kista</h3>
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Kistagången 20B, 164 40 Kista</span>
-                                </div>
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Mån–Tors: 10:00–23:00 <br/> Fre: 10:00–00:00 <span class="normal-case italic opacity-70">(paus 12:45–14:00)</span> <br/> Lör–Sön: 11:00–00:00</span>
-                                </div>
-                            </div>
+                <li class="loc-card group">
+                    <a href="/location-kista.html" class="loc-card-link">
+                        <div class="loc-card-media">
+                            <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69f0c793c5c98840c8438b40.webp" class="loc-card-img" alt="Kista" />
+                            <div class="loc-card-grad"></div>
+                            <span class="loc-card-num">02 / 06</span>
+                            <h3 class="loc-card-name">Kista</h3>
                         </div>
-                        <a href="/location-kista.html" class="bg-white text-black py-4 px-8 rounded-2xl font-black uppercase text-center hover:bg-brand-gold hover:text-white transition-all">Beställ från Kista</a>
-                    </div>
-                </div>
+                        <div class="loc-card-body">
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Adress</span>
+                                <span class="loc-card-value">Kistagången 20B<br/>164 40 Kista</span>
+                            </div>
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Öppettider</span>
+                                <span class="loc-card-value">Mån–Tors: 10:00–23:00<br/>Fre: 10:00–00:00 <em class="loc-card-note">(paus 12:45–14:00)</em><br/>Lör–Sön: 11:00–00:00</span>
+                            </div>
+                            <span class="loc-card-cta">Besök Kista</span>
+                        </div>
+                    </a>
+                </li>
 
                 <!-- HUDDINGE -->
-                <div class="location-card group">
-                    <div class="aspect-[16/9] overflow-hidden">
-                        <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69f0c7db67b2088f5003bbf8.webp" class="location-image w-full h-full object-cover" alt="Huddinge" />
-                    </div>
-                    <div class="p-10 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-4xl md:text-6xl font-display uppercase mb-4 group-hover:text-brand-gold transition-colors text-white">Huddinge</h3>
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Novavägen 17, 141 44 Huddinge</span>
-                                </div>
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Mån–Tors: 10:00–23:00 <br/> Fre: 10:00–00:00 <span class="normal-case italic opacity-70">(paus 12:45–14:00)</span> <br/> Lör–Sön: 11:00–00:00</span>
-                                </div>
-                            </div>
+                <li class="loc-card group">
+                    <a href="/location-huddinge.html" class="loc-card-link">
+                        <div class="loc-card-media">
+                            <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69f0c7db67b2088f5003bbf8.webp" class="loc-card-img" alt="Huddinge" />
+                            <div class="loc-card-grad"></div>
+                            <span class="loc-card-num">03 / 06</span>
+                            <h3 class="loc-card-name">Huddinge</h3>
                         </div>
-                        <a href="/location-huddinge.html" class="bg-white text-black py-4 px-8 rounded-2xl font-black uppercase text-center hover:bg-brand-gold hover:text-white transition-all">Beställ från Huddinge</a>
-                    </div>
-                </div>
+                        <div class="loc-card-body">
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Adress</span>
+                                <span class="loc-card-value">Novavägen 17<br/>141 44 Huddinge</span>
+                            </div>
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Öppettider</span>
+                                <span class="loc-card-value">Mån–Tors: 10:00–23:00<br/>Fre: 10:00–00:00 <em class="loc-card-note">(paus 12:45–14:00)</em><br/>Lör–Sön: 11:00–00:00</span>
+                            </div>
+                            <span class="loc-card-cta">Besök Huddinge</span>
+                        </div>
+                    </a>
+                </li>
 
                 <!-- UPPSALA -->
-                <div class="location-card group">
-                    <div class="aspect-[16/9] overflow-hidden">
-                        <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69f0c72c67b2088f50038511.jpg" class="location-image w-full h-full object-cover" alt="Uppsala" />
-                    </div>
-                    <div class="p-10 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-4xl md:text-6xl font-display uppercase mb-4 group-hover:text-brand-gold transition-colors text-white">Uppsala</h3>
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Väderkvarnsgatan 28C, 753 29 Uppsala</span>
-                                </div>
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Mån–Tors: 10:00–23:00 <br/> Fre: 10:00–00:00 <span class="normal-case italic opacity-70">(paus 12:45–14:00)</span> <br/> Lör–Sön: 11:00–00:00</span>
-                                </div>
-                            </div>
+                <li class="loc-card group">
+                    <a href="/location-uppsala.html" class="loc-card-link">
+                        <div class="loc-card-media">
+                            <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69f0c72c67b2088f50038511.jpg" class="loc-card-img" alt="Uppsala" />
+                            <div class="loc-card-grad"></div>
+                            <span class="loc-card-num">04 / 06</span>
+                            <h3 class="loc-card-name">Uppsala</h3>
                         </div>
-                        <a href="/location-uppsala.html" class="bg-white text-black py-4 px-8 rounded-2xl font-black uppercase text-center hover:bg-brand-gold hover:text-white transition-all">Beställ från Uppsala</a>
-                    </div>
-                </div>
+                        <div class="loc-card-body">
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Adress</span>
+                                <span class="loc-card-value">Väderkvarnsgatan 28C<br/>753 29 Uppsala</span>
+                            </div>
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Öppettider</span>
+                                <span class="loc-card-value">Mån–Tors: 10:00–23:00<br/>Fre: 10:00–00:00 <em class="loc-card-note">(paus 12:45–14:00)</em><br/>Lör–Sön: 11:00–00:00</span>
+                            </div>
+                            <span class="loc-card-cta">Besök Uppsala</span>
+                        </div>
+                    </a>
+                </li>
 
                 <!-- GÖTEBORG -->
-                <div class="location-card group">
-                    <div class="aspect-[16/9] overflow-hidden">
-                        <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69ee6fb3717d5dd4e12bf580.jpg" class="location-image w-full h-full object-cover" alt="Göteborg" />
-                    </div>
-                    <div class="p-10 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="inline-flex items-center gap-2 bg-brand-gold text-white text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
-                                    <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-                                    Nyöppnad
-                                </span>
-                            </div>
-                            <h3 class="text-4xl md:text-6xl font-display uppercase mb-4 group-hover:text-brand-gold transition-colors text-white">Göteborg</h3>
-                            <div class="space-y-4 mb-8">
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Kungsportsavenyen 29, 411 36 Göteborg</span>
-                                </div>
-                                <div class="flex items-start gap-3 opacity-60">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                    <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Sön–Tors: 10:00–23:00 <br/> Fre: 10:00–01:00 <span class="normal-case italic opacity-70">(paus 12:45–14:00)</span> <br/> Lör: 10:00–01:00</span>
-                                </div>
-                            </div>
+                <li class="loc-card group">
+                    <a href="/location-goteborg.html" class="loc-card-link">
+                        <div class="loc-card-media">
+                            <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69ee6fb3717d5dd4e12bf580.jpg" class="loc-card-img" alt="Göteborg" />
+                            <div class="loc-card-grad"></div>
+                            <span class="loc-card-badge">Nyöppnad</span>
+                            <span class="loc-card-num">05 / 06</span>
+                            <h3 class="loc-card-name">Göteborg</h3>
                         </div>
-                        <a href="/location-goteborg.html" class="bg-white text-black py-4 px-8 rounded-2xl font-black uppercase text-center hover:bg-brand-gold hover:text-white transition-all">Besök Göteborg</a>
-                    </div>
-                </div>
+                        <div class="loc-card-body">
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Adress</span>
+                                <span class="loc-card-value">Kungsportsavenyen 29<br/>411 36 Göteborg</span>
+                            </div>
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Öppettider</span>
+                                <span class="loc-card-value">Sön–Tors: 10:00–23:00<br/>Fre: 10:00–01:00 <em class="loc-card-note">(paus 12:45–14:00)</em><br/>Lör: 10:00–01:00</span>
+                            </div>
+                            <span class="loc-card-cta">Besök Göteborg</span>
+                        </div>
+                    </a>
+                </li>
 
                 <!-- KOMMANDE -->
-                <div class="location-card group relative overflow-hidden select-none pointer-events-none">
-                    <!-- Blurred content -->
-                    <div class="blur-sm opacity-40">
-                        <div class="aspect-[16/9] overflow-hidden bg-white/10">
-                            <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/695804a87483034ddaa904ab.jpg" class="location-image w-full h-full object-cover" alt="" />
-                        </div>
-                        <div class="p-10 flex flex-col justify-between">
-                            <div>
-                                <h3 class="text-4xl md:text-6xl font-display uppercase mb-4 text-white">???</h3>
-                                <div class="space-y-4 mb-8">
-                                    <div class="flex items-start gap-3 opacity-60">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                        <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Okänd adress, Sverige</span>
-                                    </div>
-                                    <div class="flex items-start gap-3 opacity-60">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        <span class="font-bold uppercase text-sm tracking-widest leading-tight text-white">Kommer snart</span>
-                                    </div>
-                                </div>
+                <li class="loc-card is-locked" aria-hidden="true">
+                    <div class="loc-card-link">
+                        <div class="loc-card-media">
+                            <img src="https://assets.cdn.filesafe.space/1FYpgqYgXr6SzFnCzKew/media/69ee6fb3717d5dd4e12bf580.jpg" class="loc-card-img" alt="" />
+                            <div class="loc-card-grad"></div>
+                            <span class="loc-card-num">06 / 06</span>
+                            <div class="loc-card-locked-overlay">
+                                <p>Vart ska vi öppna härnäst...</p>
+                                <span></span>
                             </div>
-                            <div class="bg-white/20 text-white py-4 px-8 rounded-2xl font-black uppercase text-center">Mer info snart</div>
+                        </div>
+                        <div class="loc-card-body">
+                            <div class="loc-card-row">
+                                <span class="loc-card-label">Status</span>
+                                <span class="loc-card-value">Mer info<br/>kommer snart</span>
+                            </div>
+                            <span class="loc-card-cta" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);">Stay tuned</span>
                         </div>
                     </div>
-                    <!-- Overlay teaser -->
-                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
-                        <p class="font-display text-brand-gold text-2xl md:text-3xl mb-3">Vart ska vi öppna härnäst...</p>
-                        <span class="w-8 h-0.5 bg-brand-gold/50 block"></span>
-                    </div>
-                </div>
+                </li>
+            </ol>
+            <div class="loc-hint md:hidden" aria-hidden="true">
+                <span>Svep för fler</span>
+                <span class="arrow">→</span>
             </div>
         </div>
     </main>
@@ -413,6 +678,34 @@
             if (open) { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
             else { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = 'auto'; }
         }
+
+        // Locations rail — desktop arrow nav + edge state
+        (function () {
+            const rail = document.getElementById('loc-rail');
+            const prev = document.querySelector('.loc-prev');
+            const next = document.querySelector('.loc-next');
+            if (!rail || !prev || !next) return;
+
+            const stepDistance = () => {
+                const card = rail.querySelector('.loc-card');
+                if (!card) return rail.clientWidth * 0.8;
+                const styles = getComputedStyle(rail);
+                const gap = parseFloat(styles.columnGap || styles.gap || 0);
+                return card.getBoundingClientRect().width + gap;
+            };
+
+            prev.addEventListener('click', () => rail.scrollBy({ left: -stepDistance(), behavior: 'smooth' }));
+            next.addEventListener('click', () => rail.scrollBy({ left: stepDistance(), behavior: 'smooth' }));
+
+            const updateEdges = () => {
+                const max = rail.scrollWidth - rail.clientWidth - 4;
+                prev.disabled = rail.scrollLeft <= 4;
+                next.disabled = rail.scrollLeft >= max;
+            };
+            rail.addEventListener('scroll', updateEdges, { passive: true });
+            window.addEventListener('resize', updateEdges);
+            updateEdges();
+        })();
     </script>
 <script src="/i18n.js"></script>
 </body>
