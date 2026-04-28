@@ -524,6 +524,10 @@ function setLanguage(lang) {
     document.querySelectorAll('.lang-current').forEach(el => {
         el.textContent = t['lang.label'] || lang.toUpperCase();
     });
+    // Sync any mobile <select data-lang-select> dropdowns to current language
+    document.querySelectorAll('[data-lang-select]').forEach(el => {
+        if (el.value !== lang) el.value = lang;
+    });
     // RTL for Arabic and Urdu
     const isRTL = lang === 'ar' || lang === 'ur';
     document.documentElement.lang = lang;
