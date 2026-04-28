@@ -143,113 +143,132 @@
             padding: 2rem;
         }
 
-        /* Timeline 2.0 — horizontal scroll on mobile, grid on desktop */
-        .tl-track {
+        /* Timeline — horizontal dots-and-text rail */
+        .tl-rail {
+            list-style: none;
+            margin: 0 -1.5rem;
+            padding: 1rem 1.5rem 2rem;
             display: flex;
-            gap: 16px;
+            gap: clamp(1rem, 2.4vw, 1.75rem);
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            scroll-padding-inline: 24px;
-            padding: 8px 24px 32px;
-            margin: 0 -1.5rem;
+            scroll-padding-inline: 1.5rem;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-        }
-        .tl-track::-webkit-scrollbar { display: none; }
-
-        .tl-card {
-            flex: 0 0 82vw;
-            max-width: 320px;
-            scroll-snap-align: center;
-            background: #151515;
-            border-radius: 32px;
-            padding: 1.75rem;
             position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .tl-rail::-webkit-scrollbar { display: none; }
+
+        /* Connecting line behind dots — passes through dot row vertically */
+        .tl-rail::before {
+            content: '';
+            position: absolute;
+            top: 88px;
+            left: 1.5rem;
+            right: 1.5rem;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent 0,
+                rgba(198,140,23,0.45) 6%,
+                rgba(198,140,23,0.45) 94%,
+                transparent 100%
+            );
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .tl-step {
+            flex: 0 0 min(72vw, 220px);
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.55rem;
+            position: relative;
+            z-index: 1;
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(24px);
             transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1);
             --tl-color: #c68c17;
         }
-        .tl-card[data-accent="green"] { --tl-color: #2d4a3e; }
-        .tl-card.is-visible { opacity: 1; transform: translateY(0); }
+        .tl-step[data-accent="green"] { --tl-color: #2d4a3e; }
+        .tl-step.is-visible { opacity: 1; transform: translateY(0); }
 
-        .tl-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--tl-color), transparent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 1.2s cubic-bezier(.22,1,.36,1) .25s;
-        }
-        .tl-card.is-visible::before { transform: scaleX(1); }
+        .tl-step[data-step="2"] { transition-delay: .08s; }
+        .tl-step[data-step="3"] { transition-delay: .16s; }
+        .tl-step[data-step="4"] { transition-delay: .24s; }
+        .tl-step[data-step="5"] { transition-delay: .32s; }
+        .tl-step[data-step="6"] { transition-delay: .40s; }
 
-        .tl-card[data-step="2"] { transition-delay: .08s; }
-        .tl-card[data-step="2"]::before { transition-delay: .33s; }
-        .tl-card[data-step="3"] { transition-delay: .16s; }
-        .tl-card[data-step="3"]::before { transition-delay: .41s; }
-        .tl-card[data-step="4"] { transition-delay: .24s; }
-        .tl-card[data-step="4"]::before { transition-delay: .49s; }
-        .tl-card[data-step="5"] { transition-delay: .32s; }
-        .tl-card[data-step="5"]::before { transition-delay: .57s; }
-        .tl-card[data-step="6"] { transition-delay: .40s; }
-        .tl-card[data-step="6"]::before { transition-delay: .65s; }
-
-        .tl-badge {
-            width: 44px; height: 44px;
-            border-radius: 9999px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--tl-color);
-            color: var(--tl-color);
+        .tl-num {
             font-family: 'Anton', sans-serif;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
-            letter-spacing: 0.05em;
+            font-size: 0.7rem;
+            letter-spacing: 0.32em;
+            color: rgba(198,140,23,0.85);
+            line-height: 1;
         }
-        .tl-year {
+        .tl-date {
             font-family: 'Anton', sans-serif;
-            font-size: 3.25rem;
+            font-size: clamp(1.4rem, 2.4vw, 1.85rem);
             color: var(--tl-color);
-            line-height: 0.9;
-            margin-bottom: 0.6rem;
             letter-spacing: 0.02em;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
         }
+
+        .tl-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--tl-color);
+            border: 3px solid #0c0c0c;
+            box-shadow: 0 0 0 3px rgba(198,140,23,0.22);
+            transform: scale(0.4);
+            opacity: 0;
+            transition: transform .7s cubic-bezier(.22,1,.36,1), opacity .5s ease;
+        }
+        .tl-step.is-visible .tl-dot {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .tl-step[data-accent="green"] .tl-dot {
+            box-shadow: 0 0 0 3px rgba(45,74,62,0.4);
+        }
+
         .tl-title {
             font-family: 'Anton', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 0.02em;
-            margin-bottom: 0.75rem;
             line-height: 1.1;
+            margin-top: 0.35rem;
         }
         .tl-text {
             font-family: 'Poppins', sans-serif;
-            color: rgba(255,255,255,0.55);
-            font-size: 0.875rem;
-            line-height: 1.55;
-            margin-bottom: 1.1rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.825rem;
+            line-height: 1.5;
+            max-width: 200px;
         }
         .tl-place {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            color: rgba(255,255,255,0.4);
-            font-size: 0.65rem;
-            font-weight: 700;
+            gap: 0.4rem;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.6rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.25em;
+            margin-top: 0.25rem;
         }
         .tl-place::before {
             content: '';
-            width: 6px;
-            height: 6px;
+            width: 4px;
+            height: 4px;
             background: var(--tl-color);
             border-radius: 9999px;
         }
@@ -265,6 +284,7 @@
             text-transform: uppercase;
             letter-spacing: 0.25em;
             margin-top: 0.5rem;
+            padding-left: 1.5rem;
         }
         .tl-hint .arrow {
             display: inline-block;
@@ -276,15 +296,20 @@
         }
 
         @media (min-width: 768px) {
-            .tl-track {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
-                overflow: visible;
-                padding: 0;
+            .tl-rail {
                 margin: 0;
+                padding: 1rem 0 2rem;
+                overflow-x: visible;
+                gap: 1rem;
             }
-            .tl-card { flex: none; max-width: none; }
+            .tl-rail::before {
+                left: 0;
+                right: 0;
+            }
+            .tl-step {
+                flex: 1 1 0;
+                min-width: 0;
+            }
             .tl-hint { display: none; }
         }
 
@@ -450,55 +475,61 @@
             <p class="text-brand-gold font-black uppercase tracking-[0.4em] text-xs mb-4" data-i18n="about.tl.label">Vår resa</p>
             <h2 class="font-display text-5xl md:text-7xl text-white mb-12 md:mb-16" data-i18n="about.tl.heading">Brams Burgers resa</h2>
 
-            <div class="tl-track">
-                <article class="tl-card" data-step="1" data-accent="gold">
-                    <div class="tl-badge">01</div>
-                    <div class="tl-year">2019</div>
+            <ol class="tl-rail">
+                <li class="tl-step" data-step="1" data-accent="gold">
+                    <span class="tl-num">01</span>
+                    <span class="tl-date" data-i18n="about.tl.1.date">Okt 2019</span>
+                    <span class="tl-dot" aria-hidden="true"></span>
                     <h3 class="tl-title" data-i18n="about.tl.1.title">Första Foodtrucken</h3>
-                    <p class="tl-text" data-i18n="about.tl.1.text">Två bröder med en passion för mat startade Bram's Burgers i en foodtruck i Kista — en signaturburgare i taget.</p>
+                    <p class="tl-text" data-i18n="about.tl.1.text">Bram's Burgers föds — den första foodtrucken rullar igång i Kista i oktober 2019.</p>
                     <span class="tl-place">Kista</span>
-                </article>
+                </li>
 
-                <article class="tl-card" data-step="2" data-accent="green">
-                    <div class="tl-badge">02</div>
-                    <div class="tl-year">2020</div>
-                    <h3 class="tl-title" data-i18n="about.tl.2.title">Pandemin & Anpassning</h3>
-                    <p class="tl-text" data-i18n="about.tl.2.text">När världen stängde ner anpassade vi oss snabbt. Online-beställning och catering höll drömmen vid liv — och stärkte bandet med våra gäster.</p>
-                    <span class="tl-place" data-i18n="about.tl.2.place">Online & Catering</span>
-                </article>
+                <li class="tl-step" data-step="2" data-accent="green">
+                    <span class="tl-num">02</span>
+                    <span class="tl-date" data-i18n="about.tl.2.date">2021</span>
+                    <span class="tl-dot" aria-hidden="true"></span>
+                    <h3 class="tl-title" data-i18n="about.tl.2.title">Andra Foodtrucken</h3>
+                    <p class="tl-text" data-i18n="about.tl.2.text">Familjen växer — andra foodtrucken öppnar i Kungens Kurva och tar BRAMS till nya gäster.</p>
+                    <span class="tl-place">Kungens Kurva</span>
+                </li>
 
-                <article class="tl-card" data-step="3" data-accent="gold">
-                    <div class="tl-badge">03</div>
-                    <div class="tl-year">2023</div>
+                <li class="tl-step" data-step="3" data-accent="gold">
+                    <span class="tl-num">03</span>
+                    <span class="tl-date" data-i18n="about.tl.3.date">Jun 2023</span>
+                    <span class="tl-dot" aria-hidden="true"></span>
                     <h3 class="tl-title" data-i18n="about.tl.3.title">Första Restaurangen</h3>
-                    <p class="tl-text" data-i18n="about.tl.3.text">I juni 2023 slog Bram's Burgers upp portarna till sin allra första permanenta restaurang. Drömmen blev fysisk plats.</p>
+                    <p class="tl-text" data-i18n="about.tl.3.text">Drömmen får ett tak — första restaurangen köps och öppnas i Huddinge i juni 2023.</p>
                     <span class="tl-place">Huddinge</span>
-                </article>
+                </li>
 
-                <article class="tl-card" data-step="4" data-accent="green">
-                    <div class="tl-badge">04</div>
-                    <div class="tl-year">2024</div>
+                <li class="tl-step" data-step="4" data-accent="green">
+                    <span class="tl-num">04</span>
+                    <span class="tl-date" data-i18n="about.tl.4.date">2024</span>
+                    <span class="tl-dot" aria-hidden="true"></span>
                     <h3 class="tl-title" data-i18n="about.tl.4.title">Foodtruck → Restaurang</h3>
-                    <p class="tl-text" data-i18n="about.tl.4.text">I februari 2024 ersattes foodtrucken där allt började med en fullskalig restaurang i Kista. Hemmaplan fick ett nytt hem.</p>
+                    <p class="tl-text" data-i18n="about.tl.4.text">Hemmaplan får hem — foodtrucken i Kista blir en fullskalig restaurang mitt emot där den ursprungligen stod.</p>
                     <span class="tl-place">Kista</span>
-                </article>
+                </li>
 
-                <article class="tl-card" data-step="5" data-accent="gold">
-                    <div class="tl-badge">05</div>
-                    <div class="tl-year">2025</div>
+                <li class="tl-step" data-step="5" data-accent="gold">
+                    <span class="tl-num">05</span>
+                    <span class="tl-date" data-i18n="about.tl.5.date">2025</span>
+                    <span class="tl-dot" aria-hidden="true"></span>
                     <h3 class="tl-title" data-i18n="about.tl.5.title">Familjen Växer</h3>
-                    <p class="tl-text" data-i18n="about.tl.5.text">Fler städer, fler bord, fler smaker att dela. BRAMS-familjen sträckte sig vidare med nya restauranger i Skärholmen och Uppsala.</p>
+                    <p class="tl-text" data-i18n="about.tl.5.text">Tillväxt på två fronter — Skärholmen och Uppsala öppnar samma år, BRAMS når fler bord.</p>
                     <span class="tl-place">Skärholmen & Uppsala</span>
-                </article>
+                </li>
 
-                <article class="tl-card" data-step="6" data-accent="green">
-                    <div class="tl-badge">06</div>
-                    <div class="tl-year">2026</div>
+                <li class="tl-step" data-step="6" data-accent="green">
+                    <span class="tl-num">06</span>
+                    <span class="tl-date" data-i18n="about.tl.6.date">Mar 2026</span>
+                    <span class="tl-dot" aria-hidden="true"></span>
                     <h3 class="tl-title" data-i18n="about.tl.6.title">BRAMS i Göteborg</h3>
-                    <p class="tl-text" data-i18n="about.tl.6.text">I mars 2026 välkomnade vi Göteborg in i BRAMS-familjen. Ett nytt kapitel — och resan fortsätter.</p>
+                    <p class="tl-text" data-i18n="about.tl.6.text">Ett nytt kapitel — i mars 2026 välkomnar vi Göteborg in i BRAMS-familjen. Resan fortsätter.</p>
                     <span class="tl-place">Göteborg</span>
-                </article>
-            </div>
+                </li>
+            </ol>
 
             <div class="tl-hint" aria-hidden="true">
                 <span data-i18n="about.tl.hint">Svep för mer</span>
@@ -613,7 +644,7 @@
             else { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = 'auto'; }
         }
         // Reveal timeline cards on scroll
-        const tlCards = document.querySelectorAll('.tl-card');
+        const tlSteps = document.querySelectorAll('.tl-step');
         if ('IntersectionObserver' in window) {
             const tlIO = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -623,9 +654,9 @@
                     }
                 });
             }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
-            tlCards.forEach(c => tlIO.observe(c));
+            tlSteps.forEach(c => tlIO.observe(c));
         } else {
-            tlCards.forEach(c => c.classList.add('is-visible'));
+            tlSteps.forEach(c => c.classList.add('is-visible'));
         }
     </script>
 <script src="/i18n.js"></script>
