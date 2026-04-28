@@ -3,6 +3,7 @@ const BRAMS_TRANSLATIONS = {
         // Nav
         'nav.home': 'Hem', 'nav.menu': 'Meny', 'nav.locations': 'Restauranger',
         'nav.about': 'Om oss', 'nav.contact': 'Kontakt', 'nav.order': 'Beställ', 'nav.ask': 'Fråga oss',
+        'nav.foodtruck': 'Food Truck',
         'lang.label': 'SV',
         // Drawer
         'drawer.menu': 'Vår meny', 'drawer.sustainability': 'Hållbarhet',
@@ -101,6 +102,7 @@ const BRAMS_TRANSLATIONS = {
     en: {
         'nav.home': 'Home', 'nav.menu': 'Menu', 'nav.locations': 'Restaurants',
         'nav.about': 'About us', 'nav.contact': 'Contact', 'nav.order': 'Order', 'nav.ask': 'Ask us',
+        'nav.foodtruck': 'Food Truck',
         'lang.label': 'EN',
         'drawer.menu': 'Our menu', 'drawer.sustainability': 'Sustainability',
         'drawer.jobs': 'Work with us', 'drawer.about': 'About BRAMS',
@@ -194,6 +196,7 @@ const BRAMS_TRANSLATIONS = {
     ur: {
         'nav.home': 'ہوم', 'nav.menu': 'مینو', 'nav.locations': 'ریستوران',
         'nav.about': 'ہمارے بارے میں', 'nav.contact': 'رابطہ', 'nav.order': 'آرڈر', 'nav.ask': 'ہم سے پوچھیں',
+        'nav.foodtruck': 'فوڈ ٹرک',
         'lang.label': 'UR',
         'drawer.menu': 'ہماری مینو', 'drawer.sustainability': 'پائیداری',
         'drawer.jobs': 'ہمارے ساتھ کام کریں', 'drawer.about': 'BRAMS کے بارے میں',
@@ -287,6 +290,7 @@ const BRAMS_TRANSLATIONS = {
     ar: {
         'nav.home': 'الرئيسية', 'nav.menu': 'القائمة', 'nav.locations': 'المطاعم',
         'nav.about': 'معلومات عنا', 'nav.contact': 'اتصل بنا', 'nav.order': 'اطلب الآن', 'nav.ask': 'اسألنا',
+        'nav.foodtruck': 'شاحنة الطعام',
         'lang.label': 'AR',
         'drawer.menu': 'قائمتنا', 'drawer.sustainability': 'الاستدامة',
         'drawer.jobs': 'اعمل معنا', 'drawer.about': 'عن BRAMS',
@@ -381,6 +385,7 @@ const BRAMS_TRANSLATIONS = {
         // Nav
         'nav.home': 'Hoyga', 'nav.menu': 'Menu', 'nav.locations': 'Restaurants',
         'nav.about': 'Naga', 'nav.contact': 'Xiriir', 'nav.order': 'Dalbo', 'nav.ask': 'Naga weydii',
+        'nav.foodtruck': 'Food Truck',
         'lang.label': 'SO',
         // Drawer
         'drawer.menu': 'Menugayaga', 'drawer.sustainability': 'Joogtaynta',
