@@ -272,5 +272,24 @@
         }
     </script>
 <script src="/i18n.js"></script>
+
+    <!-- Eid Popup (visas endast onsdag 27 maj 2026) -->
+    <div id="eid-popup" class="fixed inset-0 z-[210] items-center justify-center p-4" style="display:none;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);">
+        <div class="relative overflow-hidden max-w-lg w-full bg-white shadow-2xl rounded-2xl" style="animation: eid-popup-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both;">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-brand-gold z-10"></div>
+            <div class="relative z-10 p-10 text-center">
+                <div class="text-5xl mb-4">🌙</div>
+                <h2 class="font-display text-5xl md:text-6xl text-brand-black leading-none mb-3">Eid Mubarak!</h2>
+                <p class="text-black font-bold uppercase text-sm tracking-widest mb-6">Onsdag 27 maj</p>
+                <p class="text-black/80 text-base md:text-lg mb-2">Vi har <b>ÖPPET som vanligt idag</b> — varmt välkommen in! 🍔</p><p class="text-black/80 text-base md:text-lg mb-8">Glad Eid! 🌙</p>
+                <button onclick="closeEid()" class="pill-button bg-brand-gold text-white hover:bg-brand-black text-center">Stäng</button>
+            </div>
+        </div>
+    </div>
+    <style>@keyframes eid-popup-in{from{opacity:0;transform:scale(0.85) translateY(20px);}to{opacity:1;transform:scale(1) translateY(0);}}</style>
+    <script>
+        function closeEid(){var p=document.getElementById('eid-popup');if(!p)return;p.style.transition='opacity 0.3s ease';p.style.opacity='0';setTimeout(function(){p.remove();},300);}
+        (function(){var t=new Date();if(t.getFullYear()===2026&&t.getMonth()===4&&t.getDate()===27){var e=document.getElementById('eid-popup');if(e)e.style.display='flex';}})();
+    </script>
 </body>
 </html>
