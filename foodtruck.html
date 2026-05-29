@@ -338,14 +338,14 @@
                     </div>
                     <div>
                         <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.guests">ANTAL GÄSTER (CA)</label>
-                        <input type="number" name="guests" min="1" class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="50" />
+                        <input type="number" name="guests" min="1" required class="w-full bg-gray-50 rounded-2xl p-4 font-bold text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="50" />
                     </div>
                 </div>
 
                 <!-- Message -->
                 <div>
                     <label class="block font-black uppercase text-[10px] mb-2 tracking-widest opacity-50 text-brand-black" data-i18n="ft.form.message">MEDDELANDE / ÖVRIG INFO</label>
-                    <textarea name="message" class="w-full bg-gray-50 rounded-2xl p-4 font-bold h-40 text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="BERÄTTA MER OM DITT EVENEMANG..."></textarea>
+                    <textarea name="message" required minlength="10" class="w-full bg-gray-50 rounded-2xl p-4 font-bold h-40 text-brand-black focus:ring-2 focus:ring-brand-gold outline-none transition-all" placeholder="BERÄTTA MER OM DITT EVENEMANG..."></textarea>
                 </div>
 
                 <!-- Submit -->
