@@ -155,6 +155,23 @@
             border-color: #c68c17;
             transform: translateY(-4px);
         }
+        /* Food truck-galleri */
+        .ft-shot {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 0;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: #0c0c0c;
+        }
+        .ft-shot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .ft-shot:hover img { transform: scale(1.05); }
     </style>
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"a36f2b612ae98b7d7fcca110a12a1abe"})});</script>
 </head>
@@ -278,6 +295,24 @@
                 </div>
                 <h3 class="font-display text-xl text-white mb-2" data-i18n="ft.feat.3.title">Festivaler & Marknader</h3>
                 <p class="body-text text-white/50 text-sm leading-relaxed" data-i18n="ft.feat.3.text">Vi dyker upp där folk samlas – med BBQ och burgare i världsklass.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food truck i aktion -->
+    <section class="bg-brand-black pb-20 md:pb-28 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+                <span class="inline-block text-brand-gold text-[10px] font-black uppercase tracking-[0.3em] mb-4">På plats</span>
+                <h2 class="font-display text-5xl md:text-7xl text-white leading-none mb-5">BRAMS på hjul</h2>
+                <p class="body-text text-white/50 text-base md:text-lg leading-relaxed">Från byggarbetsplatser och företagsluncher till fester och festivaler — vi rullar ut food trucken och serverar burgare i världsklass på plats. Så här ser det ut när vi kör.</p>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[160px] md:auto-rows-[230px]">
+                <figure class="ft-shot col-span-2 row-span-2"><img src="/ft/5.jpg" alt="BRAMS food truck-personal lämnar ut en nylagad burgare genom luckan" loading="lazy" /></figure>
+                <figure class="ft-shot"><img src="/ft/1.jpg" alt="BRAMS food truck på en arbetsplats med kö av gäster" loading="lazy" /></figure>
+                <figure class="ft-shot"><img src="/ft/2.jpg" alt="BRAMS food truck serverar lunch på plats" loading="lazy" /></figure>
+                <figure class="ft-shot"><img src="/ft/3.jpg" alt="Gäster vid BRAMS food truck under ett event" loading="lazy" /></figure>
+                <figure class="ft-shot"><img src="/ft/4.jpg" alt="Närbild på BRAMS food truck med BRAMS BURGERS-logotyp" loading="lazy" /></figure>
             </div>
         </div>
     </section>
