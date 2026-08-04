@@ -1,6 +1,6 @@
 const BRAMS_TRANSLATIONS = {
     sv: {
-        'om.where': 'Var vill du beställa ifrån?', 'om.how': 'välj var du beställer', 'om.pickup': 'Beställ direkt / Hämta',
+        'om.where': 'Var vill du beställa ifrån?', 'om.how': 'Hur vill du beställa?', 'om.pickup': 'Avhämtning & leverans', 'om.delivery': 'Hemleverans', 'om.back': 'Tillbaka', 'om.order': 'Beställ',
         // Nav
         'nav.home': 'Hem', 'nav.menu': 'Meny', 'nav.locations': 'Restauranger',
         'nav.about': 'Om oss', 'nav.contact': 'Kontakt', 'nav.order': 'Beställ', 'nav.ask': 'Fråga oss',
@@ -204,7 +204,7 @@ const BRAMS_TRANSLATIONS = {
         'ft.form.submit': 'SKICKA BOKNINGSFÖRFRÅGAN',
     },
     en: {
-        'om.where': 'Where do you want to order from?', 'om.how': 'choose how to order', 'om.pickup': 'Order direct / Pickup',
+        'om.where': 'Where do you want to order from?', 'om.how': 'How do you want to order?', 'om.pickup': 'Pickup & delivery', 'om.delivery': 'Delivery', 'om.back': 'Back', 'om.order': 'Order',
         'nav.home': 'Home', 'nav.menu': 'Menu', 'nav.locations': 'Restaurants',
         'nav.about': 'About us', 'nav.contact': 'Contact', 'nav.order': 'Order', 'nav.ask': 'Ask us',
         'nav.foodtruck': 'Food Truck',
@@ -402,7 +402,7 @@ const BRAMS_TRANSLATIONS = {
         'ft.form.submit': 'SEND BOOKING REQUEST',
     },
     ur: {
-        'om.where': 'آپ کہاں سے آرڈر کرنا چاہتے ہیں؟', 'om.how': 'آرڈر کا طریقہ منتخب کریں', 'om.pickup': 'براہ راست آرڈر / پک اپ',
+        'om.where': 'آپ کہاں سے آرڈر کرنا چاہتے ہیں؟', 'om.how': 'آپ کیسے آرڈر کرنا چاہتے ہیں؟', 'om.pickup': 'پک اپ اور ڈیلیوری', 'om.delivery': 'ہوم ڈیلیوری', 'om.back': 'واپس', 'om.order': 'آرڈر',
         'nav.home': 'ہوم', 'nav.menu': 'مینو', 'nav.locations': 'ریستوران',
         'nav.about': 'ہمارے بارے میں', 'nav.contact': 'رابطہ', 'nav.order': 'آرڈر', 'nav.ask': 'ہم سے پوچھیں',
         'nav.foodtruck': 'فوڈ ٹرک',
@@ -600,7 +600,7 @@ const BRAMS_TRANSLATIONS = {
         'ft.form.submit': 'بکنگ کی درخواست بھیجیں',
     },
     ar: {
-        'om.where': 'من أين تريد أن تطلب؟', 'om.how': 'اختر طريقة الطلب', 'om.pickup': 'اطلب مباشرة / استلام',
+        'om.where': 'من أين تريد أن تطلب؟', 'om.how': 'كيف تريد أن تطلب؟', 'om.pickup': 'استلام وتوصيل', 'om.delivery': 'توصيل للمنزل', 'om.back': 'رجوع', 'om.order': 'اطلب',
         'nav.home': 'الرئيسية', 'nav.menu': 'القائمة', 'nav.locations': 'المطاعم',
         'nav.about': 'معلومات عنا', 'nav.contact': 'اتصل بنا', 'nav.order': 'اطلب الآن', 'nav.ask': 'اسألنا',
         'nav.foodtruck': 'شاحنة الطعام',
@@ -798,7 +798,7 @@ const BRAMS_TRANSLATIONS = {
         'ft.form.submit': 'إرسال طلب الحجز',
     },
     so: {
-        'om.where': 'Xaggee ka dalbanaysaa?', 'om.how': 'dooro habka dalabka', 'om.pickup': 'Si toos ah u dalbo / Qaado',
+        'om.where': 'Xaggee ka dalbanaysaa?', 'om.how': 'Sidee rabtaa inaad u dalbato?', 'om.pickup': 'Qaadasho iyo keenid', 'om.delivery': 'Guriga keenid', 'om.back': 'Dib u noqo', 'om.order': 'Dalbo',
         // Nav
         'nav.home': 'Hoyga', 'nav.menu': 'Menu', 'nav.locations': 'Restaurants',
         'nav.about': 'Naga', 'nav.contact': 'Xiriir', 'nav.order': 'Dalbo', 'nav.ask': 'Naga weydii',

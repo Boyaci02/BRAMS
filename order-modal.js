@@ -1,7 +1,8 @@
 // BRAMS beställ-modal: välj restaurang → välj beställningssätt (samma flöde som Dunder Smash).
-// Injiceras på alla sidor; nav-knappen "Beställ" (data-i18n="nav.order") och drawerns
-// "Beställ online" öppnar modalen istället för att gå direkt till Qopla. Utan JS
-// funkar länkarnas ordinarie href som fallback.
+// Design enligt Ahmeds mockup 4/8: ljus panel, Anton-rubriker, plattformsknappar i
+// respektive varumärkes färger (Foodora rosa, Wolt cyan, Uber Eats svart, Qopla vit
+// med svart ram). Injiceras på alla sidor; nav-knappen "Beställ" (data-i18n="nav.order")
+// och drawerns "Beställ online" öppnar modalen. Utan JS funkar ordinarie href som fallback.
 (function () {
     var ENHETER = [
         {
@@ -42,45 +43,72 @@
     ];
 
     var css = '' +
-        '.om-overlay{position:fixed;inset:0;z-index:200;background:rgba(9,13,23,.85);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px)}' +
+        '.om-overlay{position:fixed;inset:0;z-index:200;background:rgba(12,12,12,.55);display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}' +
         '.om-overlay[hidden]{display:none}' +
-        '.om-panel{position:relative;width:min(420px,100%);background:#111827;border:1px solid rgba(255,106,19,.5);border-radius:20px;padding:30px 26px 26px;max-height:90svh;overflow-y:auto;color:#f9f6f1;font-family:inherit}' +
-        '.om-panel h3{font-size:1.15rem;font-weight:800;text-align:center;margin:0 0 18px;letter-spacing:.02em;color:#f9f6f1}' +
-        '.om-steg{display:flex;flex-direction:column;gap:10px}' +
+        '.om-panel{position:relative;width:min(440px,100%);background:#fff;border-radius:28px;padding:26px 24px 26px;max-height:92svh;overflow-y:auto;color:#0c0c0c;font-family:Inter,-apple-system,sans-serif;box-shadow:0 24px 70px rgba(0,0,0,.35)}' +
+        '.om-rubrik{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:2.6rem;line-height:1.05;letter-spacing:.01em;margin:34px 0 10px;color:#0c0c0c;text-transform:uppercase}' +
+        '.om-sub{font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#6b7280;margin:0 0 22px}' +
+        '.om-steg{display:flex;flex-direction:column}' +
         '.om-steg[hidden]{display:none}' +
-        '.om-enhet{display:block;width:100%;text-align:center;background:#ff6a13;color:#fff;border:none;border-radius:9999px;padding:13px 18px;font-weight:800;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:transform .15s,opacity .15s}' +
-        '.om-enhet:hover{transform:scale(1.03)}' +
-        '.om-enhet small{display:block;font-weight:500;text-transform:none;letter-spacing:0;font-size:.78rem;opacity:.75;margin-top:1px}' +
-        '.om-lank{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.06);color:#f9f6f1;border-radius:12px;padding:14px 18px;font-weight:700;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:background .15s}' +
-        '.om-lank:hover{background:rgba(255,255,255,.12)}' +
-        '.om-lank svg{color:#ff6a13;flex-shrink:0}' +
-        '.om-lank.om-direkt{background:#ff6a13;color:#fff}' +
-        '.om-lank.om-direkt svg{color:#fff}' +
-        '.om-lank.om-direkt:hover{background:#ff7f33}' +
-        '.om-stang{position:absolute;top:10px;right:14px;background:none;border:none;color:#f9f6f1;font-size:1.7rem;cursor:pointer;line-height:1}' +
-        '.om-stang:hover{color:#ff6a13}' +
-        '.om-tillbaka{position:absolute;top:14px;left:14px;background:none;border:none;color:#f9f6f1;cursor:pointer;padding:4px;display:flex;line-height:1}' +
-        '.om-tillbaka:hover{color:#ff6a13}';
+        '.om-lista{display:flex;flex-direction:column;gap:14px}' +
+        '.om-pill{display:flex;align-items:center;gap:14px;border-radius:9999px;padding:12px 22px 12px 12px;text-decoration:none;border:none;cursor:pointer;text-align:left;transition:transform .15s ease,box-shadow .15s ease;font-family:inherit}' +
+        '.om-pill:hover{transform:scale(1.02)}' +
+        '.om-ikon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(255,255,255,.22)}' +
+        '.om-text{flex:1;min-width:0}' +
+        '.om-titel{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:1.25rem;letter-spacing:.03em;text-transform:uppercase;line-height:1.1}' +
+        '.om-undertext{display:block;font-size:.8rem;font-weight:600;margin-top:2px;opacity:.9}' +
+        '.om-pil{flex-shrink:0;opacity:.9}' +
+        '.om-foodora{background:#d70f64;color:#fff;box-shadow:0 10px 26px rgba(215,15,100,.35)}' +
+        '.om-wolt{background:#00c2e8;color:#fff;box-shadow:0 10px 26px rgba(0,194,232,.35)}' +
+        '.om-uber{background:#0c0c0c;color:#fff;box-shadow:0 10px 26px rgba(0,0,0,.28)}' +
+        '.om-qopla{background:#fff;color:#0c0c0c;border:2px solid #0c0c0c}' +
+        '.om-qopla .om-ikon{background:#f3f4f6}' +
+        '.om-enhet{background:#0c0c0c;color:#fff;box-shadow:0 10px 26px rgba(0,0,0,.22)}' +
+        '.om-stang{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;background:#f3f4f6;border:none;color:#0c0c0c;font-size:1.35rem;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center}' +
+        '.om-stang:hover{background:#e5e7eb}' +
+        '.om-tillbaka{position:absolute;top:28px;left:24px;background:none;border:none;color:#0c0c0c;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-family:inherit}' +
+        '.om-tillbaka:hover{opacity:.6}';
 
-    var pil = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
-    var bakpil = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
+    var pilUpp = '<svg class="om-pil" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="9 7 17 7 17 15"></polyline></svg>';
+    var bakpil = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
+    var ikonMoped = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/><path d="M8 17.5h7.5M15 6h2.5l2 8.5M15 6l1.2 5.5c.2 1-.3 2-1.3 2.3L8 15.5M6 9h5l1 4"/></svg>';
+    var ikonVagn = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 4h2l2.4 11h10.2l2.4-8H6"/></svg>';
+    var ikonHus = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg>';
 
-    function lank(url, namn, direkt) {
+    function plattform(url, klass, namn, subKey, subDefault, ikon) {
         if (!url) return '';
-        return '<a href="' + url + '" target="_blank" rel="noopener" class="om-lank' + (direkt ? ' om-direkt' : '') + '">' +
-            '<span>' + namn + '</span>' + pil + '</a>';
+        return '<a href="' + url + '" target="_blank" rel="noopener" class="om-pill ' + klass + '">' +
+            '<span class="om-ikon">' + ikon + '</span>' +
+            '<span class="om-text"><span class="om-titel">' + namn + '</span>' +
+            '<span class="om-undertext" data-i18n="' + subKey + '">' + subDefault + '</span></span>' +
+            pilUpp + '</a>';
     }
 
     var steg2 = ENHETER.map(function (e) {
         return '<div class="om-steg" data-steg="' + e.id + '" hidden>' +
-            '<button type="button" class="om-tillbaka" aria-label="Byt restaurang">' + bakpil + '</button>' +
-            '<h3>' + e.namn + ' — <span data-i18n="om.how">välj var du beställer</span></h3>' +
-            lank(e.qopla, '<span data-i18n="om.pickup">Beställ direkt / Hämta</span>', true) +
-            lank(e.uber, 'Uber Eats') +
-            lank(e.wolt, 'Wolt') +
-            lank(e.foodora, 'Foodora') +
-            '</div>';
+            '<button type="button" class="om-tillbaka">' + bakpil + '<span data-i18n="om.back">Tillbaka</span></button>' +
+            '<h2 class="om-rubrik">' + e.namn + '</h2>' +
+            '<p class="om-sub" data-i18n="om.how">Hur vill du beställa?</p>' +
+            '<div class="om-lista">' +
+            plattform(e.foodora, 'om-foodora', 'Foodora', 'om.delivery', 'Hemleverans', ikonMoped) +
+            plattform(e.wolt, 'om-wolt', 'Wolt', 'om.delivery', 'Hemleverans', ikonMoped) +
+            plattform(e.uber, 'om-uber', 'Uber Eats', 'om.delivery', 'Hemleverans', ikonMoped) +
+            plattform(e.qopla, 'om-qopla', 'Qopla', 'om.pickup', 'Avhämtning & leverans', ikonVagn) +
+            '</div></div>';
     }).join('');
+
+    var steg1 = '<div class="om-steg" data-steg="1">' +
+        '<h2 class="om-rubrik" style="margin-top:14px" data-i18n="om.order">Beställ</h2>' +
+        '<p class="om-sub" data-i18n="om.where">Var vill du beställa ifrån?</p>' +
+        '<div class="om-lista">' +
+        ENHETER.map(function (e) {
+            return '<button type="button" class="om-pill om-enhet" data-enhet="' + e.id + '">' +
+                '<span class="om-ikon">' + ikonHus + '</span>' +
+                '<span class="om-text"><span class="om-titel">' + e.namn + '</span>' +
+                '<span class="om-undertext">' + e.adress + '</span></span>' +
+                pilUpp + '</button>';
+        }).join('') +
+        '</div></div>';
 
     var overlay = document.createElement('div');
     overlay.className = 'om-overlay';
@@ -90,12 +118,7 @@
     overlay.setAttribute('aria-label', 'Beställ från BRAMS');
     overlay.innerHTML = '<div class="om-panel">' +
         '<button type="button" class="om-stang" aria-label="Stäng">&#215;</button>' +
-        '<div class="om-steg" data-steg="1"><h3 data-i18n="om.where">Var vill du beställa ifrån?</h3>' +
-        ENHETER.map(function (e) {
-            return '<button type="button" class="om-enhet" data-enhet="' + e.id + '">' + e.namn +
-                '<small>' + e.adress + '</small></button>';
-        }).join('') +
-        '</div>' + steg2 + '</div>';
+        steg1 + steg2 + '</div>';
 
     var style = document.createElement('style');
     style.textContent = css;
