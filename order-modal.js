@@ -37,7 +37,7 @@
             id: 'goteborg', namn: 'Göteborg', adress: 'Kungsportsavenyen 29',
             qopla: "https://bramsburgers.qopla.com/restaurant/bram's-burgers---goteborg/qDQxKYXrEO/order",
             uber: 'https://www.ubereats.com/se/store/brams-burger-goteborg/XjL9idu2UIm3x5gQh-tOiA',
-            wolt: null, // Göteborg finns inte på Wolt
+            wolt: 'https://wolt.com/sv/swe/goteborg/restaurant/bram-s-burgers-goteborg-2',
             foodora: 'https://www.foodora.se/restaurant/qd6e/brams-burgers'
         }
     ];
