@@ -1,0 +1,5 @@
+# brams.se
+User-agent: *
+Allow: /
+
+Sitemap: https://brams.se/sitemap.xml
