@@ -21,21 +21,6 @@
     <meta name="twitter:description" content="Brams på Novavägen 17 i Huddinge. Halalburgare och friterad kyckling. Öppet mån–tors 10–23, fre 10–00, lör–sön 11–00." />
     <meta name="twitter:image" content="https://brams.se/og-brams.jpg" />
     <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'brand-black': '#0c0c0c',
-              'brand-green': '#2d4a3e',
-              'brand-gold': '#c68c17',
-              'brand-cream': '#f9f6f1',
-            }
-          }
-        }
-      }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -151,7 +136,9 @@
       "potentialAction": {
         "@type": "OrderAction",
         "target": "https://bramsburgers.qopla.com/restaurant/bram's-burgers---huddinge/qwNDeajN98/order"
-      }
+      },
+      "telephone": "+46 8 27 01 11",
+      "alternateName": "Bram's Burgers Huddinge"
     },
     {
       "@context": "https://schema.org",
@@ -179,7 +166,8 @@
     }
   ]
 }
-    </script>
+</script>
+    <link rel="stylesheet" href="/tw.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -286,23 +274,23 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 </div>
                 <h3 class="text-3xl font-display mb-6" data-i18n="loc.hours">Öppettider</h3>
-                <div class="space-y-4 font-bold text-sm tracking-widest uppercase">
+                <dl class="space-y-4 font-bold text-sm tracking-widest uppercase">
                     <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="opacity-50" data-i18n="loc.day.monThu">Mån - Tors</span>
-                        <span>10:00 - 23:00</span>
+                        <dt class="opacity-50" data-i18n="loc.day.monThu">Mån - Tors</dt>
+                        <dd>10:00 - 23:00</dd>
                     </div>
                     <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="opacity-50" data-i18n="loc.day.fri">Fredag</span>
-                        <div class="text-right">
+                        <dt class="opacity-50" data-i18n="loc.day.fri">Fredag</dt>
+                        <dd class="text-right">
                             <span>10:00 - 00:00</span>
                             <span class="block text-[10px] text-brand-gold opacity-100 mt-1 italic" data-i18n="loc.pause.standard">(Paus 12:45–14:00)</span>
-                        </div>
+                        </dd>
                     </div>
                     <div class="flex justify-between border-b border-white/5 pb-2">
-                        <span class="opacity-50" data-i18n="loc.day.satSun">Lör - Sön</span>
-                        <span>11:00 - 00:00</span>
+                        <dt class="opacity-50" data-i18n="loc.day.satSun">Lör - Sön</dt>
+                        <dd>11:00 - 00:00</dd>
                     </div>
-                </div>
+                </dl>
             </div>
 
             <!-- Äta på plats / Upphämtning -->
@@ -349,7 +337,8 @@
             </div>
             <div class="info-card">
                 <h3 class="text-3xl font-display mb-6">Hitta hit</h3>
-                <p class="text-sm font-bold uppercase tracking-widest opacity-60 mb-10 leading-relaxed">Novavägen 17<br>141 44 Huddinge</p>
+                <p class="text-sm font-bold uppercase tracking-widest opacity-60 mb-4 leading-relaxed">Novavägen 17<br>141 44 Huddinge</p>
+                <p class="text-sm font-bold uppercase tracking-widest mb-10"><a data-tel href="tel:+468270111" class="text-brand-gold hover:underline inline-block py-3">08-27 01 11</a></p>
                 <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Novav%C3%A4gen%2017%2C%20141%2044%20Huddinge" target="_blank" rel="noopener" class="block bg-white/10 text-white text-center py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-brand-gold transition-all">Vägbeskrivning</a>
             </div>
         </div>
@@ -378,11 +367,15 @@
                     <a href="https://tiktok.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
                     </a>
+                    <a href="https://www.facebook.com/bramsburgers.est19/" target="_blank" rel="noopener" aria-label="Brams på Facebook" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
                 </div>
             </div>
             <div class="pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-6">
                 <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase" data-i18n="footer.copy">© 2026 BRAMS BURGER — ALLA SKA ÄTA</p>
-                <div class="flex gap-6">
+                <div class="flex flex-wrap items-center justify-center gap-x-6">
+                    <a href="tel:+468270111" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors py-3">08-27 01 11</a>
                     <a href="https://synsnu.se" target="_blank" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors">Powered by Syns Nu</a>
                 </div>
             </div>

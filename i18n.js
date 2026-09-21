@@ -160,7 +160,7 @@ const BRAMS_TRANSLATIONS = {
         // contact.html
         'contact.h1': 'Säg hej!',
         'contact.lead': 'Vi vill höra från dig. Har du frågor, feedback eller vill du bara prata burgare? Hör av dig till oss så svarar vi så snart vi kan.',
-        'contact.email.label': 'E-POST',
+        'contact.email.label': 'E-POST', 'contact.phone.label': 'TELEFON',
         'contact.form.name': 'DITT NAMN',
         'contact.form.email': 'DIN E-POST',
         'contact.form.case': 'TYP AV ÄRENDE',
@@ -359,7 +359,7 @@ const BRAMS_TRANSLATIONS = {
         // contact.html
         'contact.h1': 'Say hi!',
         'contact.lead': 'We\'d love to hear from you. Got questions, feedback or just want to talk burgers? Reach out and we\'ll get back to you as soon as we can.',
-        'contact.email.label': 'EMAIL',
+        'contact.email.label': 'EMAIL', 'contact.phone.label': 'PHONE',
         'contact.form.name': 'YOUR NAME',
         'contact.form.email': 'YOUR EMAIL',
         'contact.form.case': 'TYPE OF ENQUIRY',
@@ -557,7 +557,7 @@ const BRAMS_TRANSLATIONS = {
         // contact.html
         'contact.h1': '!سلام کہیے',
         'contact.lead': 'ہم آپ سے سننا چاہتے ہیں۔ کوئی سوال، رائے یا صرف برگر کے بارے میں بات کرنا چاہتے ہیں؟ ہم سے رابطہ کریں اور ہم جلد از جلد جواب دیں گے۔',
-        'contact.email.label': 'ای میل',
+        'contact.email.label': 'ای میل', 'contact.phone.label': 'فون',
         'contact.form.name': 'آپ کا نام',
         'contact.form.email': 'آپ کا ای میل',
         'contact.form.case': 'سوال کی قسم',
@@ -755,7 +755,7 @@ const BRAMS_TRANSLATIONS = {
         // contact.html
         'contact.h1': '!قل مرحباً',
         'contact.lead': 'نريد أن نسمع منك. هل لديك أسئلة أو ملاحظات أو تريد فقط الحديث عن البرغر؟ تواصل معنا وسنردّ في أقرب وقت ممكن.',
-        'contact.email.label': 'البريد الإلكتروني',
+        'contact.email.label': 'البريد الإلكتروني', 'contact.phone.label': 'الهاتف',
         'contact.form.name': 'اسمك',
         'contact.form.email': 'بريدك الإلكتروني',
         'contact.form.case': 'نوع الاستفسار',

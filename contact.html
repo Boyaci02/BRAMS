@@ -21,21 +21,6 @@
     <meta name="twitter:description" content="Fråga om en beställning, skicka en reklamation, sök jobb eller föreslå ett samarbete. Skriv till info@brams.se så hör vi av oss." />
     <meta name="twitter:image" content="https://brams.se/og-brams.jpg" />
     <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'brand-black': '#0c0c0c',
-              'brand-green': '#2d4a3e',
-              'brand-gold': '#c68c17',
-              'brand-cream': '#fef3e9',
-            }
-          }
-        }
-      }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -148,7 +133,9 @@
     }
   ]
 }
-    </script>
+</script>
+    <link rel="stylesheet" href="/tw.css">
+    <style>:root{--brand-cream-rgb:254 243 233}</style>
 </head>
 <body>
     <!-- Navigation -->
@@ -243,6 +230,10 @@
                         <h4 class="font-black text-xs tracking-[0.3em] uppercase opacity-40 mb-3 text-brand-black" data-i18n="contact.email.label">E-POST</h4>
                         <p class="text-3xl font-display uppercase text-brand-gold"><a href="mailto:info@brams.se" class="hover:underline">INFO@BRAMS.SE</a></p>
                     </div>
+                    <div>
+                        <h4 class="font-black text-xs tracking-[0.3em] uppercase opacity-40 mb-3 text-brand-black" data-i18n="contact.phone.label">TELEFON</h4>
+                        <p class="text-3xl font-display uppercase text-brand-gold"><a href="tel:+468270111" class="hover:underline">08-27 01 11</a></p>
+                    </div>
                 </div>
             </div>
 
@@ -323,11 +314,15 @@
                     <a href="https://tiktok.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
                     </a>
+                    <a href="https://www.facebook.com/bramsburgers.est19/" target="_blank" rel="noopener" aria-label="Brams på Facebook" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
                 </div>
             </div>
             <div class="pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-6">
                 <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase" data-i18n="footer.copy">© 2026 BRAMS BURGER — ALLA SKA ÄTA</p>
-                <div class="flex gap-6">
+                <div class="flex flex-wrap items-center justify-center gap-x-6">
+                    <a href="tel:+468270111" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors py-3">08-27 01 11</a>
                     <a href="https://synsnu.se" target="_blank" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors">Powered by Syns Nu</a>
                 </div>
             </div>

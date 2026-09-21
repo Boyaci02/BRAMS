@@ -21,33 +21,6 @@
     <meta name="twitter:description" content="Halalburgare på briochebröd sedan 2019. Från food truck i Kista till restauranger i Stockholm, Uppsala och Göteborg. Beställ online eller kom förbi." />
     <meta name="twitter:image" content="https://brams.se/og-brams.jpg" />
     <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'brand-black': '#0c0c0c',
-              'brand-green': '#2d4a3e',
-              'brand-gold': '#c68c17',
-              'brand-cream': '#f9f6f1',
-              'max-green': '#008435',
-              'max-red': '#e31b23',
-            },
-            animation: {
-              'marquee': 'marquee 30s linear infinite',
-              'bounce-slow': 'bounce 3s infinite',
-            },
-            keyframes: {
-              marquee: {
-                '0%': { transform: 'translateX(0%)' },
-                '100%': { transform: 'translateX(-50%)' },
-              }
-            }
-          }
-        }
-      }
-    </script>
         <link rel="preload" as="image" href="/img/hero-mobile.webp" media="(max-width: 1023px)">
     <link rel="preload" as="image" href="/img/hero-desktop.webp" media="(min-width: 1024px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -192,16 +165,6 @@
             transform: scale(0.95);
         }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
 <style>
 /* Mobil (<1024px): logo till vänster, Beställ+hamburgare till höger. Desktop behåller centrerad logo via grid. */
 @media (max-width:1023px){
@@ -233,7 +196,9 @@
       "sameAs": [
         "https://www.instagram.com/brams.burgers/",
         "https://tiktok.com/@bramsburgers",
-        "https://youtube.com/@bramsburgers"
+        "https://youtube.com/@bramsburgers",
+        "https://www.facebook.com/bramsburgers.est19/",
+        "https://se.linkedin.com/company/bramsburgers-ab"
       ],
       "subOrganization": [
         {
@@ -251,7 +216,8 @@
         {
           "@id": "https://brams.se/location-goteborg#restaurant"
         }
-      ]
+      ],
+      "telephone": "+46 8 27 01 11"
     },
     {
       "@type": "WebSite",
@@ -348,7 +314,10 @@
       "potentialAction": {
         "@type": "OrderAction",
         "target": "https://bramsburgers.qopla.com/restaurant/bram's-burgers---kista/q7PNyL47re/order"
-      }
+      },
+      "telephone": "+46 8 27 01 11",
+      "alternateName": "Bram's Burgers Kista",
+      "hasMap": "https://maps.google.com/maps?cid=7181785329321852508"
     },
     {
       "@type": "Restaurant",
@@ -423,7 +392,9 @@
       "potentialAction": {
         "@type": "OrderAction",
         "target": "https://bramsburgers.qopla.com/restaurant/bram's-burgers---huddinge/qwNDeajN98/order"
-      }
+      },
+      "telephone": "+46 8 27 01 11",
+      "alternateName": "Bram's Burgers Huddinge"
     },
     {
       "@type": "Restaurant",
@@ -498,7 +469,10 @@
       "potentialAction": {
         "@type": "OrderAction",
         "target": "https://bramsburgers.qopla.com/restaurant/bram's-burgers---skarholmen/q8ydyvg9eM/order"
-      }
+      },
+      "telephone": "+46 8 27 01 11",
+      "alternateName": "Bram's Burgers Skärholmen",
+      "hasMap": "https://maps.google.com/maps?cid=9918719122915968022"
     },
     {
       "@type": "Restaurant",
@@ -573,7 +547,10 @@
       "potentialAction": {
         "@type": "OrderAction",
         "target": "https://bramsburgers.qopla.com/restaurant/bram%E2%80%99s-burgers---uppsala/qeA4b2xNdX/order"
-      }
+      },
+      "telephone": "+46 8 27 01 11",
+      "alternateName": "Bram's Burgers Uppsala",
+      "hasMap": "https://maps.google.com/maps?cid=9672379295316593722"
     },
     {
       "@type": "Restaurant",
@@ -648,11 +625,14 @@
       "potentialAction": {
         "@type": "OrderAction",
         "target": "https://bramsburgers.qopla.com/restaurant/bram's-burgers---goteborg/qDQxKYXrEO/order"
-      }
+      },
+      "telephone": "+46 8 27 01 11",
+      "alternateName": "Bram's Burgers Göteborg",
+      "hasMap": "https://maps.google.com/maps?cid=17527618629114720702"
     }
   ]
 }
-    </script>
+</script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -709,7 +689,8 @@
     }
   ]
 }
-    </script>
+</script>
+    <link rel="stylesheet" href="/tw.css">
 </head>
 <body>
     <div id="root"></div>
@@ -1304,6 +1285,9 @@
                     <a href="https://tiktok.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
                     </a>
+                    <a href="https://www.facebook.com/bramsburgers.est19/" target="_blank" rel="noopener" aria-label="Brams på Facebook" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
                     <a href="https://youtube.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                     </a>
@@ -1312,7 +1296,8 @@
 
             <div class="pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-6">
                 <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase" data-i18n="footer.copy">© 2026 BRAMS BURGER — ALLA SKA ÄTA</p>
-                <div class="flex gap-6">
+                <div class="flex flex-wrap items-center justify-center gap-x-6">
+                    <a href="tel:+468270111" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors py-3">08-27 01 11</a>
                     <a href="https://synsnu.se" target="_blank" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors">Powered by Syns Nu</a>
                 </div>
             </div>
@@ -1370,7 +1355,6 @@
             els.forEach(function (el) { io.observe(el); });
         })();
     </script>
-<script type="module" src="/index.tsx"></script>
 <script src="/i18n.js"></script>
 <script src="/order-modal.js"></script>
 
