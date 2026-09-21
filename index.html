@@ -653,6 +653,63 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://brams.se/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Är Brams halal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Allt kött vi serverar är certifierat halal, i samtliga restauranger."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Var finns Brams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vi har fem restauranger: Kistagången 20B i Kista, Novavägen 17 i Huddinge, Lillholmsgången 2 i Skärholmen, Väderkvarnsgatan 28C i Uppsala och Kungsportsavenyen 29 i Göteborg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vilka öppettider har ni?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kista, Huddinge och Uppsala har öppet måndag till torsdag 10–23, fredag 10–00 och lördag till söndag 11–00. Skärholmen har öppet alla dagar 10–22. Göteborg har öppet söndag till torsdag 10–23 och fredag till lördag 10–01. På fredagar har vi en kort paus runt 12:45–14:00."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hur beställer jag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beställ på plats, för avhämtning via Qopla eller få maten hemkörd med Uber Eats, Foodora och Wolt. Länkarna för varje restaurang finns på restaurangens egen sida."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vad ingår i en meny?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alla menyer inkluderar Regular Fries och 33 cl dryck. Barnmeny finns från 90 kr och vi har även vegetariska alternativ. Pizza finns endast i Huddinge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan man boka er food truck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Food trucken kan bokas till event, företagslunch, festival eller fest, och vi lagar burgarna på plats. Vi svarar inom 1–2 arbetsdagar."
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <div id="root"></div>
@@ -1174,6 +1231,51 @@
                     </div>
                 </a>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Vanliga frågor (FAQ) -->
+    <style>
+        .faq-item { border-bottom: 1px solid #e5e7eb; }
+        .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; padding: 22px 0; cursor: pointer; list-style: none; font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 20px; line-height: 1.2; color: #0c0c0c; transition: color 0.2s; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary:hover { color: #c68c17; }
+        .faq-item summary svg { flex-shrink: 0; color: #c68c17; transition: transform 0.25s; }
+        .faq-item[open] summary svg { transform: rotate(180deg); }
+        .faq-item p { font-size: 16px; line-height: 1.7; color: #4b5563; padding: 0 0 24px; max-width: 720px; }
+    </style>
+    <section id="faq" style="padding: 100px 0; background: #fff;">
+        <div class="container mx-auto px-6" style="max-width: 880px;">
+            <div style="margin-bottom:40px;" data-reveal>
+                <p style="font-size:11px; font-weight:800; letter-spacing:0.3em; text-transform:uppercase; color:#c68c17; margin-bottom:10px;" data-i18n="faq.label">Bra att veta</p>
+                <h2 style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:clamp(32px,4vw,52px); color:#0c0c0c; line-height:1.05;" data-i18n="faq.heading">Vanliga frågor</h2>
+            </div>
+            <div>
+                <details class="faq-item" data-reveal>
+                    <summary><span data-i18n="faq.q1">Är Brams halal?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p data-i18n="faq.a1">Ja. Allt kött vi serverar är certifierat halal, i samtliga restauranger.</p>
+                </details>
+                <details class="faq-item" data-reveal>
+                    <summary><span data-i18n="faq.q2">Var finns Brams?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p data-i18n="faq.a2">Vi har fem restauranger: Kistagången 20B i Kista, Novavägen 17 i Huddinge, Lillholmsgången 2 i Skärholmen, Väderkvarnsgatan 28C i Uppsala och Kungsportsavenyen 29 i Göteborg.</p>
+                </details>
+                <details class="faq-item" data-reveal>
+                    <summary><span data-i18n="faq.q3">Vilka öppettider har ni?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p data-i18n="faq.a3">Kista, Huddinge och Uppsala har öppet måndag till torsdag 10–23, fredag 10–00 och lördag till söndag 11–00. Skärholmen har öppet alla dagar 10–22. Göteborg har öppet söndag till torsdag 10–23 och fredag till lördag 10–01. På fredagar har vi en kort paus runt 12:45–14:00.</p>
+                </details>
+                <details class="faq-item" data-reveal>
+                    <summary><span data-i18n="faq.q4">Hur beställer jag?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p data-i18n="faq.a4">Beställ på plats, för avhämtning via Qopla eller få maten hemkörd med Uber Eats, Foodora och Wolt. Länkarna för varje restaurang finns på restaurangens egen sida.</p>
+                </details>
+                <details class="faq-item" data-reveal>
+                    <summary><span data-i18n="faq.q5">Vad ingår i en meny?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p data-i18n="faq.a5">Alla menyer inkluderar Regular Fries och 33 cl dryck. Barnmeny finns från 90 kr och vi har även vegetariska alternativ. Pizza finns endast i Huddinge.</p>
+                </details>
+                <details class="faq-item" data-reveal>
+                    <summary><span data-i18n="faq.q6">Kan man boka er food truck?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p data-i18n="faq.a6">Ja. Food trucken kan bokas till event, företagslunch, festival eller fest, och vi lagar burgarna på plats. Vi svarar inom 1–2 arbetsdagar.</p>
+                </details>
             </div>
         </div>
     </section>
