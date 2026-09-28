@@ -32,7 +32,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "frame-ancestors 'self' https://synsnumedia.com https://www.synsnumedia.com"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self' https://api.web3forms.com; frame-ancestors 'self' https://synsnumedia.com https://www.synsnumedia.com; script-src 'self' 'unsafe-inline' https://tracker.metricool.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://brams.se https://storage.googleapis.com https://assets.cdn.filesafe.space https://tracker.metricool.com https://www.google.com; connect-src 'self' https://api.web3forms.com; frame-src https://www.google.com; upgrade-insecure-requests"
         }
       ]
     },

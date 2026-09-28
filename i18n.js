@@ -12,7 +12,7 @@ const BRAMS_TRANSLATIONS = {
         'drawer.orderOnline': 'Beställ online', 'drawer.find': 'Hitta BRAMS',
         // Footer
         'footer.contact': 'Kontakta oss', 'footer.press': 'Pressrum',
-        'footer.jobs': 'Jobba med oss', 'footer.cookie': 'Cookiepolicy',
+        'footer.jobs': 'Jobba med oss', 'footer.cookie': 'Cookiepolicy', 'footer.privacy': 'Integritetspolicy',
         'footer.locations': 'Restauranger', 'footer.powered': 'Powered by Syns Nu',
         'footer.copy': '© 2026 BRAMS BURGER — ALLA SKA ÄTA',
         // locations.html
@@ -214,7 +214,7 @@ const BRAMS_TRANSLATIONS = {
         'drawer.jobs': 'Work with us', 'drawer.about': 'About BRAMS',
         'drawer.orderOnline': 'Order online', 'drawer.find': 'Find BRAMS',
         'footer.contact': 'Contact us', 'footer.press': 'Press room',
-        'footer.jobs': 'Work with us', 'footer.cookie': 'Cookie policy',
+        'footer.jobs': 'Work with us', 'footer.cookie': 'Cookie policy', 'footer.privacy': 'Privacy policy',
         'footer.locations': 'Restaurants', 'footer.powered': 'Powered by Syns Nu',
         'footer.copy': '© 2026 BRAMS BURGER — EVERYONE SHOULD EAT',
         'locs.heading': 'Find us', 'locs.sub': 'The whole family under one roof.',
@@ -413,7 +413,7 @@ const BRAMS_TRANSLATIONS = {
         'drawer.jobs': 'ہمارے ساتھ کام کریں', 'drawer.about': 'BRAMS کے بارے میں',
         'drawer.orderOnline': 'آنلائن آرڈر کریں', 'drawer.find': 'BRAMS تلاش کریں',
         'footer.contact': 'ہم سے رابطہ کریں', 'footer.press': 'پریس روم',
-        'footer.jobs': 'ہمارے ساتھ کام کریں', 'footer.cookie': 'کوکی پالیسی',
+        'footer.jobs': 'ہمارے ساتھ کام کریں', 'footer.cookie': 'کوکی پالیسی', 'footer.privacy': 'رازداری کی پالیسی',
         'footer.locations': 'ریستوران', 'footer.powered': 'Powered by Syns Nu',
         'footer.copy': '© 2026 BRAMS BURGER — سب کو کھانا چاہیے',
         'locs.heading': 'ہمیں تلاش کریں', 'locs.sub': 'پوری فیملی ایک چھت کے نیچے۔',
@@ -611,7 +611,7 @@ const BRAMS_TRANSLATIONS = {
         'drawer.jobs': 'اعمل معنا', 'drawer.about': 'عن BRAMS',
         'drawer.orderOnline': 'اطلب أونلاين', 'drawer.find': 'ابحث عن BRAMS',
         'footer.contact': 'اتصل بنا', 'footer.press': 'غرفة الصحافة',
-        'footer.jobs': 'اعمل معنا', 'footer.cookie': 'سياسة ملفات الارتباط',
+        'footer.jobs': 'اعمل معنا', 'footer.cookie': 'سياسة ملفات الارتباط', 'footer.privacy': 'سياسة الخصوصية',
         'footer.locations': 'المطاعم', 'footer.powered': 'Powered by Syns Nu',
         'footer.copy': '© 2026 BRAMS BURGER — الجميع يجب أن يأكل',
         'locs.heading': 'ابحث عنا', 'locs.sub': 'العائلة بأكملها تحت سقف واحد.',
@@ -812,7 +812,7 @@ const BRAMS_TRANSLATIONS = {
         'drawer.orderOnline': 'Dalbo online', 'drawer.find': 'Raadi BRAMS',
         // Footer
         'footer.contact': 'Nala xiriir', 'footer.press': 'Saxaafadda',
-        'footer.jobs': 'Nala shaqee', 'footer.cookie': 'Xeerka Cookie-ga',
+        'footer.jobs': 'Nala shaqee', 'footer.cookie': 'Xeerka Cookie-ga', 'footer.privacy': 'Siyaasadda Sirta',
         'footer.locations': 'Restaurants', 'footer.powered': 'Powered by Syns Nu',
         'footer.copy': '© 2026 BRAMS BURGER — TUTTI AKHRIYAAN',
         // locations.html
