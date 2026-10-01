@@ -53,6 +53,9 @@ const BRAMS_TRANSLATIONS = {
         'news.tag2': 'Kvalitet', 'news.date2': '10 mars 2026',
         'news.a2.heading': 'Vi är 100% Halal-certifierade',
         'news.a2.excerpt': 'Alla våra enheter serverar certifierat halal-kött. Alla ska kunna äta BRAMS.',
+        'news.tag3': 'Hantverket', 'news.date3': '1 oktober 2026',
+        'news.a3.heading': 'Smashburgare: därför pressar vi köttet',
+        'news.a3.excerpt': 'Vad som händer när köttet pressas mot plåten, varför det ger mer smak och vilka burgare du ska börja med.',
         // menu.html
         'menu.tagline': 'Menyn / Alla ska äta',
         'menu.hero': 'Smaka <br/>Hypen',
@@ -252,6 +255,9 @@ const BRAMS_TRANSLATIONS = {
         'news.tag2': 'Quality', 'news.date2': '10 March 2026',
         'news.a2.heading': 'We are 100% Halal certified',
         'news.a2.excerpt': 'All our locations serve certified halal meat. Everyone should be able to eat BRAMS.',
+        'news.tag3': 'Craft', 'news.date3': '1 October 2026',
+        'news.a3.heading': 'Smash burgers: why we press the meat',
+        'news.a3.excerpt': 'What happens when the beef hits the hot griddle, why it tastes better and which burgers to start with.',
         // menu.html
         'menu.tagline': 'Menu / Everyone Should Eat',
         'menu.hero': 'Taste <br/>the Hype',
@@ -450,6 +456,9 @@ const BRAMS_TRANSLATIONS = {
         'news.tag2': 'معیار', 'news.date2': '10 مارچ 2026',
         'news.a2.heading': 'ہم 100% حلال سرٹیفائیڈ ہیں',
         'news.a2.excerpt': 'ہمارے تمام مقامات تصدیق شدہ حلال گوشت پیش کرتے ہیں۔',
+        'news.tag3': 'ہنر', 'news.date3': '1 اکتوبر 2026',
+        'news.a3.heading': 'سمیش برگر: ہم گوشت کو کیوں دباتے ہیں',
+        'news.a3.excerpt': 'گرم توے پر گوشت دبانے سے کیا ہوتا ہے، ذائقہ کیوں بہتر ہوتا ہے اور کس برگر سے شروع کریں۔',
         // menu.html
         'menu.tagline': 'مینو / سب کو کھانا ملنا چاہیے',
         'menu.hero': 'مزہ <br/>چکھیں',
@@ -648,6 +657,9 @@ const BRAMS_TRANSLATIONS = {
         'news.tag2': 'الجودة', 'news.date2': '10 مارس 2026',
         'news.a2.heading': 'نحن معتمدون 100% حلال',
         'news.a2.excerpt': 'جميع مواقعنا تقدم لحماً حلالاً معتمداً. الجميع يجب أن يأكل BRAMS.',
+        'news.tag3': 'الحرفة', 'news.date3': '1 أكتوبر 2026',
+        'news.a3.heading': 'سماش برجر: لماذا نضغط اللحم',
+        'news.a3.excerpt': 'ما يحدث عند ضغط اللحم على الصاج الساخن، ولماذا يصبح المذاق أفضل، وبأي برجر تبدأ.',
         // menu.html
         'menu.tagline': 'القائمة / الجميع يجب أن يأكل',
         'menu.hero': 'تذوّق <br/>الضجّة',
@@ -852,6 +864,9 @@ const BRAMS_TRANSLATIONS = {
         'news.tag2': 'Tayada', 'news.date2': '10 Maarso 2026',
         'news.a2.heading': 'Waxaan nahay 100% Halaal-ku-xaqiijiyay',
         'news.a2.excerpt': 'Dhammaan goobahayaga waxay bixiyaan hilib halaal-ku-xaqiijiyay. Qof kasta waa inuu BRAMS cunaa.',
+        'news.tag3': 'Farsamada', 'news.date3': '1 Oktoobar 2026',
+        'news.a3.heading': 'Smash burger: sababta aan hilibka u riixno',
+        'news.a3.excerpt': 'Waxa dhacaya marka hilibka lagu riixo birta kulul, sababta uu dhadhanka u fiicnaado iyo kuwa aad ka bilaabi karto.',
         // menu.html
         'menu.tagline': 'Menu / Qof walba waa inuu cunaa',
         'menu.hero': 'Dhadhamii <br/>Caan-baxnaanta',

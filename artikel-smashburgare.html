@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smashburgare: vad det är och var du äter en | BRAMS</title>
+    <meta name="description" content="En smashburgare pressas platt mot het plåt och får en krispig stekyta. Så gör vi på Brams, vilka burgare du ska börja med och var du hittar oss i Stockholm, Uppsala och Göteborg." />
+    <link rel="canonical" href="https://brams.se/artikel-smashburgare" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Brams Burger" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:title" content="Smashburgare: vad det är och var du äter en" />
+    <meta property="og:description" content="En smashburgare pressas platt mot het plåt och får en krispig stekyta. Så gör vi på Brams, vilka burgare du ska börja med och var du hittar oss." />
+    <meta property="og:url" content="https://brams.se/artikel-smashburgare" />
+    <meta property="og:image" content="https://brams.se/og-brams.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="674" />
+    <meta property="og:image:alt" content="Fem burgare från Brams med texten Om en ska äta, alla ska äta" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Smashburgare: vad det är och var du äter en" />
+    <meta name="twitter:description" content="En smashburgare pressas platt mot het plåt och får en krispig stekyta. Så gör vi på Brams, vilka burgare du ska börja med och var du hittar oss." />
+    <meta name="twitter:image" content="https://brams.se/og-brams.jpg" />
+    <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        html, body { background-color: #f9f6f1; color: #0c0c0c; font-family: 'Inter', sans-serif; margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth; }
+        h1, h2, h3, .font-display { font-family: 'Anton', sans-serif !important; text-transform: uppercase; line-height: 1.1 !important; letter-spacing: 0.02em; }
+        .pill-button { border-radius: 9999px; padding: 12px 32px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        #navbar { background-color: transparent; transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease; }
+        #navbar.nav-active { background-color: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        #navbar.nav-hidden { transform: translateY(-100%); }
+        #menu-drawer { transition: transform 0.5s cubic-bezier(0.32, 0, 0.07, 1); transform: translateX(100%); }
+        #menu-drawer.open { transform: translateX(0); }
+        #menu-overlay { transition: opacity 0.4s ease; opacity: 0; pointer-events: none; }
+        #menu-overlay.open { opacity: 1; pointer-events: auto; }
+        .drawer-item { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; border-bottom: 1px solid #f3f4f6; font-weight: 800; font-size: 1.25rem; color: #000; }
+        .footer-max-link { font-size: 14px; font-weight: 600; color: #000; transition: opacity 0.2s; }
+        .footer-max-link:hover { opacity: 0.7; }
+        .article-body p { font-size: 1.125rem; line-height: 1.85; color: #374151; margin-bottom: 1.5rem; }
+        .article-body h2 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 2rem; color: #0c0c0c; margin-bottom: 1rem; margin-top: 2.5rem; }
+        .article-body blockquote { border-left: 4px solid #c68c17; padding-left: 1.5rem; margin: 2rem 0; font-size: 1.25rem; font-weight: 700; color: #0c0c0c; line-height: 1.5; }
+        .article-body a { color: #c68c17; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; transition: opacity 0.2s; }
+        .article-body a:hover { opacity: 0.7; }
+        .burger-list { list-style: none; margin: 0 0 1.5rem; padding: 0; }
+        .burger-list li { padding: 18px 0; border-bottom: 1px solid #e5e7eb; font-size: 1.0625rem; line-height: 1.7; color: #374151; }
+        .burger-list .namn { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: 0.02em; color: #0c0c0c; font-size: 1.25rem; display: block; margin-bottom: 4px; }
+        .faq-item { border-bottom: 1px solid #e5e7eb; }
+        .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; padding: 22px 0; cursor: pointer; list-style: none; font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 20px; line-height: 1.2; color: #0c0c0c; transition: color 0.2s; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary:hover { color: #c68c17; }
+        .faq-item summary svg { flex-shrink: 0; color: #c68c17; transition: transform 0.25s; }
+        .faq-item[open] summary svg { transform: rotate(180deg); }
+        .faq-item p { font-size: 16px; line-height: 1.7; color: #4b5563; padding: 0 0 24px; max-width: 720px; }
+        .faq-item p a { color: #c68c17; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+            .lang-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        .lang-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            height: 12px;
+        }
+        .group:hover .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"a36f2b612ae98b7d7fcca110a12a1abe"})});</script>
+    <style>/* SEO-audit 2026-09-12: tap-yta minst 44 px på mobil */.pill-button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}</style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Smashburgare: vad det är och var du äter en",
+      "description": "En smashburgare pressas platt mot het plåt och får en krispig stekyta. Så gör vi på Brams, vilka burgare du ska börja med och var du hittar oss i Stockholm, Uppsala och Göteborg.",
+      "image": "https://brams.se/img/meny.webp",
+      "datePublished": "2026-10-01",
+      "dateModified": "2026-10-01",
+      "author": {
+        "@type": "Organization",
+        "name": "Brams Burger",
+        "url": "https://brams.se/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Brams Burger",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://brams.se/img/logo.webp"
+        },
+        "@id": "https://brams.se/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://brams.se/artikel-smashburgare"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Smashburgare"
+      },
+      "mentions": [
+        { "@id": "https://brams.se/location-kista#restaurant" },
+        { "@id": "https://brams.se/location-huddinge#restaurant" },
+        { "@id": "https://brams.se/location-skarholmen#restaurant" },
+        { "@id": "https://brams.se/location-uppsala#restaurant" },
+        { "@id": "https://brams.se/location-goteborg#restaurant" }
+      ],
+      "inLanguage": "sv-SE"
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://brams.se/location-kista#restaurant",
+      "name": "Brams Burger Kista",
+      "url": "https://brams.se/location-kista",
+      "servesCuisine": ["Smashburgare", "Hamburgare", "Friterad kyckling", "Halal"],
+      "address": { "@type": "PostalAddress", "streetAddress": "Kistagången 20B", "postalCode": "164 40", "addressLocality": "Kista", "addressCountry": "SE" },
+      "hasMenu": "https://brams.se/menu",
+      "parentOrganization": { "@id": "https://brams.se/#organization" }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://brams.se/location-huddinge#restaurant",
+      "name": "Brams Burger Huddinge",
+      "url": "https://brams.se/location-huddinge",
+      "servesCuisine": ["Smashburgare", "Hamburgare", "Friterad kyckling", "Halal"],
+      "address": { "@type": "PostalAddress", "streetAddress": "Novavägen 17", "postalCode": "141 44", "addressLocality": "Huddinge", "addressCountry": "SE" },
+      "hasMenu": "https://brams.se/menu",
+      "parentOrganization": { "@id": "https://brams.se/#organization" }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://brams.se/location-skarholmen#restaurant",
+      "name": "Brams Burger Skärholmen",
+      "url": "https://brams.se/location-skarholmen",
+      "servesCuisine": ["Smashburgare", "Hamburgare", "Friterad kyckling", "Halal"],
+      "address": { "@type": "PostalAddress", "streetAddress": "Lillholmsgången 2", "postalCode": "127 48", "addressLocality": "Skärholmen", "addressCountry": "SE" },
+      "hasMenu": "https://brams.se/menu",
+      "parentOrganization": { "@id": "https://brams.se/#organization" }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://brams.se/location-uppsala#restaurant",
+      "name": "Brams Burger Uppsala",
+      "url": "https://brams.se/location-uppsala",
+      "servesCuisine": ["Smashburgare", "Hamburgare", "Friterad kyckling", "Halal"],
+      "address": { "@type": "PostalAddress", "streetAddress": "Väderkvarnsgatan 28C", "postalCode": "753 29", "addressLocality": "Uppsala", "addressCountry": "SE" },
+      "hasMenu": "https://brams.se/menu",
+      "parentOrganization": { "@id": "https://brams.se/#organization" }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://brams.se/location-goteborg#restaurant",
+      "name": "Brams Burger Göteborg",
+      "url": "https://brams.se/location-goteborg",
+      "servesCuisine": ["Smashburgare", "Hamburgare", "Friterad kyckling", "Halal"],
+      "address": { "@type": "PostalAddress", "streetAddress": "Kungsportsavenyen 29", "postalCode": "411 36", "addressLocality": "Göteborg", "addressCountry": "SE" },
+      "hasMenu": "https://brams.se/menu",
+      "parentOrganization": { "@id": "https://brams.se/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Hem",
+          "item": "https://brams.se/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Smashburgare",
+          "item": "https://brams.se/artikel-smashburgare"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Vad är en smashburgare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En smashburgare är en burgare där köttet pressas platt mot en het plåt i samma stund som det läggs på, i stället för att formas till en biff i förväg. Pressningen ger en tunnare biff med mörk, krispig stekyta och mer stekt yta per tugga."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vad är skillnaden mellan en smashburgare och en vanlig hamburgare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Skillnaden sitter i tillagningen, inte i köttet. En vanlig burgarbiff formas innan den läggs på grillen och behåller sin tjocklek. En smashburgare börjar som en lös köttboll som pressas ner mot plåten innan ytan hunnit stelna, vilket ger mer stekyta och en krispigare kant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Är Brams smashburgare halal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Allt kött vi serverar är certifierat halal, i samtliga fem restauranger."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Var kan jag äta smashburgare hos Brams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I fem restauranger: Kistagången 20B i Kista, Novavägen 17 i Huddinge, Lillholmsgången 2 i Skärholmen, Väderkvarnsgatan 28C i Uppsala och Kungsportsavenyen 29 i Göteborg."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vad kostar en smashburgare på Brams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Våra nötburgare börjar på 140 kronor. I priset ingår Regular Fries och 33 cl dryck."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Finns det vegetariska alternativ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Halloumi, falafel och vegansk falafel på glutenfritt bröd börjar på 110 kronor. Vi har också friterad kyckling från 160 kronor och en fiskburgare."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan jag beställa hem en smashburgare från Brams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Beställ på plats, för avhämtning via Qopla eller få maten hemkörd med Uber Eats, Foodora och Wolt. Länkarna finns på varje restaurangs egen sida."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    <link rel="stylesheet" href="/tw.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 md:p-6 flex justify-between items-center">
+        <a href="https://brams.se/" class="flex items-center gap-3">
+            <span class="nav-logo text-black font-display text-3xl transition-colors">BRAMS</span>
+        </a>
+        <div class="hidden lg:flex items-center gap-10 text-sm font-bold uppercase tracking-[0.18em] text-black">
+            <a href="https://brams.se/" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.home">Hem</a>
+            <a href="https://brams.se/menu" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.menu">Meny</a>
+            <a href="https://brams.se/locations" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.locations">Restauranger</a>
+            <a href="https://brams.se/about" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.about">Om oss</a>
+            <a href="https://brams.se/contact" class="nav-link hover:text-brand-gold transition-colors" data-i18n="nav.contact">Kontakt</a>
+            <a href="https://brams.teamtailor.com/" target="_blank" class="nav-link hover:text-brand-gold transition-colors" data-i18n="footer.jobs">Jobba med oss</a>
+        </div>
+        <div class="flex items-center gap-2">
+            <!-- Language Switcher Desktop -->
+            <div class="hidden md:block relative group">
+                <button class="flex items-center gap-2 text-white font-black text-[11px] uppercase tracking-widest px-3 py-2 hover:text-brand-gold transition-colors">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"></path></svg>
+                    <span class="lang-current">SV</span>
+                </button>
+                <div class="lang-dropdown absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-[60]">
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors" onclick="setLanguage('sv');return false;">SVENSKA <span class="opacity-30">SE</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors" onclick="setLanguage('en');return false;">ENGLISH <span class="opacity-30">EN</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors" onclick="setLanguage('ur');return false;">اردو <span class="opacity-30">UR</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors" onclick="setLanguage('ar');return false;">العربية <span class="opacity-30">AR</span></a>
+                    <a href="#" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors" onclick="setLanguage('so');return false;">SOMALI <span class="opacity-30">SO</span></a>
+                </div>
+            </div>
+            <a href="https://order.qopla.com/v2/bramsburgers" target="_blank" class="pill-button bg-brand-gold text-white shadow-lg" data-i18n="nav.order">Beställ</a>
+            <button onclick="toggleMenu(true)" class="lg:hidden text-black p-2 hover:bg-black/5 rounded-full transition-colors" aria-label="Öppna meny">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </nav>
+
+    <div id="menu-overlay" class="fixed inset-0 z-[90] bg-black/40 backdrop-blur-sm" onclick="toggleMenu(false)"></div>
+    <div id="menu-drawer" class="fixed inset-y-0 right-0 z-[100] bg-white w-full md:w-[450px] flex flex-col shadow-2xl overflow-y-auto">
+        <div class="p-8 flex justify-between items-center sticky top-0 bg-white z-20 border-b">
+            <span class="font-display text-4xl text-black">BRAMS</span>
+            <button onclick="toggleMenu(false)" class="text-black p-2 hover:bg-gray-100 rounded-full" aria-label="Stäng meny">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <div class="px-8 py-6 text-black flex flex-col flex-1">
+            <a href="https://brams.se/menu" class="drawer-item"><span data-i18n="drawer.menu">Vår meny</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <a href="/foodtruck" class="drawer-item">Food Truck <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <a href="https://brams.teamtailor.com/" target="_blank" class="drawer-item"><span data-i18n="drawer.jobs">Jobba med oss</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <a href="https://brams.se/about" class="drawer-item"><span data-i18n="drawer.about">Om BRAMS</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <a href="https://brams.se/contact" class="drawer-item"><span data-i18n="nav.contact">Kontakt</span> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+
+
+            <div class="grid grid-cols-2 gap-4 mt-10">
+                <a href="https://order.qopla.com/v2/bramsburgers" target="_blank" class="bg-brand-gold text-white py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 10.58 0A4 4 0 0 1 18 13.87"></path><path d="M6 13.87V19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-5.13"></path><line x1="6" y1="13.87" x2="18" y2="13.87"></line></svg>
+                    <span data-i18n="drawer.orderOnline">Beställ online</span>
+                </a>
+                <a href="https://brams.se/locations" class="bg-white border-2 border-brand-gold text-brand-gold py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span data-i18n="drawer.find">Hitta BRAMS</span>
+                </a>
+            </div>
+            <!-- Language Selection — dropdown pushed to bottom of drawer -->
+            <div class="mt-auto pt-8 text-black">
+                <label for="lang-select-mobile" class="block font-black text-[10px] tracking-[0.3em] uppercase opacity-50 mb-3">VÄLJ SPRÅK / LANGUAGE</label>
+                <div class="relative">
+                    <select id="lang-select-mobile" data-lang-select onchange="setLanguage(this.value)" class="w-full appearance-none bg-gray-50 border border-gray-200 px-5 py-4 pr-12 rounded-xl font-black text-sm uppercase tracking-widest text-black cursor-pointer focus:outline-none focus:border-brand-gold transition-colors">
+                        <option value="sv">Svenska</option>
+                        <option value="en">English</option>
+                        <option value="ur">اردو</option>
+                        <option value="ar">العربية</option>
+                        <option value="so">Somali</option>
+                    </select>
+                    <svg class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="relative h-[55vh] overflow-hidden">
+        <img src="/img/meny.webp" class="absolute inset-0 w-full h-full object-cover object-center brightness-75" alt="Smashburgare från Brams med krispig stekt köttkant, smält cheddar och stekt lök på briochebröd" width="1200" height="1500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8 md:p-16 max-w-4xl">
+            <div class="flex items-center gap-3 mb-4">
+                <span style="background:#c68c17; color:#fff; font-size:9px; font-weight:800; letter-spacing:0.22em; text-transform:uppercase; padding:4px 10px;">Hantverket</span>
+                <time datetime="2026-10-01" class="text-white/60 text-sm font-medium">1 oktober 2026</time>
+            </div>
+            <h1 class="font-display text-4xl md:text-7xl text-white leading-none">Smashburgare: därför pressar vi köttet</h1>
+        </div>
+    </div>
+
+    <!-- Article -->
+    <main class="max-w-3xl mx-auto px-6 py-16">
+
+        <!-- Back link -->
+        <a href="/" class="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-brand-gold mb-12 hover:opacity-70 transition-opacity">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Tillbaka till nyheter
+        </a>
+
+        <div class="article-body">
+            <p>
+                En smashburgare är en burgare där köttet pressas platt mot en het plåt i samma stund som det läggs på, i stället för att formas till en biff i förväg. Resultatet är en tunnare biff med mörk, krispig kant. Vi har gjort dem så sedan den första foodtrucken rullade igång i Kista i oktober 2019, och allt nötkött vi smashar är certifierat halal.
+            </p>
+
+            <h2>Vad som faktiskt händer när köttet pressas</h2>
+            <p>
+                Skillnaden sitter i tillagningen, inte i köttet. En vanlig burgarbiff formas färdig innan den läggs på grillen och behåller sin tjocklek hela vägen. En smashburgare börjar som en lös boll färs. Den hamnar på den heta plåten och pressas ner med en spade innan ytan hunnit stelna, så köttet breder ut sig och pressas in i metallen.
+            </p>
+            <p>
+                Över ungefär 140 grader börjar aminosyrorna och sockret i köttytan reagera med varandra. Det är Maillardreaktionen, samma sak som ger bröd sin skorpa. Pressningen gör två saker åt gången: den ökar ytan som möter plåten och den gör kontakten hårdare. Mer yta plus hårdare kontakt blir mer stekyta per tugga. Det är hela poängen.
+            </p>
+
+            <blockquote>
+                Den krispiga kanten runt biffen är inte en bieffekt. Den är det man är ute efter.
+            </blockquote>
+
+            <h2>Tunt kött är svårare, inte enklare</h2>
+            <p>
+                Att pressa en biff platt låter enkelt. Det som gör det svårt är att en tunn biff är genomstekt på under en minut. Väntar man några sekunder för länge blir den torr, och då spelar skorpan ingen roll. Pressar man för sent, när ytan redan stelnat, får man ingen ordentlig kontakt med plåten och missar skorpan helt.
+            </p>
+            <p>
+                Det betyder att en smashburgare inte går att förbereda. Den måste pressas när den ska ätas. Därför görs våra på beställning, en i taget, och därför smakar en avhämtad burgare bäst inom en kvart.
+            </p>
+
+            <h2>Tekniken är hundra år gammal</h2>
+            <p>
+                Att pressa köttet mot plåten är ingen ny idé. Den vanligaste historien pekar på El Reno i Oklahoma och året 1922, när järnvägsarbetarna strejkade och folk hade ont om pengar. På Hamburger Inn lade Homer och Ross Davis strimlad lök ovanpå köttet och pressade ner alltihop med baksidan av stekspaden. Löken var billigare än nötkött och drygade ut biffen. De kallade den Depression Burger och tog fem cent.
+            </p>
+            <p>
+                Det som började som ett sätt att spara pengar visade sig smaka bättre än originalet. Den pressade biffen fick en skorpa som en tjock, grillad biff aldrig får, och stilen lever kvar i Oklahoma än idag. Vår <a href="https://brams.se/menu">Bram's Oklahoma</a> är en nick åt den traditionen, med karamelliserad lök i stället för rå.
+            </p>
+
+            <h2>Så bygger vi dem</h2>
+            <p>
+                Grunden är densamma på alla fem restauranger: färskt halalkött som pressas vid beställning, briochebröd och cheddar. Därifrån skiljer burgarna sig åt. Alla nötburgare på <a href="https://brams.se/menu">menyn</a> börjar på 140 kronor, och i priset ingår Regular Fries och 33 cl dryck.
+            </p>
+            <ul class="burger-list">
+                <li><span class="namn">Bram's OG</span>Den renaste varianten. Briochebröd, kött, cheddar, ketchup, senap, inlagd gurka och silverlök. Börja här om du vill smaka skillnaden mellan smashat och grillat kött.</li>
+                <li><span class="namn">Bram's Oklahoma</span>Karamelliserad lök, cheddar, dressing, inlagd gurka och barbequesås. Löken och den stekta köttkanten drar åt samma håll.</li>
+                <li><span class="namn">Bram's Fire</span>Chilimajo, cheddar, sallad, rödlök, jalapeños och chili cheese. Vår mest beställda, och den starkaste av de populära.</li>
+                <li><span class="namn">Bram's Tartufo</span>Tryffelmajo, cheddar, karamelliserad lök, nötbacon (halal) och rostad lök. Den feta tryffelmajon mot den krispiga kanten.</li>
+            </ul>
+            <p>
+                Äter du inte nötkött finns halloumi, falafel och vegansk falafel på glutenfritt bröd från 110 kronor, friterad kyckling från 160 kronor och en fiskburgare.
+            </p>
+
+            <h2>Var du hittar våra smashburgare</h2>
+            <p>
+                Fem restauranger, tre städer. I Stockholmsområdet ligger vi i <a href="https://brams.se/location-kista">Kista</a> på Kistagången 20B, i <a href="https://brams.se/location-huddinge">Huddinge</a> på Novavägen 17 och i <a href="https://brams.se/location-skarholmen">Skärholmen</a> på Lillholmsgången 2. Kista var först av alla, först som foodtruck och sedan som restaurang mitt emot där trucken stod.
+            </p>
+            <p>
+                I <a href="https://brams.se/location-uppsala">Uppsala</a> hittar du oss på Väderkvarnsgatan 28C, några minuter från centrum. I <a href="https://brams.se/location-goteborg">Göteborg</a> öppnade vi i mars 2026 på Kungsportsavenyen 29, mitt på Avenyn. Öppettider per restaurang står på <a href="https://brams.se/locations">restaurangsidorna</a>.
+            </p>
+            <p>
+                Du kan äta på plats, hämta via Qopla eller få maten hemkörd med Uber Eats, Foodora och Wolt. Länkarna skiljer sig mellan restaurangerna och finns på varje restaurangs egen sida.
+            </p>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-16 pt-10 border-t border-gray-200 flex flex-col sm:flex-row gap-4">
+            <a href="https://brams.se/menu" class="pill-button bg-brand-gold text-white hover:bg-brand-black shadow-lg text-center" data-i18n="menu.see">Se vår meny</a>
+            <a href="https://brams.se/locations" class="pill-button bg-white border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white text-center" data-i18n="find.btn">Hitta närmaste BRAMS</a>
+        </div>
+    </main>
+
+    <!-- Vanliga frågor -->
+    <section id="faq" aria-labelledby="faq-rubrik" style="padding: 100px 0; background: #fff;">
+        <div class="container mx-auto px-6" style="max-width: 880px;">
+            <div style="margin-bottom:40px;">
+                <h2 id="faq-rubrik" style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:clamp(32px,4vw,52px); color:#0c0c0c; line-height:1.05;">Vanliga frågor om smashburgare</h2>
+            </div>
+            <div>
+                <details class="faq-item">
+                    <summary><span>Vad är en smashburgare?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p>En smashburgare är en burgare där köttet pressas platt mot en het plåt i samma stund som det läggs på, i stället för att formas till en biff i förväg. Pressningen ger en tunnare biff med mörk, krispig stekyta och mer stekt yta per tugga.</p>
+                </details>
+                <details class="faq-item">
+                    <summary><span>Vad är skillnaden mot en vanlig hamburgare?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p>Skillnaden sitter i tillagningen, inte i köttet. En vanlig burgarbiff formas innan den läggs på grillen och behåller sin tjocklek. En smashburgare börjar som en lös köttboll som pressas ner mot plåten innan ytan hunnit stelna, vilket ger mer stekyta och en krispigare kant.</p>
+                </details>
+                <details class="faq-item">
+                    <summary><span>Är Brams smashburgare halal?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p>Ja. Allt kött vi serverar är certifierat halal, i samtliga fem restauranger. Mer om det står i <a href="https://brams.se/artikel-halal">vår artikel om halal-certifieringen</a>.</p>
+                </details>
+                <details class="faq-item">
+                    <summary><span>Var kan jag äta smashburgare hos Brams?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p>I fem restauranger: Kistagången 20B i Kista, Novavägen 17 i Huddinge, Lillholmsgången 2 i Skärholmen, Väderkvarnsgatan 28C i Uppsala och Kungsportsavenyen 29 i Göteborg. Adresser och öppettider finns på <a href="https://brams.se/locations">restaurangsidorna</a>.</p>
+                </details>
+                <details class="faq-item">
+                    <summary><span>Vad kostar en smashburgare på Brams?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p>Våra nötburgare börjar på 140 kronor. I priset ingår Regular Fries och 33 cl dryck. Hela <a href="https://brams.se/menu">menyn med priser</a> finns här.</p>
+                </details>
+                <details class="faq-item">
+                    <summary><span>Finns det vegetariska alternativ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p>Ja. Halloumi, falafel och vegansk falafel på glutenfritt bröd börjar på 110 kronor. Vi har också friterad kyckling från 160 kronor och en fiskburgare.</p>
+                </details>
+                <details class="faq-item">
+                    <summary><span>Kan jag beställa hem?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></summary>
+                    <p>Ja. Beställ på plats, för avhämtning via Qopla eller få maten hemkörd med Uber Eats, Foodora och Wolt. Länkarna för varje restaurang finns på restaurangens egen sida.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-16 border-t border-gray-100">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" class="h-10 w-auto brightness-0" alt="Brams Logo" />
+                <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase" data-i18n="footer.copy">© 2026 BRAMS BURGER — ALLA SKA ÄTA</p>
+                <a href="/integritetspolicy" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors inline-flex items-center min-h-[44px] px-1" data-i18n="footer.privacy">Integritetspolicy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 50) navbar.classList.add('nav-active');
+            else navbar.classList.remove('nav-active');
+            if (scrollTop > lastScrollTop && scrollTop > 100) navbar.classList.add('nav-hidden');
+            else navbar.classList.remove('nav-hidden');
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+        function toggleMenu(open) {
+            const drawer = document.getElementById('menu-drawer');
+            const overlay = document.getElementById('menu-overlay');
+            if (open) { drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+            else { drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = 'auto'; }
+        }
+    </script>
+<script src="/i18n.js"></script>
+<script src="/order-modal.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

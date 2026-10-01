@@ -34,6 +34,7 @@ export default defineConfig(({ mode }) => {
             'location-uppsala':   path.resolve(__dirname, 'location-uppsala.html'),
             'artikel-goteborg':   path.resolve(__dirname, 'artikel-goteborg.html'),
             'artikel-halal':      path.resolve(__dirname, 'artikel-halal.html'),
+            'artikel-smashburgare': path.resolve(__dirname, 'artikel-smashburgare.html'),
             'foodtruck':          path.resolve(__dirname, 'foodtruck.html'),
             'integritetspolicy':  path.resolve(__dirname, 'integritetspolicy.html'),
             '404':                path.resolve(__dirname, '404.html'),

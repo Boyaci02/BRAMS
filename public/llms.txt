@@ -1,11 +1,12 @@
 # Brams Burger (BRAMS)
 
-> Svensk hamburgerkedja med certifierat halal-kött i alla enheter. Startade 2019 som en food truck i Kista. Idag fem restauranger: Kista, Huddinge, Skärholmen, Uppsala och Göteborg (öppnade 25 mars 2026). Halalburgare på briochebröd, friterad kyckling och barnmeny. Beställning via Qopla, Foodora, Uber Eats och Wolt.
+> Svensk hamburgerkedja som serverar smashburgare med certifierat halal-kött i alla enheter. Startade 2019 som en food truck i Kista. Idag fem restauranger: Kista, Huddinge, Skärholmen, Uppsala och Göteborg (öppnade 25 mars 2026). Smashade halalburgare på briochebröd, friterad kyckling och barnmeny. Beställning via Qopla, Foodora, Uber Eats och Wolt.
 
 ## Om Brams
 - [Om oss](https://brams.se/about): Grundat 2019 som food truck i Kista, första restaurangen öppnade i Huddinge i juni 2023.
 - [100% Halal-certifierade](https://brams.se/artikel-halal): Allt kött i samtliga enheter är certifierat halal.
 - [Brams öppnar i Göteborg](https://brams.se/artikel-goteborg): Den 25 mars 2026 öppnade Brams på Kungsportsavenyen 29 i Göteborg.
+- [Smashburgare: därför pressar vi köttet](https://brams.se/artikel-smashburgare): Vad en smashburgare är, skillnaden mot en vanlig hamburgare, hur Brams gör sina och vilka burgare man bör börja med. En smashburgare pressas platt mot het plåt i samma stund som köttet läggs på, vilket ger en tunnare biff med mörk krispig stekyta. Brams smashar allt nötkött på beställning i alla fem restauranger och köttet är certifierat halal.
 
 ## Restauranger och öppettider
 - [Kista](https://brams.se/location-kista): Kistagången 20B, 164 40 Kista. Öppet måndag till torsdag 10–23, fredag 10–00 (paus 12:45–14:00) och lördag till söndag 11–00.
