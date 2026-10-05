@@ -44,7 +44,7 @@
         .info-card { background: #151515; border-radius: 40px; padding: 40px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
         .info-card:hover { border-color: #c68c17; transform: translateY(-5px); }
         
-        .footer-max-link { font-size: 14px; font-weight: 600; color: #000; transition: opacity 0.2s; }
+        .footer-max-link { font-size: 14px; font-weight: 600; color: #000; /* 5/10 2026: tap-yta minst 44 px pa mobil (SEO-atgard, punkt 39) */ min-height: 44px; display: flex; align-items: center; transition: opacity 0.2s; }
         .footer-max-link:hover { opacity: 0.7; }
         .lang-dropdown { display: none; }
         .lang-dropdown::before {
@@ -175,7 +175,7 @@
 <body>
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 md:p-6 flex justify-between items-center">
-        <a href="https://brams.se/" class="flex items-center gap-3">
+        <a href="https://brams.se/" class="flex items-center gap-3 min-h-[44px]">
             <span class="nav-logo text-white font-display text-3xl transition-colors">BRAMS</span>
         </a>
         <div class="hidden lg:flex items-center gap-10 text-sm font-bold uppercase tracking-[0.18em] text-white">
@@ -268,7 +268,7 @@
     <main class="py-24 container mx-auto px-6">
         <div class="max-w-3xl mb-16">
             <p class="text-base md:text-lg font-medium text-white/80 leading-relaxed">Brams Burger i Skärholmen ligger på Lillholmsgången 2, 127 48 Skärholmen, i Skärholmen C. Allt kött vi serverar är certifierat halal. Vi har öppet alla dagar 10–22 (fredag paus 12:45–13:45). Beställ för avhämtning via Qopla eller få maten hemkörd med Uber Eats, Foodora och Wolt. Hela menyn med priser hittar du på <a href="/menu" class="text-brand-gold underline underline-offset-4">brams.se/menu</a>.</p>
-            <p data-google-betyg class="mt-6 text-sm font-bold uppercase tracking-widest text-white/60"><a href="https://maps.google.com/maps?cid=9918719122915968022" target="_blank" rel="noopener" class="text-brand-gold hover:underline inline-block py-3">4,9 av 5 på Google</a> · 2 447 omdömen, avläst 1 oktober 2026</p>
+            <p data-google-betyg class="mt-6 text-sm font-bold uppercase tracking-widest text-white/60"><a href="https://maps.google.com/maps?cid=9918719122915968022" target="_blank" rel="noopener" class="text-brand-gold hover:underline inline-block py-3">4,9 av 5 på Google</a> · 2 475 omdömen, avläst 5 oktober 2026</p>
         </div>
         <div class="grid lg:grid-cols-3 gap-8">
             
@@ -354,7 +354,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
                 <div class="lg:col-span-3 flex flex-col items-start gap-8">
                     <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" class="h-12 w-auto brightness-0" alt="Brams Logo" />
-                    <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-4">
+                    <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-0">
                         <a href="https://brams.se/" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="nav.home">Hem</a>
                         <a href="https://brams.se/menu" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="nav.menu">Meny</a>
                         <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="nav.locations">Restauranger</a>

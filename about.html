@@ -101,7 +101,7 @@
             font-size: 1.25rem;
             color: #000;
         }
-        .footer-max-link { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6); transition: opacity 0.2s; }
+        .footer-max-link { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6); /* 5/10 2026: tap-yta minst 44 px pa mobil (SEO-atgard, punkt 39) */ min-height: 44px; display: flex; align-items: center; transition: opacity 0.2s; }
         .footer-max-link:hover { color: #fff; opacity: 1; }
 
         /* Hero */
@@ -428,7 +428,7 @@
 <body>
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 md:p-6 flex justify-between items-center">
-        <a href="https://brams.se/" class="flex items-center gap-3">
+        <a href="https://brams.se/" class="flex items-center gap-3 min-h-[44px]">
             <span class="nav-logo text-white font-display text-3xl transition-colors">BRAMS</span>
         </a>
         <div class="hidden lg:flex items-center gap-10 text-sm font-bold uppercase tracking-[0.18em] text-white">
@@ -682,7 +682,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
                 <div class="lg:col-span-3 flex flex-col items-start gap-8">
                     <img src="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" class="h-12 w-auto brightness-0 invert" alt="Brams Logo" />
-                    <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-4">
+                    <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-0">
                         <a href="https://brams.se/" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="nav.home">Hem</a>
                         <a href="https://brams.se/menu" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="nav.menu">Meny</a>
                         <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="nav.locations">Restauranger</a>
@@ -709,7 +709,7 @@
                 <div class="flex flex-wrap items-center justify-center gap-x-6">
                     <a href="tel:+468270111" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors inline-flex items-center min-h-[44px] px-1">08-27 01 11</a>
                     <a href="/integritetspolicy" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors inline-flex items-center min-h-[44px] px-1" data-i18n="footer.privacy">Integritetspolicy</a>
-                    <a href="https://synsnu.se" target="_blank" class="text-[11px] font-bold uppercase tracking-widest hover:text-white transition-colors">Powered by Syns Nu</a>
+                    <a href="https://synsnu.se" target="_blank" class="text-[11px] font-bold uppercase tracking-widest hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">Powered by Syns Nu</a>
                 </div>
             </div>
         </div>

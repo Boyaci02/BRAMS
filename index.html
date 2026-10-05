@@ -135,6 +135,10 @@
             font-size: 14px;
             font-weight: 600;
             color: #000;
+            /* 5/10 2026: tap-yta minst 44 px pa mobil (SEO-atgard, punkt 39) */
+            min-height: 44px;
+            display: flex;
+            align-items: center;
             transition: opacity 0.2s;
         }
         .footer-max-link:hover {
@@ -719,7 +723,7 @@
         </div>
 
         <!-- Center logo -->
-        <a href="https://brams.se/" style="grid-column:2" class="flex items-center justify-center">
+        <a href="https://brams.se/" style="grid-column:2" class="flex items-center justify-center min-h-[44px]">
             <span class="nav-logo text-black font-display text-3xl md:text-4xl tracking-tight transition-colors">BRAMS</span>
         </a>
 
@@ -1115,7 +1119,7 @@
                     <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black" data-i18n="sust.body">
                         På Brams handlar det om mer än burgaren. Vi byggdes för familjen, för kompisgänget, för fredagsmyset och för spontana måltider. Här ryms barn, vänner, kollegor och alla som älskar riktig mat — under samma tak.
                     </p>
-                    <a href="https://brams.se/about" class="flex items-center gap-2 text-max-green font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity">
+                    <a href="https://brams.se/about" class="flex items-center gap-2 text-max-green font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity relative after:absolute after:inset-x-0 after:top-1/2 after:-translate-y-1/2 after:h-11">
                         <span data-i18n="sust.link">Läs mer om Brams</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
@@ -1138,7 +1142,7 @@
                     <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black" data-i18n="halal.body">
                         För oss på BRAMS är det självklart att alla ska kunna njuta av en riktigt god burgare. Därför serverar vi 100% certifierat halal-kött i alla våra enheter, tillagat med samma hantverk och passion som alltid.
                     </p>
-                    <a href="https://brams.se/about" class="flex items-center gap-2 text-brand-gold font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity">
+                    <a href="https://brams.se/about" class="flex items-center gap-2 text-brand-gold font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity relative after:absolute after:inset-x-0 after:top-1/2 after:-translate-y-1/2 after:h-11">
                         <span data-i18n="halal.link">Läs om oss</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
@@ -1297,7 +1301,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
                 <div class="lg:col-span-3 flex flex-col items-start gap-8">
                     <img src="/img/logo.webp" width="1024" height="666" loading="lazy" decoding="async" class="h-12 w-auto brightness-0" alt="Brams Logo" />
-                    <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-4">
+                    <nav class="flex flex-wrap lg:flex-nowrap gap-x-8 gap-y-0">
                         <a href="https://brams.se/" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="nav.home">Hem</a>
                         <a href="https://brams.se/menu" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="nav.menu">Meny</a>
                         <a href="https://brams.se/locations" class="footer-max-link uppercase tracking-wider whitespace-nowrap" data-i18n="nav.locations">Restauranger</a>
