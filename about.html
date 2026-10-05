@@ -346,19 +346,78 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Hem",
-      "item": "https://brams.se/"
+      "@type": "Organization",
+      "@id": "https://brams.se/#organization",
+      "name": "Brams Burger",
+      "alternateName": [
+        "BRAMS",
+        "Bram's Burgers"
+      ],
+      "url": "https://brams.se/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://brams.se/img/logo.webp"
+      },
+      "description": "Halalburgare på briochebröd sedan 2019. Från food truck i Kista till restauranger i Kista, Huddinge, Skärholmen, Uppsala och Göteborg.",
+      "foundingDate": "2019",
+      "email": "info@brams.se",
+      "sameAs": [
+        "https://www.instagram.com/brams.burgers/",
+        "https://tiktok.com/@bramsburgers",
+        "https://youtube.com/@bramsburgers",
+        "https://www.facebook.com/bramsburgers.est19/",
+        "https://se.linkedin.com/company/bramsburgers-ab"
+      ],
+      "subOrganization": [
+        {
+          "@id": "https://brams.se/location-kista#restaurant"
+        },
+        {
+          "@id": "https://brams.se/location-huddinge#restaurant"
+        },
+        {
+          "@id": "https://brams.se/location-skarholmen#restaurant"
+        },
+        {
+          "@id": "https://brams.se/location-uppsala#restaurant"
+        },
+        {
+          "@id": "https://brams.se/location-goteborg#restaurant"
+        }
+      ],
+      "telephone": "+46 8 27 01 11"
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Om oss",
-      "item": "https://brams.se/about"
+      "@type": "WebPage",
+      "@id": "https://brams.se/about",
+      "url": "https://brams.se/about",
+      "name": "Brams Burger | Om oss",
+      "inLanguage": "sv-SE",
+      "isPartOf": {
+        "@id": "https://brams.se/#website"
+      },
+      "about": {
+        "@id": "https://brams.se/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Hem",
+          "item": "https://brams.se/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Om oss",
+          "item": "https://brams.se/about"
+        }
+      ]
     }
   ]
 }
