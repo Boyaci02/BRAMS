@@ -175,7 +175,7 @@
   #navbar{display:flex !important;justify-content:space-between !important;align-items:center;}
 }
 </style>
-<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"a36f2b612ae98b7d7fcca110a12a1abe"})});</script>
+<script src="/js/metricool.js" defer></script>
     <style>/* SEO-audit 2026-09-12: tap-yta minst 44 px på mobil */.pill-button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}</style>
     <script type="application/ld+json">
 {
@@ -741,27 +741,27 @@
                     <span class="lang-current">SV</span>
                 </button>
                 <div class="lang-dropdown absolute right-0 mt-2 w-40 bg-white rounded-2xl shadow-2xl border border-gray-100 py-3 z-[60]">
-                    <a href="#" onclick="setLanguage('sv');return false;" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">SVENSKA <span class="opacity-30">SE</span></a>
-                    <a href="#" onclick="setLanguage('en');return false;" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">ENGLISH <span class="opacity-30">EN</span></a>
-                    <a href="#" onclick="setLanguage('ur');return false;" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">اردو <span class="opacity-30">UR</span></a>
-                    <a href="#" onclick="setLanguage('ar');return false;" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">العربية <span class="opacity-30">AR</span></a>
-                    <a href="#" onclick="setLanguage('so');return false;" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">SOMALI <span class="opacity-30">SO</span></a>
+                    <a href="#" data-set-lang="sv" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">SVENSKA <span class="opacity-30">SE</span></a>
+                    <a href="#" data-set-lang="en" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">ENGLISH <span class="opacity-30">EN</span></a>
+                    <a href="#" data-set-lang="ur" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">اردو <span class="opacity-30">UR</span></a>
+                    <a href="#" data-set-lang="ar" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">العربية <span class="opacity-30">AR</span></a>
+                    <a href="#" data-set-lang="so" class="flex items-center justify-between px-5 py-2 text-[11px] font-black text-brand-black hover:bg-gray-50 hover:text-brand-gold transition-colors">SOMALI <span class="opacity-30">SO</span></a>
                 </div>
             </div>
 
             <a href="https://order.qopla.com/v2/bramsburgers" target="_blank" rel="noopener" class="pill-button bg-brand-black text-white hover:bg-brand-gold shadow-lg flex items-center justify-center" data-i18n="nav.order">Beställ</a>
-            <button onclick="toggleMenu(true)" class="lg:hidden nav-link text-black p-2 hover:bg-black/5 rounded-full transition-colors">
+            <button data-menu="open" class="lg:hidden nav-link text-black p-2 hover:bg-black/5 rounded-full transition-colors">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
     </nav>
 
     <!-- Menu Overlay & Drawer -->
-    <div id="menu-overlay" class="fixed inset-0 z-[90] bg-black/40 backdrop-blur-sm" onclick="toggleMenu(false)"></div>
+    <div id="menu-overlay" class="fixed inset-0 z-[90] bg-black/40 backdrop-blur-sm" data-menu="close"></div>
     <div id="menu-drawer" class="fixed inset-y-0 right-0 z-[100] bg-white w-full md:w-[450px] flex flex-col shadow-2xl overflow-y-auto rounded-none">
         <div class="p-8 pb-4 flex justify-between items-center bg-white sticky top-0 z-20">
             <span class="font-display text-4xl text-black tracking-tight">BRAMS</span>
-            <button onclick="toggleMenu(false)" class="text-black p-2 hover:bg-gray-100 rounded-full transition-all">
+            <button data-menu="close" class="text-black p-2 hover:bg-gray-100 rounded-full transition-all">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
         </div>
@@ -777,7 +777,7 @@
 
 
             <div class="grid grid-cols-2 gap-4 mb-10">
-                <a href="https://order.qopla.com/v2/bramsburgers" onclick="toggleMenu(false)" target="_blank" rel="noopener" class="bg-brand-gold text-white py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
+                <a href="https://order.qopla.com/v2/bramsburgers" data-menu="close" target="_blank" rel="noopener" class="bg-brand-gold text-white py-4 px-4 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-sm active:scale-95 transition-all">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 10.58 0A4 4 0 0 1 18 13.87"></path><path d="M6 13.87V19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-5.13"></path><line x1="6" y1="13.87" x2="18" y2="13.87"></line></svg>
                     <span data-i18n="drawer.orderOnline">Beställ online</span>
                 </a>
@@ -790,7 +790,7 @@
             <div class="mt-auto pt-8 text-black">
                 <label for="lang-select-mobile" class="block font-black text-[10px] tracking-[0.3em] uppercase opacity-50 mb-3">VÄLJ SPRÅK / LANGUAGE</label>
                 <div class="relative">
-                    <select id="lang-select-mobile" data-lang-select onchange="setLanguage(this.value)" class="w-full appearance-none bg-gray-50 border border-gray-200 px-5 py-4 pr-12 rounded-xl font-black text-sm uppercase tracking-widest text-black cursor-pointer focus:outline-none focus:border-brand-gold transition-colors">
+                    <select id="lang-select-mobile" data-lang-select class="w-full appearance-none bg-gray-50 border border-gray-200 px-5 py-4 pr-12 rounded-xl font-black text-sm uppercase tracking-widest text-black cursor-pointer focus:outline-none focus:border-brand-gold transition-colors">
                         <option value="sv">Svenska</option>
                         <option value="en">English</option>
                         <option value="ur">اردو</option>
@@ -816,7 +816,7 @@
             <div class="absolute top-0 left-0 right-0 h-1 bg-brand-gold z-10"></div>
 
             <!-- Stäng-knapp -->
-            <button onclick="closeOrderModal()" aria-label="Stäng" class="absolute top-4 right-4 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-gray-100 text-brand-black hover:bg-brand-gold hover:text-white transition-all active:scale-90">
+            <button data-order-close aria-label="Stäng" class="absolute top-4 right-4 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-gray-100 text-brand-black hover:bg-brand-gold hover:text-white transition-all active:scale-90">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
 
@@ -828,27 +828,27 @@
                         <p class="text-gray-500 font-bold uppercase text-xs tracking-[0.22em] mt-3">Var vill du beställa ifrån?</p>
                     </div>
                     <div class="flex flex-col gap-3">
-                        <button type="button" onclick="bramsSelectLocation('skarholmen')" class="order-pill order-pill--filled">
+                        <button type="button" data-order-loc="skarholmen" class="order-pill order-pill--filled">
                             <span class="order-pill-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                             <span class="order-pill-text"><span class="order-pill-name">Skärholmen</span><span class="order-pill-sub">Lillholmsgången 2, Skärholmen</span></span>
                             <svg class="order-pill-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
                         </button>
-                        <button type="button" onclick="bramsSelectLocation('kista')" class="order-pill order-pill--outline">
+                        <button type="button" data-order-loc="kista" class="order-pill order-pill--outline">
                             <span class="order-pill-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                             <span class="order-pill-text"><span class="order-pill-name">Kista</span><span class="order-pill-sub">Kistagången 20B, Kista</span></span>
                             <svg class="order-pill-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
                         </button>
-                        <button type="button" onclick="bramsSelectLocation('huddinge')" class="order-pill order-pill--filled">
+                        <button type="button" data-order-loc="huddinge" class="order-pill order-pill--filled">
                             <span class="order-pill-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                             <span class="order-pill-text"><span class="order-pill-name">Huddinge</span><span class="order-pill-sub">Novavägen 17, Huddinge</span></span>
                             <svg class="order-pill-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
                         </button>
-                        <button type="button" onclick="bramsSelectLocation('uppsala')" class="order-pill order-pill--outline">
+                        <button type="button" data-order-loc="uppsala" class="order-pill order-pill--outline">
                             <span class="order-pill-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                             <span class="order-pill-text"><span class="order-pill-name">Uppsala</span><span class="order-pill-sub">Väderkvarnsgatan 28C, Uppsala</span></span>
                             <svg class="order-pill-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
                         </button>
-                        <button type="button" onclick="bramsSelectLocation('goteborg')" class="order-pill order-pill--filled">
+                        <button type="button" data-order-loc="goteborg" class="order-pill order-pill--filled">
                             <span class="order-pill-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
                             <span class="order-pill-text"><span class="order-pill-name">Göteborg</span><span class="order-pill-sub">Kungsportsavenyen 29, Göteborg</span></span>
                             <svg class="order-pill-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
@@ -859,7 +859,7 @@
                 <!-- ===== STEG 2: VÄLJ LEVERANS ===== -->
                 <div id="order-step-2" style="display:none">
                     <div class="mb-7 pr-12">
-                        <button type="button" onclick="bramsBackToLocations()" class="flex items-center gap-1.5 text-gray-500 font-bold uppercase text-[11px] tracking-[0.18em] mb-4 hover:text-brand-black transition-colors">
+                        <button type="button" data-order-back class="flex items-center gap-1.5 text-gray-500 font-bold uppercase text-[11px] tracking-[0.18em] mb-4 hover:text-brand-black transition-colors">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                             Tillbaka
                         </button>
@@ -980,64 +980,7 @@
         .order-pill:hover .order-pill-arrow { opacity: 1; transform: translate(2px,-2px); }
     </style>
 
-    <script>
-        // Leveranslänkar per enhet (Foodora/Wolt/Qopla). null = döljs.
-        var BRAMS_DEST = {
-            skarholmen: { name: 'Skärholmen', foodora: 'https://www.foodora.se/restaurant/ztza/brams-burgers-skarholmen', wolt: 'https://wolt.com/sv/swe/stockholm/restaurant/brams-burgers-kungens-kurva', qopla: "https://bramsburgers.qopla.com/restaurant/bram's-burgers---skarholmen/q8ydyvg9eM/order" },
-            kista: { name: 'Kista', foodora: 'https://www.foodora.se/restaurant/rgfq/brams-burgers-kista', wolt: 'https://wolt.com/sv/swe/stockholm/restaurant/brams-burgers-kista', qopla: "https://bramsburgers.qopla.com/restaurant/bram's-burgers---kista/q7PNyL47re/order" },
-            huddinge: { name: 'Huddinge', foodora: 'https://www.foodora.se/restaurant/zgbz/brams-burgers-huddinge-zgbz', wolt: 'https://wolt.com/sv/swe/stockholm/restaurant/brams-burgers-huddinge', qopla: "https://bramsburgers.qopla.com/restaurant/bram's-burgers---huddinge/qwNDeajN98/order" },
-            uppsala: { name: 'Uppsala', foodora: 'https://www.foodora.se/restaurant/zkjh/brams-burgers-uppsala', wolt: 'https://wolt.com/sv/swe/uppsala/restaurant/brams-burgers-uppsala', qopla: "https://bramsburgers.qopla.com/restaurant/bram%E2%80%99s-burgers---uppsala/qeA4b2xNdX/order" },
-            goteborg: { name: 'Göteborg', foodora: 'https://www.foodora.se/restaurant/qd6e/brams-burgers', wolt: 'https://wolt.com/sv/swe/goteborg/restaurant/bram-s-burgers-goteborg-2', qopla: "https://bramsburgers.qopla.com/restaurant/bram's-burgers---goteborg/qDQxKYXrEO/order" }
-        };
-        function setDeliv(id, url) {
-            var el = document.getElementById(id);
-            if (!el) return;
-            if (url) { el.href = url; el.style.display = ''; } else { el.style.display = 'none'; }
-        }
-        function bramsSelectLocation(key) {
-            var d = BRAMS_DEST[key];
-            if (!d) return;
-            document.getElementById('order-step2-name').textContent = d.name;
-            setDeliv('order-foodora', d.foodora);
-            setDeliv('order-wolt', d.wolt);
-            setDeliv('order-qopla', d.qopla);
-            document.getElementById('order-step-1').style.display = 'none';
-            document.getElementById('order-step-2').style.display = 'block';
-        }
-        function bramsBackToLocations() {
-            document.getElementById('order-step-2').style.display = 'none';
-            document.getElementById('order-step-1').style.display = 'block';
-        }
-        function openOrderModal(e) {
-            if (e && e.preventDefault) e.preventDefault();
-            var m = document.getElementById('order-modal');
-            if (!m) return;
-            bramsBackToLocations(); // starta alltid på steg 1
-            m.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            var card = document.getElementById('order-modal-card');
-            if (card) { try { card.focus(); } catch (err) {} }
-        }
-        function closeOrderModal() {
-            var m = document.getElementById('order-modal');
-            if (!m) return;
-            m.style.display = 'none';
-            document.body.style.overflow = '';
-            bramsBackToLocations(); // reset till steg 1 inför nästa öppning
-        }
-        (function () {
-            var m = document.getElementById('order-modal');
-            if (!m) return;
-            // Klick på overlay (utanför kortet) stänger
-            m.addEventListener('click', function (e) {
-                if (e.target === m) closeOrderModal();
-            });
-            // Esc stänger
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && m.style.display === 'flex') closeOrderModal();
-            });
-        })();
-    </script>
+    <script src="/js/index.js"></script>
 
 
     <style>
@@ -1079,7 +1022,7 @@
                         Upptäck resan från en food truck i Kista till hela Sveriges favorit. Vi kombinerar hantverk med äkta kärlek.
                     </p>
                     <div class="pt-4">
-                        <button onclick="window.location.href='https://brams.se/about'" class="pill-button bg-brand-green text-white hover:bg-brand-black shadow-2xl transition-all transform hover:-translate-y-1" data-i18n="story.btn">
+                        <button data-href="https://brams.se/about" class="pill-button bg-brand-green text-white hover:bg-brand-black shadow-2xl transition-all transform hover:-translate-y-1" data-i18n="story.btn">
                             Läs om Brams
                         </button>
                     </div>
@@ -1098,7 +1041,7 @@
 
     <!-- Info & Meny Section -->
     <section class="bg-white">
-        <div onclick="window.location.href='https://brams.se/menu'" class="relative h-[320px] md:h-[480px] overflow-hidden group cursor-pointer">
+        <div data-href="https://brams.se/menu" class="relative h-[320px] md:h-[480px] overflow-hidden group cursor-pointer">
             <img src="/img/meny.webp" width="1200" height="1500" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Burgare Meny" />
             <div class="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex justify-end" data-reveal>
                 <div class="flex items-center gap-3 bg-brand-black text-white px-6 py-3 md:px-10 md:py-5 text-sm md:text-xl font-bold rounded-full hover:bg-brand-gold transition-all shadow-2xl active:scale-95">
@@ -1155,7 +1098,7 @@
     <section class="relative h-[60vh] md:h-[80vh] w-full flex items-end justify-center pb-20 overflow-hidden">
         <img src="/img/hitta-brams.webp" width="1440" height="1801" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-90" alt="Burgare med jalapeños och chili cheese i handen" />
         <div class="relative z-10" data-reveal>
-            <button onclick="window.location.href='https://brams.se/locations'" class="flex items-center gap-3 bg-brand-black text-white px-8 md:px-12 py-4 md:py-6 text-lg md:text-2xl font-bold rounded-full hover:bg-brand-gold transition-all shadow-2xl active:scale-95">
+            <button data-href="https://brams.se/locations" class="flex items-center gap-3 bg-brand-black text-white px-8 md:px-12 py-4 md:py-6 text-lg md:text-2xl font-bold rounded-full hover:bg-brand-gold transition-all shadow-2xl active:scale-95">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                 <span data-i18n="find.btn">Hitta din närmaste BRAMS</span>
             </button>
@@ -1194,7 +1137,7 @@
                     <p style="font-size:11px; font-weight:800; letter-spacing:0.3em; text-transform:uppercase; color:#c68c17; margin-bottom:10px;" data-i18n="news.label">Nyheter</p>
                     <h2 style="font-family:'Anton',sans-serif; text-transform:uppercase; font-size:clamp(32px,4vw,52px); color:#0c0c0c; line-height:1.05;" data-i18n="news.heading">Senaste nytt</h2>
                 </div>
-                <a href="#" style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#0c0c0c; border-bottom:2px solid #c68c17; padding-bottom:2px; white-space:nowrap; transition:color 0.2s;" onmouseover="this.style.color='#c68c17'" onmouseout="this.style.color='#0c0c0c'" data-i18n="news.all">Alla nyheter</a>
+                <a href="#" style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#0c0c0c; border-bottom:2px solid #c68c17; padding-bottom:2px; white-space:nowrap; transition:color 0.2s;" data-hover-color="#c68c17" data-out-color="#0c0c0c" data-i18n="news.all">Alla nyheter</a>
             </div>
 
             <div class="news-grid">
@@ -1339,58 +1282,9 @@
         </div>
     </footer>
 
-    <script>
-        let lastScrollTop = 0;
-        const navbar = document.getElementById('navbar');
-
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 50) {
-                navbar.classList.add('nav-active');
-            } else {
-                navbar.classList.remove('nav-active');
-            }
-
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                navbar.classList.add('nav-hidden');
-            } else {
-                navbar.classList.remove('nav-hidden');
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-        }, false);
-
-        function toggleMenu(open) {
-            const drawer = document.getElementById('menu-drawer');
-            const overlay = document.getElementById('menu-overlay');
-            if (open) {
-                drawer.classList.add('open');
-                overlay.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            } else {
-                drawer.classList.remove('open');
-                overlay.classList.remove('open');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        /* Scroll-reveal: fade-up sections, images and cards as they enter view */
-        (function () {
-            var els = document.querySelectorAll('[data-reveal]');
-            if (!els.length) return;
-            if (!('IntersectionObserver' in window)) {
-                els.forEach(function (el) { el.classList.add('revealed'); });
-                return;
-            }
-            var io = new IntersectionObserver(function (entries) {
-                entries.forEach(function (e) {
-                    if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); }
-                });
-            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-            els.forEach(function (el) { io.observe(el); });
-        })();
-    </script>
-<script src="/i18n.js"></script>
+    <script src="/js/index-2.js"></script>
+<script src="/js/handelser.js"></script>
+    <script src="/i18n.js"></script>
 <script src="/order-modal.js"></script>
 
 <script defer src="/_vercel/insights/script.js"></script>

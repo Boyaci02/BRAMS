@@ -1,7 +1,7 @@
 // Ersätter cdn.tailwindcss.com (SEO-åtgärd 21/9 2026). Samma tema som sidornas tidigare inline-config.
 // brand-cream skiljer mellan sidor (#f9f6f1 / #fef3e9) och styrs därför av en CSS-variabel per sida.
 module.exports = {
-  content: ['./*.html', './public/i18n.js', './public/order-modal.js'],
+  content: ['./*.html', './public/i18n.js', './public/order-modal.js', './public/js/*.js'],
   theme: {
     extend: {
       colors: {
