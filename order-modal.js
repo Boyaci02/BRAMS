@@ -75,11 +75,11 @@
     var ikonVagn = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 4h2l2.4 11h10.2l2.4-8H6"/></svg>';
     var ikonHus = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg>';
 
-    function plattform(url, klass, namn, subKey, subDefault, ikon) {
+    function plattform(url, klass, namn, subKey, subDefault, ikon, namnKey) {
         if (!url) return '';
         return '<a href="' + url + '" target="_blank" rel="noopener" class="om-pill ' + klass + '">' +
             '<span class="om-ikon">' + ikon + '</span>' +
-            '<span class="om-text"><span class="om-titel">' + namn + '</span>' +
+            '<span class="om-text"><span class="om-titel"' + (namnKey ? ' data-i18n="' + namnKey + '"' : '') + '>' + namn + '</span>' +
             '<span class="om-undertext" data-i18n="' + subKey + '">' + subDefault + '</span></span>' +
             pilUpp + '</a>';
     }
@@ -93,7 +93,7 @@
             plattform(e.foodora, 'om-foodora', 'Foodora', 'om.delivery', 'Hemleverans', ikonMoped) +
             plattform(e.wolt, 'om-wolt', 'Wolt', 'om.delivery', 'Hemleverans', ikonMoped) +
             plattform(e.uber, 'om-uber', 'Uber Eats', 'om.delivery', 'Hemleverans', ikonMoped) +
-            plattform(e.qopla, 'om-qopla', 'Qopla', 'om.pickup', 'Avhämtning & leverans', ikonVagn) +
+            plattform(e.qopla, 'om-qopla', 'Online beställning', 'om.pickup', 'Avhämtning', ikonVagn, 'om.online') +
             '</div></div>';
     }).join('');
 
