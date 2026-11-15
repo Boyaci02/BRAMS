@@ -750,7 +750,7 @@
             </div>
 
             <a href="https://order.qopla.com/v2/bramsburgers" target="_blank" rel="noopener" class="pill-button bg-brand-black text-white hover:bg-brand-gold shadow-lg flex items-center justify-center" data-i18n="nav.order">Beställ</a>
-            <button data-menu="open" class="lg:hidden nav-link text-black p-2 hover:bg-black/5 rounded-full transition-colors">
+            <button data-menu="open" aria-label="Öppna menyn" class="lg:hidden nav-link text-black p-2 hover:bg-black/5 rounded-full transition-colors">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
@@ -761,7 +761,7 @@
     <div id="menu-drawer" class="fixed inset-y-0 right-0 z-[100] bg-white w-full md:w-[450px] flex flex-col shadow-2xl overflow-y-auto rounded-none">
         <div class="p-8 pb-4 flex justify-between items-center bg-white sticky top-0 z-20">
             <span class="font-display text-4xl text-black tracking-tight">BRAMS</span>
-            <button data-menu="close" class="text-black p-2 hover:bg-gray-100 rounded-full transition-all">
+            <button data-menu="close" aria-label="Stäng menyn" class="text-black p-2 hover:bg-gray-100 rounded-full transition-all">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
         </div>
@@ -996,14 +996,15 @@
         <span data-i18n="nav.ask">Fråga oss</span>
     </a>
 
+    <main id="innehall">
     <!-- Hero (Xebra-nivå): Brams Tartufo som huvudperson, ingredienserna som
          klistermärken med handritade pilar, två burgare in från kanterna.
          Nålas fast (data-rida + data-nala) så nästa sektion glider över. -->
     <section class="hx" id="hero" data-rida data-nala>
         <div class="hx-papper" aria-hidden="true"><span>Brams Burgers Brams Burgers Brams Burgers</span><span>Brams Burgers Brams Burgers Brams Burgers</span><span>Brams Burgers Brams Burgers Brams Burgers</span><span>Brams Burgers Brams Burgers Brams Burgers</span><span>Brams Burgers Brams Burgers Brams Burgers</span></div>
         <div class="hx-scen">
-            <div class="hx-fig hx-fig--v" aria-hidden="true"><img src="/img/x/bacon-360.webp" srcset="/img/x/bacon-360.webp 360w, /img/x/bacon-600.webp 600w" sizes="(min-width: 900px) 21vw, 30vw" alt="" width="360" height="331" decoding="async"></div>
-            <div class="hx-fig hx-fig--h" aria-hidden="true"><img src="/img/x/smash-420.webp" alt="" width="420" height="333" decoding="async"></div>
+            <div class="hx-fig hx-fig--v" aria-hidden="true"><img src="/img/x/bacon-360.webp" srcset="/img/x/bacon-220.webp 220w, /img/x/bacon-360.webp 360w, /img/x/bacon-600.webp 600w" sizes="(min-width: 900px) 21vw, 30vw" alt="" width="360" height="331" decoding="async"></div>
+            <div class="hx-fig hx-fig--h" aria-hidden="true"><img src="/img/x/smash-260.webp" srcset="/img/x/smash-260.webp 260w, /img/x/smash-420.webp 420w" sizes="(min-width: 900px) 20vw, 30vw" alt="" width="260" height="206" decoding="async"></div>
             <div class="xw hx-rubrik">
                 <div class="hx-marke" aria-hidden="true">
                     <svg viewBox="0 0 200 200"><defs><path id="hx-cirkel" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><circle cx="100" cy="100" r="98" fill="#0c0c0c"/><text font-family="Anton, sans-serif" font-size="21" letter-spacing="3.2" fill="#fdf3ea"><textPath href="#hx-cirkel">BRAMS BURGERS · EST 2019 · 100% HALAL ·</textPath></text><text x="100" y="114" text-anchor="middle" font-family="Anton, sans-serif" font-size="40" fill="#c68c17">B</text></svg>
@@ -1045,7 +1046,7 @@
             <div class="story-objekt loop-zon">
                 <span class="dekal story-dekal" aria-hidden="true">Est. 2019</span>
                 <img class="intrade intrade--stig" src="/img/x/foodtruck-640.webp" alt="Brams food truck med svart dekor och tre arbetare i varselkläder som beställer i luckan" width="640" height="800" loading="lazy" decoding="async" style="border:3px solid #fdf3ea;border-radius:9px 24px 7px 20px;box-shadow:7px 7px 0 #c68c17;rotate:2deg">
-                <div class="duo-horn intrade intrade--glid" style="--d:200ms"><img class="flyt" src="/img/x/dubbel-420.webp" alt="" width="420" height="269" loading="lazy" decoding="async"></div>
+                <div class="duo-horn intrade intrade--glid" style="--d:200ms"><img class="flyt" src="/img/x/dubbel-280.webp" srcset="/img/x/dubbel-280.webp 280w, /img/x/dubbel-420.webp 420w" sizes="(min-width: 900px) 210px, 36vw" alt="" width="280" height="179" loading="lazy" decoding="async"></div>
             </div>
         </div>
     </section>
@@ -1088,7 +1089,7 @@
         <div class="xw" style="display:grid;gap:clamp(72px,9vw,120px)">
             <div class="duo">
                 <div class="duo-bild intrade intrade--stig">
-                    <img class="foto" src="/img/gemenskap.webp" width="1200" height="1500" loading="lazy" decoding="async" alt="Gemenskap på Brams">
+                    <img class="foto" src="/img/x/gemenskap-640.webp" width="640" height="800" loading="lazy" decoding="async" alt="Gemenskap på Brams">
                     <span class="dekal dekal--guld" aria-hidden="true">Alla ska äta</span>
                 </div>
                 <div class="duo-txt">
@@ -1100,7 +1101,7 @@
             </div>
             <div class="duo duo--v">
                 <div class="duo-bild intrade intrade--stig">
-                    <img class="foto" src="/img/halal.webp" width="900" height="900" loading="lazy" decoding="async" alt="Halal Certifierat">
+                    <img class="foto" src="/img/x/halal-640.webp" width="640" height="640" loading="lazy" decoding="async" alt="Halal Certifierat">
                     <span class="dekal" aria-hidden="true">Certifierat</span>
                 </div>
                 <div class="duo-txt">
@@ -1142,7 +1143,7 @@
     <section class="xs xs--cream xpad dropp dropp--fran-svart loop-zon" id="kontakt">
         <div class="xw duo">
             <div class="duo-bild intrade intrade--stig">
-                <img class="foto" src="/img/hitta-brams.webp" width="1440" height="1801" loading="lazy" decoding="async" alt="Burgare med jalapeños och chili cheese i handen">
+                <img class="foto" src="/img/x/hitta-640.webp" width="640" height="800" loading="lazy" decoding="async" alt="Burgare med jalapeños och chili cheese i handen">
             </div>
             <div class="duo-txt">
                 <p class="mikro">Fem restauranger</p>
@@ -1309,6 +1310,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Global Footer -->
     <div class="marquee-hallare loop-zon" aria-hidden="true"><div class="marquee"><div class="marquee-spar"><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span></div></div></div>
     <footer class="bg-white py-16 border-t border-gray-100">
@@ -1328,27 +1331,27 @@
                 </div>
 
                 <div class="flex items-start lg:justify-end gap-5 text-black">
-                    <a href="https://www.instagram.com/brams.burgers/" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                    <a href="https://www.instagram.com/brams.burgers/" target="_blank" rel="noopener" aria-label="Brams på Instagram" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
-                    <a href="https://tiktok.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                    <a href="https://tiktok.com/@bramsburgers" target="_blank" rel="noopener" aria-label="Brams på TikTok" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
                     </a>
                     <a href="https://www.facebook.com/bramsburgers.est19/" target="_blank" rel="noopener" aria-label="Brams på Facebook" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </a>
-                    <a href="https://youtube.com/@bramsburgers" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
+                    <a href="https://youtube.com/@bramsburgers" target="_blank" rel="noopener" aria-label="Brams på YouTube" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-brand-gold transition-all shadow-sm">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                     </a>
                 </div>
             </div>
 
             <div class="pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-[11px] text-gray-400 font-bold tracking-[0.2em] uppercase" data-i18n="footer.copy">© 2026 BRAMS BURGER — ALLA SKA ÄTA</p>
+                <p class="text-[11px] text-gray-600 font-bold tracking-[0.2em] uppercase" data-i18n="footer.copy">© 2026 BRAMS BURGER — ALLA SKA ÄTA</p>
                 <div class="flex flex-wrap items-center justify-center gap-x-6">
-                    <a href="tel:+468270111" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors inline-flex items-center min-h-[44px] px-1">08-27 01 11</a>
-                    <a href="/integritetspolicy" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors inline-flex items-center min-h-[44px] px-1" data-i18n="footer.privacy">Integritetspolicy</a>
-                    <a href="https://synsnu.se" target="_blank" class="text-[11px] text-gray-400 font-bold uppercase tracking-widest hover:text-black transition-colors inline-flex items-center min-h-[44px] px-1">Powered by Syns Nu</a>
+                    <a href="tel:+468270111" class="text-[11px] text-gray-600 font-bold uppercase tracking-widest hover:text-black transition-colors inline-flex items-center min-h-[44px] px-1">08-27 01 11</a>
+                    <a href="/integritetspolicy" class="text-[11px] text-gray-600 font-bold uppercase tracking-widest hover:text-black transition-colors inline-flex items-center min-h-[44px] px-1" data-i18n="footer.privacy">Integritetspolicy</a>
+                    <a href="https://synsnu.se" target="_blank" class="text-[11px] text-gray-600 font-bold uppercase tracking-widest hover:text-black transition-colors inline-flex items-center min-h-[44px] px-1">Powered by Syns Nu</a>
                 </div>
             </div>
         </div>
