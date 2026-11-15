@@ -423,6 +423,7 @@
 }
 </script>
     <link rel="stylesheet" href="/tw.css">
+    <link rel="stylesheet" href="/xebra.css">
     <style>:root{--brand-cream-rgb:254 243 233}</style>
 </head>
 <body>
@@ -507,19 +508,15 @@
     </div>
 
     <!-- SECTION 1: Hero -->
-    <section class="hero-section">
+    <section class="hero-section sh" id="hero" data-rida>
         <div class="hero-bg"></div>
         <div class="hero-fade"></div>
         <div class="hero-content container mx-auto max-w-7xl">
             <p class="text-brand-gold font-black uppercase tracking-[0.4em] text-xs mb-6" data-i18n="about.hero.label">Om Brams Burger</p>
+            <span class="dekal dekal--guld" aria-hidden="true" style="rotate:-5deg;margin-bottom:18px">Sedan 2019</span>
             <h1 class="font-display text-[clamp(4rem,12vw,11rem)] text-white leading-none mb-8" data-i18n="about.hero.h1">
                 Med en <br><span class="text-brand-gold">PASSION</span> <br>för mat
             </h1>
-            <div class="flex items-center gap-4 text-white/40">
-                <div class="w-8 h-px bg-white/30"></div>
-                <span class="text-[11px] font-bold uppercase tracking-[0.3em]" data-i18n="about.hero.scroll">Scrolla för att läsa vår historia</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </div>
         </div>
     </section>
 
@@ -677,6 +674,7 @@
     </section>
 
     <!-- Footer -->
+    <div class="marquee-hallare marquee-hallare--mork loop-zon" aria-hidden="true"><div class="marquee"><div class="marquee-spar"><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span></div></div></div>
     <footer class="bg-[#0a0a0a] py-16 border-t border-white/5">
         <div class="container mx-auto px-6 max-w-7xl text-white">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
@@ -719,6 +717,7 @@
 <script src="/js/handelser.js"></script>
     <script src="/i18n.js"></script>
 <script src="/order-modal.js"></script>
+<script src="/js/xebra.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

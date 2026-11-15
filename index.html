@@ -21,8 +21,7 @@
     <meta name="twitter:description" content="Halalburgare på briochebröd sedan 2019. Från food truck i Kista till restauranger i Stockholm, Uppsala och Göteborg. Beställ online eller kom förbi." />
     <meta name="twitter:image" content="https://brams.se/og-brams.jpg" />
     <link rel="icon" type="image/png" href="https://storage.googleapis.com/msgsndr/1FYpgqYgXr6SzFnCzKew/media/68c81d1609ca6251d5f88949.png" />
-        <link rel="preload" as="image" href="/img/hero-mobile.webp" media="(max-width: 1023px)">
-    <link rel="preload" as="image" href="/img/hero-desktop.webp" media="(min-width: 1024px)">
+    <link rel="preload" as="image" href="/img/x/tartufo-480.webp" imagesrcset="/img/x/tartufo-480.webp 480w, /img/x/tartufo-760.webp 760w" imagesizes="(min-width: 900px) 470px, 64vw" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -709,6 +708,7 @@
 }
 </script>
     <link rel="stylesheet" href="/tw.css">
+    <link rel="stylesheet" href="/xebra.css">
 </head>
 <body>
     <div id="root"></div>
@@ -996,112 +996,166 @@
         <span data-i18n="nav.ask">Fråga oss</span>
     </a>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <picture>
-            <source media="(min-width: 1024px)" srcset="/img/hero-desktop.webp" width="1920" height="1080">
-            <img src="/img/hero-mobile.webp" width="900" height="1600" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover" alt="Om en ska äta, alla ska äta – Brams Burger">
-        </picture>
-        <h1 class="sr-only">Brams Burger - Om en ska äta, alla ska äta</h1>
-    </section>
-
-    <!-- Vår Story Section - Full Gold Background, 2 Columns, No Shadow on Image -->
-    <section class="bg-brand-cream py-24 px-6 relative overflow-hidden">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12 md:gap-24">
-                
-                <!-- Column 1: Text & Button -->
-                <div class="text-brand-black space-y-8 z-10 text-left" data-reveal>
-                    <div class="space-y-4">
-                        <p class="font-black text-xs md:text-sm tracking-[0.4em] text-brand-gold uppercase" data-i18n="story.label">Vår Story</p>
-                        <h2 class="text-5xl md:text-[7rem] font-display leading-[0.9] uppercase tracking-tight" data-i18n="story.heading">
-                            Smak som <br/>skriver historia!
-                        </h2>
-                    </div>
-                    <p class="font-bold text-lg md:text-2xl text-gray-600 uppercase tracking-tight leading-relaxed max-w-xl" data-i18n="story.body">
-                        Upptäck resan från en food truck i Kista till hela Sveriges favorit. Vi kombinerar hantverk med äkta kärlek.
-                    </p>
-                    <div class="pt-4">
-                        <button data-href="https://brams.se/about" class="pill-button bg-brand-green text-white hover:bg-brand-black shadow-2xl transition-all transform hover:-translate-y-1" data-i18n="story.btn">
-                            Läs om Brams
-                        </button>
-                    </div>
+    <!-- Hero (Xebra-nivå): Brams Tartufo som huvudperson, ingredienserna som
+         klistermärken med handritade pilar, två burgare in från kanterna.
+         Nålas fast (data-rida + data-nala) så nästa sektion glider över. -->
+    <section class="hx" id="hero" data-rida data-nala>
+        <div class="hx-papper" aria-hidden="true"><span>Brams Burgers Brams Burgers Brams Burgers</span><span>Brams Burgers Brams Burgers Brams Burgers</span><span>Brams Burgers Brams Burgers Brams Burgers</span><span>Brams Burgers Brams Burgers Brams Burgers</span><span>Brams Burgers Brams Burgers Brams Burgers</span></div>
+        <div class="hx-scen">
+            <div class="hx-fig hx-fig--v" aria-hidden="true"><img src="/img/x/bacon-360.webp" srcset="/img/x/bacon-360.webp 360w, /img/x/bacon-600.webp 600w" sizes="(min-width: 900px) 21vw, 30vw" alt="" width="360" height="331" decoding="async"></div>
+            <div class="hx-fig hx-fig--h" aria-hidden="true"><img src="/img/x/smash-420.webp" alt="" width="420" height="333" decoding="async"></div>
+            <div class="xw hx-rubrik">
+                <div class="hx-marke" aria-hidden="true">
+                    <svg viewBox="0 0 200 200"><defs><path id="hx-cirkel" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><circle cx="100" cy="100" r="98" fill="#0c0c0c"/><text font-family="Anton, sans-serif" font-size="21" letter-spacing="3.2" fill="#fdf3ea"><textPath href="#hx-cirkel">BRAMS BURGERS · EST 2019 · 100% HALAL ·</textPath></text><text x="100" y="114" text-anchor="middle" font-family="Anton, sans-serif" font-size="40" fill="#c68c17">B</text></svg>
                 </div>
-
-                <!-- Column 2: Image (No shadow as requested) -->
-                <div class="relative flex justify-center items-center z-10" data-reveal data-reveal-delay="2">
-                    <img src="/img/story-burger.webp" width="900" height="900" loading="lazy" decoding="async" alt="Brams Story Burger"
-                        class="w-full h-auto max-w-2xl transform transition-transform duration-700 hover:scale-105" />
+                <h1 class="xr hx-h1"><span class="sr-only-x">Brams Burger - </span><span class="xr-1">Om en ska äta</span> <span class="xr-2">alla ska äta</span></h1>
+            </div>
+            <div class="hx-objekt">
+                <div class="hx-ratt">
+                    <img src="/img/x/tartufo-480.webp" srcset="/img/x/tartufo-480.webp 480w, /img/x/tartufo-760.webp 760w" sizes="(min-width: 900px) 470px, 64vw" alt="Bram's Tartufo: briochebröd, smashat kött, cheddar, nötbacon, rostad lök och tryffelmajo" width="480" height="369" fetchpriority="high">
                 </div>
+                <ul class="hx-etiketter" aria-label="Det här ligger i en Bram's Tartufo">
+                    <li class="hx-et hx-et--lok"><span>Rostad lök</span><svg class="hx-pil" viewBox="0 0 96 56" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M4 8 C 30 2, 62 10, 84 40"/><path pathLength="1" d="M70 36 L 85 42 L 87 26"/></svg></li>
+                    <li class="hx-et hx-et--ost"><span>Cheddar</span><svg class="hx-pil" viewBox="0 0 96 56" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M4 8 C 30 2, 62 10, 84 40"/><path pathLength="1" d="M70 36 L 85 42 L 87 26"/></svg></li>
+                    <li class="hx-et hx-et--brod"><span>Briochebröd</span><svg class="hx-pil" viewBox="0 0 96 56" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M4 8 C 30 2, 62 10, 84 40"/><path pathLength="1" d="M70 36 L 85 42 L 87 26"/></svg></li>
+                    <li class="hx-et hx-et--bacon hx-et--v"><span>Nötbacon, halal</span><svg class="hx-pil" viewBox="0 0 96 56" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M4 8 C 30 2, 62 10, 84 40"/><path pathLength="1" d="M70 36 L 85 42 L 87 26"/></svg></li>
+                    <li class="hx-et hx-et--majo hx-et--v"><span>Tryffelmajo</span><svg class="hx-pil" viewBox="0 0 96 56" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M4 8 C 30 2, 62 10, 84 40"/><path pathLength="1" d="M70 36 L 85 42 L 87 26"/></svg></li>
+                </ul>
+                <span class="hx-dekal" aria-hidden="true">100% halal</span>
             </div>
         </div>
-        <!-- Decorative subtle element -->
-        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-brand-black/5 rounded-full blur-3xl pointer-events-none"></div>
-    </section>
-
-    <!-- Info & Meny Section -->
-    <section class="bg-white">
-        <div data-href="https://brams.se/menu" class="relative h-[320px] md:h-[480px] overflow-hidden group cursor-pointer">
-            <img src="/img/meny.webp" width="1200" height="1500" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Burgare Meny" />
-            <div class="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex justify-end" data-reveal>
-                <div class="flex items-center gap-3 bg-brand-black text-white px-6 py-3 md:px-10 md:py-5 text-sm md:text-xl font-bold rounded-full hover:bg-brand-gold transition-all shadow-2xl active:scale-95">
-                    <span class="uppercase tracking-tight" data-i18n="menu.see">Se vår meny här</span>
-                </div>
+        <div class="xw hx-fot">
+            <p class="hx-under">Halalburgare på briochebröd sedan 2019. Från food truck i Kista till restauranger i Stockholm, Uppsala och Göteborg.</p>
+            <div class="hx-cta">
+                <a href="https://order.qopla.com/v2/bramsburgers" target="_blank" rel="noopener" class="xk xk--svart" data-i18n="drawer.orderOnline">Beställ online</a>
+                <a href="/menu" class="xk xk--ljus" data-i18n="menu.see">Se vår meny här</a>
             </div>
         </div>
     </section>
 
-    <!-- Editorial Sections -->
-    <section class="bg-brand-cream">
-        <!-- Community Section (Image Right) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 md:h-[760px] border-b border-black/5 overflow-hidden">
-            <div class="p-10 md:p-24 flex flex-col justify-center order-1 h-full text-left">
-                <div class="max-w-xl mx-auto md:mx-0" data-reveal>
-                    <span class="text-max-red font-black uppercase text-xs md:text-sm tracking-[0.3em] mb-6 block" data-i18n="sust.label">Gemenskap</span>
-                    <h2 class="text-4xl md:text-6xl font-display text-brand-black mb-8 leading-none" data-i18n="sust.heading">Här samlas alla runt bordet</h2>
-                    <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black" data-i18n="sust.body">
-                        På Brams handlar det om mer än burgaren. Vi byggdes för familjen, för kompisgänget, för fredagsmyset och för spontana måltider. Här ryms barn, vänner, kollegor och alla som älskar riktig mat — under samma tak.
-                    </p>
-                    <a href="https://brams.se/about" class="flex items-center gap-2 text-max-green font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity relative after:absolute after:inset-x-0 after:top-1/2 after:-translate-y-1/2 after:h-11">
-                        <span data-i18n="sust.link">Läs mer om Brams</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                </div>
+    <!-- Vår story: food trucken som inklistrat foto, burgaren stiger upp i hörnet -->
+    <section class="xs xs--svart xpad dropp dropp--fran-cream" id="om">
+        <div class="xw story-grid">
+            <div>
+                <p class="mikro mikro--ljus" data-i18n="story.label">Vår Story</p>
+                <h2 class="xr story-h2" data-i18n="story.heading">Smak som <br/>skriver historia!</h2>
+                <p class="story-body" data-i18n="story.body">Upptäck resan från en food truck i Kista till hela Sveriges favorit. Vi kombinerar hantverk med äkta kärlek.</p>
+                <p class="story-cta"><a href="/about" class="xk xk--guld" data-i18n="story.btn">Läs om Brams</a></p>
             </div>
-            <div class="h-[350px] md:h-full overflow-hidden order-2" data-reveal data-reveal-delay="1">
-                <img src="/img/gemenskap.webp" width="1200" height="1500" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" alt="Gemenskap på Brams" />
+            <div class="story-objekt loop-zon">
+                <span class="dekal story-dekal" aria-hidden="true">Est. 2019</span>
+                <img class="intrade intrade--stig" src="/img/x/foodtruck-640.webp" alt="Brams food truck med svart dekor och tre arbetare i varselkläder som beställer i luckan" width="640" height="800" loading="lazy" decoding="async" style="border:3px solid #fdf3ea;border-radius:9px 24px 7px 20px;box-shadow:7px 7px 0 #c68c17;rotate:2deg">
+                <div class="duo-horn intrade intrade--glid" style="--d:200ms"><img class="flyt" src="/img/x/dubbel-420.webp" alt="" width="420" height="269" loading="lazy" decoding="async"></div>
             </div>
         </div>
+    </section>
 
-        <!-- Halal Section (Image Left) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 md:h-[760px] border-b border-black/5 overflow-hidden">
-            <div class="h-[350px] md:h-full overflow-hidden order-1 md:order-1" data-reveal data-reveal-delay="1">
-                <img src="/img/halal.webp" width="900" height="900" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" alt="Halal Certifierat" />
+    <!-- Populärt: tre burgare som sticker upp ur korten -->
+    <section class="xs xs--paper xpad vag loop-zon" id="meny">
+        <div class="xw">
+            <div class="pop-topp">
+                <div>
+                    <p class="mikro">Från menyn</p>
+                    <h2 class="xr pop-h2"><span class="xr-1">Tre att</span> <span class="xr-2">börja med</span></h2>
+                </div>
+                <a href="/menu" class="xk xk--svart" data-i18n="menu.see">Se vår meny här</a>
             </div>
-            <div class="p-10 md:p-24 flex flex-col justify-center order-2 md:order-2 h-full text-left">
-                <div class="max-w-xl mx-auto md:mx-0" data-reveal>
-                    <span class="text-brand-gold font-black uppercase text-xs md:text-sm tracking-[0.3em] mb-6 block" data-i18n="halal.label">Kvalitet & Inkludering</span>
-                    <h2 class="text-4xl md:text-6xl font-display text-brand-black mb-8 leading-none">100% Halal</h2>
-                    <p class="text-gray-700 font-medium text-base md:text-lg leading-relaxed mb-10 text-black" data-i18n="halal.body">
-                        För oss på BRAMS är det självklart att alla ska kunna njuta av en riktigt god burgare. Därför serverar vi 100% certifierat halal-kött i alla våra enheter, tillagat med samma hantverk och passion som alltid.
-                    </p>
-                    <a href="https://brams.se/about" class="flex items-center gap-2 text-brand-gold font-black uppercase text-sm md:text-base hover:opacity-70 transition-opacity relative after:absolute after:inset-x-0 after:top-1/2 after:-translate-y-1/2 after:h-11">
-                        <span data-i18n="halal.link">Läs om oss</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
+            <ul class="ratt-rad">
+                <li class="ratt-kort pop-in" style="--i:0">
+                    <div class="ratt-bild intrade intrade--stig"><img class="flyt" src="/img/x/oklahoma-360.webp" srcset="/img/x/oklahoma-360.webp 360w, /img/x/oklahoma-600.webp 600w" sizes="(min-width: 760px) 300px, 80vw" alt="Bram's Oklahoma med karamelliserad lök, cheddar och inlagd gurka" width="360" height="243" loading="lazy" decoding="async"></div>
+                    <h3>Bram's Oklahoma</h3>
+                    <p>Briochebröd, kött, karamelliserad lök, cheddar, dressing, inlagd gurka, barbequesås.</p>
+                    <span class="pris-dekal">Från 140 kr</span>
+                </li>
+                <li class="ratt-kort pop-in" style="--i:1">
+                    <div class="ratt-bild intrade intrade--stig" style="--d:110ms"><img class="flyt" src="/img/x/parmigiano-420.webp" alt="Bram's Parmigiano med tryffelmajo, stekt svamp och lök och parmesan" width="420" height="369" loading="lazy" decoding="async"></div>
+                    <h3>Bram's Parmigiano</h3>
+                    <p>Briochebröd, kött, cheddar, tryffelmajo, stekt svamp- och lökmix, parmesan.</p>
+                    <span class="pris-dekal">Från 140 kr</span>
+                </li>
+                <li class="ratt-kort pop-in" style="--i:2">
+                    <div class="ratt-bild intrade intrade--stig" style="--d:220ms"><img class="flyt" src="/img/x/pommes-360.webp" alt="Truffle Parmesan Fries i papplåda med parmesan och rostad lök" width="360" height="413" loading="lazy" decoding="async"></div>
+                    <h3>Truffle Parmesan Fries</h3>
+                    <p>Pommes, tryffelmajonnäs, parmesanost, rostad lök.</p>
+                    <span class="pris-dekal">Från 49 kr</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Gemenskap och halal -->
+    <section class="xs xs--gron xpad dropp dropp--b dropp--fran-paper">
+        <div class="xw" style="display:grid;gap:clamp(72px,9vw,120px)">
+            <div class="duo">
+                <div class="duo-bild intrade intrade--stig">
+                    <img class="foto" src="/img/gemenskap.webp" width="1200" height="1500" loading="lazy" decoding="async" alt="Gemenskap på Brams">
+                    <span class="dekal dekal--guld" aria-hidden="true">Alla ska äta</span>
+                </div>
+                <div class="duo-txt">
+                    <p class="mikro mikro--ljus" data-i18n="sust.label" style="margin:0 0 14px">Gemenskap</p>
+                    <h2 class="xr duo-h2" data-i18n="sust.heading">Här samlas alla runt bordet</h2>
+                    <p data-i18n="sust.body">På Brams handlar det om mer än burgaren. Vi byggdes för familjen, för kompisgänget, för fredagsmyset och för spontana måltider. Här ryms barn, vänner, kollegor och alla som älskar riktig mat — under samma tak.</p>
+                    <p class="duo-lank"><a href="/about" class="xk xk--ljus" data-i18n="sust.link">Läs mer om Brams</a></p>
+                </div>
+            </div>
+            <div class="duo duo--v">
+                <div class="duo-bild intrade intrade--stig">
+                    <img class="foto" src="/img/halal.webp" width="900" height="900" loading="lazy" decoding="async" alt="Halal Certifierat">
+                    <span class="dekal" aria-hidden="true">Certifierat</span>
+                </div>
+                <div class="duo-txt">
+                    <p class="mikro mikro--ljus" data-i18n="halal.label" style="margin:0 0 14px">Kvalitet &amp; Inkludering</p>
+                    <h2 class="xr duo-h2">100% Halal</h2>
+                    <p data-i18n="halal.body">För oss på BRAMS är det självklart att alla ska kunna njuta av en riktigt god burgare. Därför serverar vi 100% certifierat halal-kött i alla våra enheter, tillagat med samma hantverk och passion som alltid.</p>
+                    <p class="duo-lank"><a href="/about" class="xk xk--guld" data-i18n="halal.link">Läs om oss</a></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Hitta närmaste BRAMS -->
-    <section class="relative h-[60vh] md:h-[80vh] w-full flex items-end justify-center pb-20 overflow-hidden">
-        <img src="/img/hitta-brams.webp" width="1440" height="1801" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover brightness-90" alt="Burgare med jalapeños och chili cheese i handen" />
-        <div class="relative z-10" data-reveal>
-            <button data-href="https://brams.se/locations" class="flex items-center gap-3 bg-brand-black text-white px-8 md:px-12 py-4 md:py-6 text-lg md:text-2xl font-bold rounded-full hover:bg-brand-gold transition-all shadow-2xl active:scale-95">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span data-i18n="find.btn">Hitta din närmaste BRAMS</span>
-            </button>
+    <!-- Se oss in action: kundens egna TikTok-klipp. Siffrorna lästa från
+         TikTok 16/11 2026 med yt-dlp (40 senaste klippen, 1 133 913 visningar).
+         Uppdatera siffror och datum tillsammans, aldrig bara det ena. -->
+    <section class="xs xs--svart xpad vag vag--b" id="tiktok" aria-labelledby="tt-rubrik">
+        <div class="xw">
+            <div class="tt-topp">
+                <div>
+                    <p class="mikro mikro--ljus">TikTok · @bramsburgers</p>
+                    <h2 class="xr xr--pa-svart tt-h2" id="tt-rubrik"><span class="xr-1">Se oss</span> <span class="xr-2">in action</span></h2>
+                </div>
+                <div class="tt-intro">
+                    <p>Utmaningar, nya burgare och resan från food truck till fem restauranger. De 40 senaste klippen har <strong>över 1,1 miljoner</strong> visningar.</p>
+                    <p class="tt-folj"><a class="xk xk--guld" href="https://tiktok.com/@bramsburgers" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>Följ oss på TikTok</a></p>
+                </div>
+            </div>
+            <ul class="tt-rad">
+                <li class="tt-kort pop-in" style="--i:0"><a href="https://www.tiktok.com/@bramsburgers/video/7665313782654160161" target="_blank" rel="noopener"><span class="tt-bild"><img src="/img/tiktok/7665313782654160161.webp" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="tt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span></span><span class="tt-visn">96 000 visningar</span><span class="tt-txt">Lita alltid på oss på Brams<span class="sr-only-x"> (öppnas på TikTok)</span></span></a></li>
+                <li class="tt-kort pop-in" style="--i:1"><a href="https://www.tiktok.com/@bramsburgers/video/7668282277713022240" target="_blank" rel="noopener"><span class="tt-bild"><img src="/img/tiktok/7668282277713022240.webp" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="tt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span></span><span class="tt-visn">95 400 visningar</span><span class="tt-txt">Från en food truck till hela Sverige<span class="sr-only-x"> (öppnas på TikTok)</span></span></a></li>
+                <li class="tt-kort pop-in" style="--i:2"><a href="https://www.tiktok.com/@bramsburgers/video/7661973901919980832" target="_blank" rel="noopener"><span class="tt-bild"><img src="/img/tiktok/7661973901919980832.webp" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="tt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span></span><span class="tt-visn">88 600 visningar</span><span class="tt-txt">Big Brams<span class="sr-only-x"> (öppnas på TikTok)</span></span></a></li>
+                <li class="tt-kort pop-in" style="--i:3"><a href="https://www.tiktok.com/@bramsburgers/video/7672364174638402848" target="_blank" rel="noopener"><span class="tt-bild"><img src="/img/tiktok/7672364174638402848.webp" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="tt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span></span><span class="tt-visn">63 300 visningar</span><span class="tt-txt">Klarar du Brams-utmaningen?<span class="sr-only-x"> (öppnas på TikTok)</span></span></a></li>
+            </ul>
+            <p class="tt-not">Visningar enligt TikTok 16 november 2026.</p>
+        </div>
+    </section>
+
+    <!-- Hitta närmaste BRAMS: fem orter som klistermärken -->
+    <section class="xs xs--cream xpad dropp dropp--fran-svart loop-zon" id="kontakt">
+        <div class="xw duo">
+            <div class="duo-bild intrade intrade--stig">
+                <img class="foto" src="/img/hitta-brams.webp" width="1440" height="1801" loading="lazy" decoding="async" alt="Burgare med jalapeños och chili cheese i handen">
+            </div>
+            <div class="duo-txt">
+                <p class="mikro">Fem restauranger</p>
+                <h2 class="xr duo-h2"><span class="xr-1">Hitta din</span> <span class="xr-2">närmaste</span></h2>
+                <ul class="orter" aria-label="Våra restauranger">
+                    <li><a href="/location-kista">Kista</a></li>
+                    <li><a href="/location-huddinge">Huddinge</a></li>
+                    <li><a href="/location-skarholmen">Skärholmen</a></li>
+                    <li><a href="/location-uppsala">Uppsala</a></li>
+                    <li><a href="/location-goteborg">Göteborg</a></li>
+                </ul>
+                <p class="duo-lank"><a href="/locations" class="xk xk--svart"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span data-i18n="find.btn">Hitta din närmaste BRAMS</span></a></p>
+            </div>
         </div>
     </section>
 
@@ -1130,7 +1184,8 @@
             .news-card--featured .news-card__img { aspect-ratio: 16/9; }
         }
     </style>
-    <section style="padding: 100px 0; background: #f9f6f1;">
+    <section class="xs vag loop-zon" style="padding: 100px 0; background: #f9f6f1;">
+        <div class="bro intrade intrade--stig" aria-hidden="true"><img class="flyt" src="/img/x/shake-320.webp" alt="" width="320" height="370" loading="lazy" decoding="async"></div>
         <div class="container mx-auto px-6">
             <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:24px; flex-wrap:wrap;" data-reveal>
                 <div>
@@ -1219,7 +1274,7 @@
         .faq-item[open] summary svg { transform: rotate(180deg); }
         .faq-item p { font-size: 16px; line-height: 1.7; color: #4b5563; padding: 0 0 24px; max-width: 720px; }
     </style>
-    <section id="faq" style="padding: 100px 0; background: #fff;">
+    <section id="faq" class="xs dropp dropp--b dropp--fran-paper" style="padding: 100px 0; background: #fff;">
         <div class="container mx-auto px-6" style="max-width: 880px;">
             <div style="margin-bottom:40px;" data-reveal>
                 <p style="font-size:11px; font-weight:800; letter-spacing:0.3em; text-transform:uppercase; color:#c68c17; margin-bottom:10px;" data-i18n="faq.label">Bra att veta</p>
@@ -1255,6 +1310,7 @@
     </section>
 
     <!-- Global Footer -->
+    <div class="marquee-hallare loop-zon" aria-hidden="true"><div class="marquee"><div class="marquee-spar"><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span></div></div></div>
     <footer class="bg-white py-16 border-t border-gray-100">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
@@ -1303,6 +1359,8 @@
     <script src="/i18n.js"></script>
 <script src="/order-modal.js"></script>
 
+<script src="/js/xebra.js" defer></script>
+<script src="/js/granska.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

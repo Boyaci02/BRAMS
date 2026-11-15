@@ -1387,6 +1387,7 @@
 }
 </script>
     <link rel="stylesheet" href="/tw.css">
+    <link rel="stylesheet" href="/xebra.css">
     <style>:root{--brand-cream-rgb:254 243 233}</style>
 </head>
 <body>
@@ -1478,9 +1479,15 @@
     <!-- Menyinnehåll -->
     <main class="pt-40 pb-20 bg-[#fef3e9] min-h-screen">
         <div class="container mx-auto px-6">
-            <header class="mb-12 text-center md:text-left">
-                <p class="text-brand-gold font-black uppercase tracking-[0.3em] text-sm mb-4" data-i18n="menu.tagline">Menyn / Alla ska äta</p>
-                <h1 class="text-6xl md:text-[10rem] font-display uppercase tracking-widest leading-none text-brand-black" data-i18n="menu.hero">Smaka <br/>Hypen</h1>
+            <header class="sh sh-grid mb-12" id="hero" data-rida>
+                <div>
+                    <p class="mikro" data-i18n="menu.tagline">Menyn / Alla ska äta</p>
+                    <h1 class="xr sh-h1 text-6xl md:text-[9rem] text-brand-black" data-i18n="menu.hero"><span class="xr-1">Smaka</span> <span class="xr-2">Hypen</span></h1>
+                </div>
+                <div class="sh-objekt sh-objekt--stig">
+                    <img src="/img/x/oklahoma-600.webp" srcset="/img/x/oklahoma-360.webp 360w, /img/x/oklahoma-600.webp 600w" sizes="(min-width: 900px) 360px, 52vw" alt="Bram's Oklahoma med karamelliserad lök, cheddar och inlagd gurka" width="600" height="405" fetchpriority="high">
+                    <span class="dekal dekal--guld" aria-hidden="true">Pommes + dryck ingår</span>
+                </div>
             </header>
 
 
@@ -1933,6 +1940,7 @@
     </main>
 
     <!-- Global Footer -->
+    <div class="marquee-hallare loop-zon" aria-hidden="true"><div class="marquee"><div class="marquee-spar"><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span></div></div></div>
     <footer class="bg-white py-16 border-t border-gray-100">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
@@ -1977,6 +1985,7 @@
 <script src="/js/handelser.js"></script>
     <script src="/i18n.js"></script>
 <script src="/order-modal.js"></script>
+<script src="/js/xebra.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

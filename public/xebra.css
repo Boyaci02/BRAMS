@@ -1,0 +1,390 @@
+/* ══ Xebra-nivå för Brams (grenen xebra-stil, 16/11 2026) ═════════════
+   Lager ovanpå sajtens Tailwind. Byggt med skillen xebra-stil:
+   hjälteobjektet är Brams Tartufo (kundens egen foto, friställd), etiketter
+   som klistermärken med handritade pilar, burgare som kommer in från kanterna
+   och flyger ut vid scroll, ost-/majodroppar och vågor varvade mellan
+   sektionerna, nålad hero med ridå, TikTok med riktiga siffror.
+   Bara transform/opacity (plus stroke-dashoffset på pilarna). --p (0..1)
+   sätts av /js/xebra.js. Allt står still vid prefers-reduced-motion. */
+
+:root {
+  --x-ink: #0c0c0c;
+  --x-cream: #fdf3ea;     /* heroytan, samma som i Brams kampanjbild */
+  --x-paper: #f9f6f1;
+  --x-green: #2d4a3e;
+  --x-gold: #c68c17;      /* bara ytor/skuggor, aldrig brödtext på ljust (2,7:1) */
+  --x-white: #ffffff;
+  --ease-expo: cubic-bezier(.16, 1, .3, 1);
+  --ease-pop: cubic-bezier(.34, 1.56, .64, 1);
+  --dekal-radie: 9px 24px 7px 20px;
+  --knapp-radie: 12px 24px 10px 22px;
+  --kontur: 2.5px solid var(--x-ink);
+  --skugga-hard: 4px 4px 0 var(--x-ink);
+  --skugga-hard-stor: 7px 7px 0 var(--x-ink);
+}
+
+.sr-only-x { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ── Klistermärkesknappar ─────────────────────────────────────────── */
+.xk {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 13px 28px; border: var(--kontur); border-radius: var(--knapp-radie);
+  font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .04em; font-size: 1.125rem; line-height: 1;
+  text-decoration: none; cursor: pointer; box-shadow: var(--skugga-hard);
+  transition: transform .18s var(--ease-expo), box-shadow .18s var(--ease-expo), background-color .18s var(--ease-expo), color .18s var(--ease-expo);
+  -webkit-tap-highlight-color: transparent;
+}
+.xk--svart { background: var(--x-ink); color: var(--x-cream); box-shadow: 4px 4px 0 var(--x-gold); }
+.xk--ljus { background: var(--x-white); color: var(--x-ink); }
+.xk--gron { background: var(--x-green); color: var(--x-white); }
+.xk--guld { background: var(--x-gold); color: var(--x-ink); }
+@media (hover: hover) and (pointer: fine) {
+  .xk:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--x-ink); }
+  .xk--svart:hover { box-shadow: 6px 6px 0 var(--x-gold); }
+}
+.xk:focus-visible { outline: 3px solid var(--x-gold); outline-offset: 4px; }
+.xk:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--x-ink); transition-duration: .08s; }
+.xk svg { width: 1.1em; height: 1.1em; flex: 0 0 auto; }
+
+/* Mikroetikett ovanför H2 */
+.mikro {
+  display: flex; align-items: center; gap: 12px; margin: 0 0 14px;
+  font-size: .75rem; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--x-green);
+}
+.mikro::before { content: ""; width: 24px; height: 2px; background: currentColor; flex: 0 0 auto; }
+.mikro--ljus { color: var(--x-gold); }
+
+/* Stor rubrik i två delar: rad 2 som svart skylt med hård guldskugga */
+.xr { font-family: 'Anton', sans-serif; text-transform: uppercase; line-height: .92 !important; letter-spacing: -.005em; }
+.xr .xr-1 { display: block; }
+.xr .xr-2 {
+  display: inline-block; margin-top: .08em; padding: .04em .2em .08em;
+  background: var(--x-ink); color: var(--x-cream); border-radius: var(--dekal-radie);
+  box-shadow: .07em .07em 0 var(--x-gold); rotate: -2deg;
+}
+.xr--pa-svart .xr-2 { background: var(--x-cream); color: var(--x-ink); }
+
+/* ── Startsidans hero ─────────────────────────────────────────────── */
+.hx {
+  --p: 0; position: relative; z-index: 0; background: var(--x-cream); color: var(--x-ink);
+  padding: clamp(96px, 11vw, 120px) 0 clamp(36px, 4vw, 56px); overflow: clip;
+}
+/* Packpapperets upprepade ordmärke, svagt i bakgrunden */
+.hx-papper {
+  position: absolute; inset: -10% -10%; z-index: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: center; gap: .1em;
+  font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: clamp(3.5rem, 9vw, 8rem); line-height: 1;
+  color: var(--x-green); opacity: .045; rotate: -7deg; white-space: nowrap; user-select: none;
+  translate: 0 calc(var(--p) * 60px);
+}
+.hx-papper span:nth-child(even) { margin-left: -1.6em; }
+.hx-scen { position: relative; z-index: 1; }
+.hx-rubrik { position: relative; z-index: 1; text-align: center; translate: 0 calc(var(--p) * 70px); }
+.hx-h1 { margin: 0; font-size: clamp(2.5rem, 13.6vw, 8rem); color: var(--x-green); display: inline-flex; flex-direction: column; align-items: center; }
+.hx-h1 .xr-2 { font-size: 1em; }
+.hx-h1 .xr-1, .hx-h1 .xr-2 { white-space: nowrap; }
+
+/* Rätten i mitten: bredden styrs av både bredd och höjd så knapparna ryms ovanför vecket */
+.hx-objekt { --dw: min(440px, 32vw, 40svh); position: relative; z-index: 3; width: var(--dw); margin: clamp(4px, 1vw, 16px) auto 0; }
+.hx-ratt { position: relative; z-index: 2; translate: 0 calc(var(--p) * -50px); scale: calc(1 + var(--p) * .08); }
+.hx-ratt img { width: 100%; height: auto; filter: drop-shadow(0 22px 18px rgba(45, 30, 10, .28)); }
+
+/* Etiketter: klistermärken med svart kontur, hård skugga och handritad pil */
+.hx-etiketter { list-style: none; margin: 0; padding: 0; position: absolute; inset: 0; z-index: 4; pointer-events: none; opacity: calc(1 - var(--p) * 2.4); }
+.hx-et {
+  position: absolute; width: max-content; display: flex; align-items: center; gap: 2px;
+  font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .04em; font-size: clamp(.8125rem, 1.05vw, 1rem); line-height: 1.15; color: var(--x-ink);
+}
+.hx-et span { background: var(--x-white); border: var(--kontur); border-radius: var(--dekal-radie); box-shadow: 3px 3px 0 var(--x-ink); padding: 6px 11px; max-width: 13em; }
+.hx-pil { width: clamp(46px, 5vw, 76px); flex: 0 0 auto; margin-top: 22px; }
+.hx-et--v { flex-direction: row-reverse; }
+.hx-et--v .hx-pil { scale: -1 1; }
+.hx-et--lok    { right: 92%; top: 6%;  rotate: -4deg; }
+.hx-et--ost    { right: 96%; top: 44%; rotate: 3deg; }
+.hx-et--brod   { right: 88%; top: 80%; rotate: -2deg; }
+.hx-et--bacon  { left: 92%;  top: 20%; rotate: 4deg; }
+.hx-et--majo   { left: 94%;  top: 64%; rotate: -3deg; }
+
+/* Dekaler: stämpel och roterande märke */
+.hx-dekal {
+  position: absolute; z-index: 5; left: 72%; top: -2%;
+  font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .06em; font-size: clamp(.875rem, 1.2vw, 1.0625rem); line-height: 1.1; white-space: nowrap;
+  background: var(--x-gold); color: var(--x-ink); padding: 8px 14px; border: var(--kontur); border-radius: var(--dekal-radie);
+  box-shadow: var(--skugga-hard); rotate: 8deg;
+}
+.hx-marke { position: absolute; z-index: 2; width: clamp(88px, 9vw, 128px); left: calc(50% + min(31vw, 380px)); top: -6px; opacity: calc(1 - var(--p) * 2); }
+.hx-marke svg { width: 100%; height: auto; display: block; }
+
+/* Burgarna vid kanterna: beskurna mot heron, flyger ut vid scroll */
+.hx-fig { position: absolute; z-index: 2; pointer-events: none; }
+.hx-fig img { width: 100%; height: auto; filter: drop-shadow(0 16px 16px rgba(45, 30, 10, .26)); }
+.hx-fig--v { width: clamp(150px, 21vw, 320px); left: max(-4vw, calc(50% - 780px)); top: 38%; rotate: -12deg; translate: calc(var(--p) * -42vw) calc(var(--p) * 14vh); }
+.hx-fig--h { width: clamp(150px, 20vw, 300px); right: max(-4vw, calc(50% - 780px)); top: 30%; rotate: 10deg; translate: calc(var(--p) * 42vw) calc(var(--p) * 10vh); }
+.hx-fig--v.hx-fig { transform: rotate(calc(var(--p) * -40deg)); }
+.hx-fig--h.hx-fig { transform: rotate(calc(var(--p) * 40deg)); }
+
+.hx-fot {
+  position: relative; z-index: 5; margin-top: clamp(18px, 2.4vw, 30px);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;
+}
+.hx-under { margin: 0; max-width: 44ch; font-size: 1.0625rem; line-height: 1.55; font-weight: 600; color: #2b2b2b; }
+.hx-cta { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* Entrén: fem delar från fem håll, klart efter ~1,4 s. Animationen ligger
+   på inre lager (img/span) så den inte krockar med scroll-transformen. */
+@keyframes hx-in-vanster  { from { opacity: 0; transform: translateX(-50vw) rotate(-25deg); } }
+@keyframes hx-in-hoger    { from { opacity: 0; transform: translateX(50vw) rotate(25deg); } }
+@keyframes hx-in-uppifran { from { opacity: 0; transform: translateY(-46px); filter: blur(8px); } }
+@keyframes hx-stamp       { 0% { opacity: 0; transform: scale(2.2) rotate(-10deg); } 60% { opacity: 1; transform: scale(.95) rotate(2deg); } 100% { transform: none; } }
+/* Rätten tonas aldrig in från 0: den är LCP-bilden och ska målas direkt. */
+@keyframes hx-stiger      { from { transform: translateY(70px) scale(.9); } }
+@keyframes hx-pop         { 0% { opacity: 0; transform: scale(.6) rotate(-6deg); } 65% { opacity: 1; transform: scale(1.06) rotate(1deg); } 100% { transform: none; } }
+@keyframes hx-rita        { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes hx-upp         { from { opacity: 0; transform: translateY(18px); } }
+@keyframes hx-svava       { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(2deg); } }
+@keyframes hx-svava-b     { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(10px) rotate(-2.5deg); } }
+@keyframes hx-snurr       { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hx-h1 .xr-1 { animation: hx-in-uppifran .8s var(--ease-expo) .06s both; }
+  .hx-h1 .xr-2 { animation: hx-stamp .75s var(--ease-expo) .2s both; }
+  .hx-fig--v img { animation: hx-in-vanster 1s var(--ease-expo) .1s both, hx-svava 6s ease-in-out 1.2s infinite; }
+  .hx-fig--h img { animation: hx-in-hoger 1s var(--ease-expo) .18s both, hx-svava-b 7s ease-in-out 1.3s infinite; }
+  .hx-ratt img   { animation: hx-stiger .9s var(--ease-expo) .28s both; }
+  .hx-et span { animation: hx-pop .5s var(--ease-pop) both; animation-delay: calc(.62s + var(--n, 0) * 70ms); }
+  .hx-pil path { stroke-dasharray: 1; animation: hx-rita .45s var(--ease-expo) both; animation-delay: calc(.78s + var(--n, 0) * 70ms); }
+  .hx-et--lok { --n: 0; } .hx-et--bacon { --n: 1; } .hx-et--ost { --n: 2; } .hx-et--majo { --n: 3; } .hx-et--brod { --n: 4; }
+  .hx-dekal { animation: hx-stamp .5s var(--ease-pop) .9s both; }
+  .hx-marke svg { animation: hx-snurr 22s linear infinite; }
+  .hx-fot > * { animation: hx-upp .7s var(--ease-expo) both; }
+  .hx-fot > :first-child { animation-delay: .62s; } .hx-fot > :last-child { animation-delay: .74s; }
+  .hx--ute .hx-fig img, .hx--ute .hx-marke svg { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hx, .sh { --p: 0 !important; }
+}
+
+/* Mobil och surfplatta: samma scen, förenklad. Två etiketter i stället för
+   fem, burgarna mindre och längre ut mot kanten, märket mindre. */
+@media (max-width: 899px) {
+  .hx { padding-top: 92px; }
+  .hx-objekt { --dw: min(62vw, 300px, 36svh); margin-top: 6px; }
+  .hx-et--lok, .hx-et--brod, .hx-et--majo { display: none; }
+  .hx-et { font-size: .75rem; }
+  .hx-et--ost { right: 74%; top: 52%; }
+  .hx-et--bacon { left: 76%; top: 30%; }
+  .hx-et span { padding: 4px 7px; max-width: 6.5em; border-width: 2px; box-shadow: 2px 2px 0 var(--x-ink); }
+  .hx-pil { width: 26px; margin-top: 12px; }
+  .hx-fig--v { width: 30vw; left: -12vw; top: 58%; }
+  .hx-fig--h { width: 30vw; right: -12vw; top: 50%; }
+  .hx-marke { width: 58px; left: 4px; top: calc(100% + 6px); }
+  .hx-dekal { left: auto; right: -8%; top: 0; font-size: .8125rem; padding: 6px 10px; rotate: 8deg; }
+  .hx-fot { flex-direction: column; align-items: flex-start; }
+  .hx-cta { width: 100%; }
+  .hx-cta .xk { flex: 1 1 150px; font-size: 1rem; padding: 12px 16px; white-space: nowrap; }
+}
+
+/* ── Sektioner, droppkanter och vågor ────────────────────────────── */
+.xs { position: relative; z-index: 1; isolation: isolate; overflow-x: clip; }
+.xs--svart { background: var(--x-ink); color: var(--x-white); }
+.xs--cream { background: var(--x-cream); color: var(--x-ink); }
+.xs--paper { background: var(--x-paper); color: var(--x-ink); }
+.xs--gron  { background: var(--x-green); color: var(--x-white); }
+.xs--vit   { background: var(--x-white); color: var(--x-ink); }
+
+/* Droppkant: förra sektionens färg rinner ner i den här (som majo/ost ur en
+   burgare). Två mönster, A och B, så två droppkanter aldrig ser likadana ut. */
+.dropp { padding-top: clamp(104px, 11vw, 150px) !important; }
+.dropp::after {
+  content: ""; position: absolute; left: 0; right: 0; top: -1px; z-index: 0;
+  height: clamp(70px, 8.4vw, 120px); background: var(--dropp-farg, var(--x-cream)); pointer-events: none;
+  -webkit-mask: url("/img/x/dropp.svg") top left / max(1440px, 100%) 100% repeat-x;
+  mask: url("/img/x/dropp.svg") top left / max(1440px, 100%) 100% repeat-x;
+  transform-origin: top;
+}
+.dropp--b::after { -webkit-mask-image: url("/img/x/dropp-b.svg"); mask-image: url("/img/x/dropp-b.svg"); }
+.dropp > * { position: relative; z-index: 1; }
+.dropp--fran-cream { --dropp-farg: var(--x-cream); }
+.dropp--fran-paper { --dropp-farg: var(--x-paper); }
+.dropp--fran-svart { --dropp-farg: var(--x-ink); }
+.dropp--fran-gron  { --dropp-farg: var(--x-green); }
+.dropp--fran-guld  { --dropp-farg: var(--x-gold); }
+.dropp--fran-vit   { --dropp-farg: var(--x-white); }
+@media (prefers-reduced-motion: no-preference) {
+  .js-x .dropp::after { transform: scaleY(.3); transition: transform 1.2s var(--ease-expo); }
+  .js-x .dropp.kant-in::after { transform: none; }
+}
+@media (max-width: 760px) { .dropp::after { -webkit-mask-size: 900px 100%; mask-size: 900px 100%; } }
+
+/* Våg: sektionen ritar sin egen färg som en våg upp i sektionen ovanför */
+.vag::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 100%; z-index: -1;
+  height: clamp(38px, 5.5vw, 86px); background: inherit; pointer-events: none;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0,100 C220,26 430,4 700,36 C960,66 1180,104 1440,40 L1440,100 Z'/%3E%3C/svg%3E") bottom center / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0,100 C220,26 430,4 700,36 C960,66 1180,104 1440,40 L1440,100 Z'/%3E%3C/svg%3E") bottom center / 100% 100% no-repeat;
+}
+.vag--b::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0,100 C260,96 470,10 760,18 C1020,26 1200,88 1440,74 L1440,100 Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0,100 C260,96 470,10 760,18 C1020,26 1200,88 1440,74 L1440,100 Z'/%3E%3C/svg%3E");
+}
+
+/* ── Objekt som stiger eller glider in när sektionen kommer i bild ── */
+@media (prefers-reduced-motion: no-preference) {
+  .js-x .intrade { transition: transform 1s var(--ease-expo), opacity .6s var(--ease-expo); transition-delay: var(--d, 0ms); }
+  .js-x .intrade--stig:not(.inne)    { transform: translateY(70px) scale(.86); opacity: 0; }
+  .js-x .intrade--glid:not(.inne)    { transform: translateX(40vw) rotate(24deg); opacity: 0; }
+  .js-x .intrade--glid-v:not(.inne)  { transform: translateX(-40vw) rotate(-24deg); opacity: 0; }
+  .js-x .intrade--rulla:not(.inne)   { transform: translateX(45vw) rotate(200deg); opacity: 0; }
+  .flyt { animation: hx-svava 6s ease-in-out infinite; }
+  .loop-zon:not(.i-vy) .flyt, .loop-zon:not(.i-vy) .marquee-spar { animation-play-state: paused; }
+}
+
+/* ── Startsidans sektioner ───────────────────────────────────────── */
+.xw { width: min(100% - 48px, 1240px); margin-inline: auto; }
+.xpad { padding-block: clamp(64px, 9vw, 112px); }
+
+/* Story: text + frilagd burgare som stiger */
+.story-grid { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 900px) { .story-grid { grid-template-columns: 1.1fr .9fr; gap: 64px; } }
+.story-h2 { font-size: clamp(2.75rem, 8vw, 6.5rem); margin: 0; }
+.story-body { margin: 24px 0 0; max-width: 46ch; font-size: 1.125rem; line-height: 1.6; color: rgba(255, 255, 255, .82); font-weight: 500; }
+.story-cta { margin-top: 24px; }
+.story-objekt { position: relative; justify-self: center; width: min(78vw, 460px); }
+.story-objekt img { width: 100%; height: auto; filter: drop-shadow(0 24px 20px rgba(0, 0, 0, .55)); }
+.story-dekal { position: absolute; left: -4%; top: -6%; z-index: 2; rotate: -8deg; }
+.dekal {
+  display: inline-block; font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .06em; font-size: 1rem; line-height: 1.1;
+  background: var(--x-cream); color: var(--x-ink); padding: 8px 14px; border: var(--kontur); border-radius: var(--dekal-radie); box-shadow: 4px 4px 0 var(--x-gold);
+}
+.dekal--guld { background: var(--x-gold); box-shadow: var(--skugga-hard); }
+
+/* Populärt: frilagda burgare som sticker upp ur klistermärkeskort */
+.pop-topp { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 40px; }
+.pop-h2 { font-size: clamp(2.5rem, 7vw, 5.5rem); margin: 0; color: var(--x-ink); }
+.ratt-rad { list-style: none; margin: clamp(88px, 10vw, 128px) 0 0; padding: 0; display: grid; gap: 80px 26px; }
+@media (min-width: 760px) { .ratt-rad { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.ratt-kort { position: relative; background: var(--x-white); border: var(--kontur); border-radius: var(--dekal-radie); box-shadow: var(--skugga-hard-stor); padding: 0 22px 24px; min-width: 0; }
+.ratt-kort:nth-child(2) { rotate: 1.2deg; } .ratt-kort:nth-child(3) { rotate: -1deg; }
+.ratt-bild { height: 200px; margin: -84px auto 10px; display: flex; justify-content: center; align-items: flex-end; }
+.ratt-bild img { height: 100%; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 14px 12px rgba(45, 30, 10, .3)); }
+.ratt-kort h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-size: 1.75rem; line-height: 1.05; margin: 0 0 8px; color: var(--x-ink); }
+.ratt-kort p { margin: 0; font-size: .9375rem; line-height: 1.55; color: #3a3a3a; }
+.pris-dekal {
+  display: inline-block; margin-top: 16px; padding: 5px 12px; background: var(--x-ink); color: var(--x-cream);
+  font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .05em; font-size: 1rem; border-radius: var(--knapp-radie); rotate: -2deg;
+}
+
+/* Gemenskap och halal: foton som inklistrade, med dekaler */
+.duo { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 900px) { .duo { grid-template-columns: 1fr 1fr; gap: 72px; } .duo--v .duo-bild { order: 2; } }
+.duo-bild { position: relative; }
+.duo-bild img.foto { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border: 3px solid var(--x-ink); border-radius: var(--dekal-radie); box-shadow: var(--skugga-hard-stor); rotate: -2deg; }
+.duo--v .duo-bild img.foto { rotate: 1.6deg; }
+.duo-bild .dekal { position: absolute; right: -10px; top: 18px; rotate: 6deg; }
+.duo-h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin: 0; }
+.duo-txt p { margin: 20px 0 0; font-size: 1.0625rem; line-height: 1.65; max-width: 52ch; }
+.xs--gron .duo-txt p { color: rgba(255, 255, 255, .86); }
+.duo-lank { margin-top: 24px; }
+.duo-horn { position: absolute; z-index: 2; width: 46%; right: -8%; bottom: -12%; pointer-events: none; }
+.duo-horn img { width: 100%; height: auto; filter: drop-shadow(0 16px 14px rgba(0, 0, 0, .35)); }
+
+/* Hitta: fem orter som klistermärken */
+.orter { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.orter a {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 8px 16px;
+  font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .05em; font-size: 1.125rem; text-decoration: none;
+  background: var(--x-white); color: var(--x-ink); border: var(--kontur); border-radius: var(--knapp-radie); box-shadow: 3px 3px 0 var(--x-ink);
+  transition: transform .18s var(--ease-expo), box-shadow .18s var(--ease-expo);
+}
+.orter li:nth-child(even) a { rotate: 1.5deg; } .orter li:nth-child(odd) a { rotate: -1deg; }
+@media (hover: hover) and (pointer: fine) { .orter a:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--x-ink); } }
+.orter a:focus-visible { outline: 3px solid var(--x-gold); outline-offset: 4px; }
+
+/* ── Se oss in action (TikTok) ───────────────────────────────────── */
+.tt-topp { display: grid; gap: 8px 56px; align-items: end; }
+@media (min-width: 900px) { .tt-topp { grid-template-columns: 1fr 1fr; } }
+.tt-h2 { font-size: clamp(2.75rem, 7vw, 5.5rem); margin: 0; }
+.tt-intro p { margin: 0; font-size: 1.0625rem; line-height: 1.6; color: rgba(255, 255, 255, .82); }
+.tt-intro strong { color: var(--x-white); font-weight: 800; }
+.tt-folj { margin-top: 20px !important; }
+.tt-rad { list-style: none; padding: 0; display: grid; gap: 28px; margin: clamp(36px, 5vw, 56px) 0 0; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tt-kort { min-width: 0; }
+.tt-kort:nth-child(odd) { rotate: -2deg; }
+.tt-kort:nth-child(even) { rotate: 1.5deg; margin-top: 36px; }
+.tt-kort a { display: block; color: var(--x-paper); text-decoration: none; }
+.tt-bild { position: relative; display: block; overflow: hidden; aspect-ratio: 9 / 16; border: 3px solid var(--x-cream); border-radius: var(--dekal-radie); box-shadow: 7px 7px 0 var(--x-gold); transition: transform .22s var(--ease-expo), box-shadow .22s var(--ease-expo); }
+.tt-bild img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease-expo); }
+.tt-play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; display: grid; place-items: center; border-radius: 50%; background: var(--x-cream); color: var(--x-ink); border: var(--kontur); transition: transform .22s var(--ease-pop); }
+.tt-play svg { width: 28px; height: 28px; margin-left: 3px; }
+.tt-visn { display: inline-block; margin-top: 16px; padding: 4px 10px; border-radius: 999px; background: var(--x-gold); color: var(--x-ink); font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .05em; font-size: .9375rem; font-variant-numeric: tabular-nums; }
+.tt-txt { display: block; margin-top: 8px; font-size: .9375rem; line-height: 1.45; }
+@media (hover: hover) and (pointer: fine) {
+  .tt-kort a:hover .tt-bild { transform: translate(-3px, -3px); box-shadow: 10px 10px 0 var(--x-gold); }
+  .tt-kort a:hover .tt-bild img { transform: scale(1.04); }
+  .tt-kort a:hover .tt-play { transform: scale(1.12); }
+}
+.tt-kort a:focus-visible { outline: 3px solid var(--x-gold); outline-offset: 6px; border-radius: 12px; }
+.tt-not { margin: 40px 0 0; font-size: .8125rem; color: rgba(255, 255, 255, .7); }
+@media (max-width: 899px) {
+  .tt-rad { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 18px; }
+  .tt-kort:nth-child(even) { margin-top: 28px; }
+  .tt-bild { border-width: 2.5px; box-shadow: 5px 5px 0 var(--x-gold); }
+  .tt-play { width: 48px; height: 48px; margin: -24px 0 0 -24px; }
+  .tt-play svg { width: 22px; height: 22px; }
+  .tt-visn { font-size: .8125rem; margin-top: 12px; }
+  .tt-txt { font-size: .875rem; }
+}
+
+/* Korten poppar in, ett i taget */
+@media (prefers-reduced-motion: no-preference) {
+  .js-x .pop-in { transition: opacity .55s var(--ease-expo), transform .65s var(--ease-pop); transition-delay: calc(var(--i, 0) * 90ms); }
+  .js-x .pop-in:not(.inne) { opacity: 0; transform: translateY(28px) scale(.92); }
+}
+
+/* Bro-objektet på en sektionsgräns (Maxos-tallriken) */
+.bro { position: absolute; z-index: 3; top: 0; right: max(4vw, calc(50% - 560px)); width: clamp(120px, 14vw, 200px); margin-top: calc(clamp(120px, 14vw, 200px) * -.7); pointer-events: none; }
+.bro img { width: 100%; height: auto; filter: drop-shadow(0 18px 16px rgba(0, 0, 0, .35)); }
+
+/* ── Marquee-band överst i sidfoten ──────────────────────────────── */
+.marquee { position: relative; z-index: 2; overflow: hidden; background: var(--x-gold); color: var(--x-ink); border-block: var(--kontur); rotate: -1.5deg; margin: 0 -2vw; padding: 12px 0; }
+.marquee-spar { display: flex; width: max-content; }
+.marquee-del { display: flex; align-items: center; gap: 28px; padding-right: 28px; flex: 0 0 auto; }
+.marquee-del span { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: .04em; font-size: 1.375rem; white-space: nowrap; }
+.marquee-del i { width: 10px; height: 10px; border-radius: 50%; background: var(--x-ink); flex: 0 0 auto; }
+@media (prefers-reduced-motion: no-preference) { .marquee-spar { animation: x-marquee 42s linear infinite; } }
+@keyframes x-marquee { to { transform: translateX(-50%); } }
+@media (max-width: 760px) { .marquee-del span { font-size: 1.125rem; } }
+.marquee-hallare { position: relative; z-index: 2; overflow: hidden; padding: 22px 0 34px; background: var(--x-white); }
+
+/* ── Undersidornas hero (samma språk, mindre) ────────────────────── */
+.sh { --p: 0; position: relative; }
+.sh-grid { position: relative; display: grid; gap: 20px; align-items: center; }
+@media (min-width: 900px) { .sh-grid { grid-template-columns: 1.25fr .75fr; gap: 48px; } }
+.sh-objekt { position: relative; justify-self: center; width: min(58vw, 360px, 44svh); translate: 0 calc(var(--p) * -40px); }
+.sh-objekt img { width: 100%; height: auto; filter: drop-shadow(0 18px 18px rgba(45, 30, 10, .3)); }
+.sh-objekt .dekal { position: absolute; z-index: 2; left: -12%; top: 6%; rotate: -7deg; }
+.sh-objekt--morkt img { filter: drop-shadow(0 18px 18px rgba(0, 0, 0, .55)); }
+@media (max-width: 899px) {
+  .sh-objekt { justify-self: end; width: min(52vw, 230px); margin-top: -4px; }
+  .sh-objekt .dekal { left: -38%; top: 22%; font-size: .875rem; }
+}
+@keyframes sh-glid-in { from { opacity: 0; transform: translateX(40vw) rotate(24deg); } }
+@media (prefers-reduced-motion: no-preference) {
+  .sh-objekt--stig img { animation: hx-stiger .9s var(--ease-expo) .2s both; }
+  .sh-objekt--glid img { animation: sh-glid-in 1.05s var(--ease-expo) .15s both; }
+  .sh-objekt .dekal { animation: hx-stamp .5s var(--ease-pop) .85s both; }
+}
+/* Undersidornas H1: rad 2 som skylt (bara svenska; andra språk byter ut
+   hela innehållet via i18n och får då vanlig stor rubrik). */
+.sh-h1 .xr-2 { font-size: 1em; }
+
+/* Gröna ytor: guld på grönt klarar inte 4,5:1, mikroetiketten blir kräm */
+.xs--gron .mikro--ljus { color: var(--x-cream); }
+.duo-bild img.foto { background: var(--x-cream); }
+.marquee-hallare--mork { background: #0a0a0a; }
+
+/* Sajtens befintliga pill-knappar får klistermärkesformen (token-byte, en
+   ändring som gäller hela ytan). */
+.pill-button { border-radius: var(--knapp-radie) !important; border: var(--kontur); box-shadow: 3px 3px 0 var(--x-ink); transition: transform .18s var(--ease-expo), box-shadow .18s var(--ease-expo), background-color .18s var(--ease-expo) !important; }
+#navbar .pill-button { box-shadow: 3px 3px 0 var(--x-gold); }
+@media (hover: hover) and (pointer: fine) { .pill-button:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--x-ink); } #navbar .pill-button:hover { box-shadow: 5px 5px 0 var(--x-gold); } }
+.pill-button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--x-ink); }

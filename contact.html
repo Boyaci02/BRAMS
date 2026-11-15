@@ -594,6 +594,7 @@
 }
 </script>
     <link rel="stylesheet" href="/tw.css">
+    <link rel="stylesheet" href="/xebra.css">
     <style>:root{--brand-cream-rgb:254 243 233}</style>
 </head>
 <body>
@@ -679,7 +680,7 @@
     <main class="pt-40 pb-32 container mx-auto px-6">
         <div class="grid lg:grid-cols-2 gap-20 items-start">
             <div>
-                <h1 class="text-7xl md:text-9xl font-display uppercase leading-none mb-12 text-brand-black" data-i18n="contact.h1">Säg hej!</h1>
+                <h1 class="xr text-7xl md:text-9xl mb-12 text-brand-black" id="hero" data-i18n="contact.h1"><span class="xr-2">Säg hej!</span></h1>
                 <p class="body-text text-xl md:text-2xl font-medium mb-12 text-brand-black leading-tight" data-i18n="contact.lead">
                     Vi vill höra från dig. Har du frågor, feedback eller vill du bara prata burgare? Hör av dig till oss så svarar vi så snart vi kan.
                 </p>
@@ -751,6 +752,7 @@
     </main>
 
     <!-- Global Footer -->
+    <div class="marquee-hallare loop-zon" aria-hidden="true"><div class="marquee"><div class="marquee-spar"><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span><span class="marquee-del"><span>Om en ska äta, alla ska äta</span><i></i><span>100% halal</span><i></i><span>Kista</span><i></i><span>Huddinge</span><i></i><span>Skärholmen</span><i></i><span>Uppsala</span><i></i><span>Göteborg</span><i></i><span>Brams Burgers sedan 2019</span><i></i></span></div></div></div>
     <footer class="bg-white py-16 border-t border-gray-100">
         <div class="container mx-auto px-6 max-w-7xl text-black">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
@@ -793,6 +795,7 @@
 <script src="/js/handelser.js"></script>
     <script src="/i18n.js"></script>
 <script src="/order-modal.js"></script>
+<script src="/js/xebra.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
